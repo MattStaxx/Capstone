@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+.error h1 {
+	text-align: center;
+	color: #4d4d4d;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+}
+
+.user-form .error {
+	width: 300px;
+	margin: 0 auto;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.user-form {
+	width: 300px;
+	margin: 0 auto;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.user-form h1 {
+	text-align: center;
+	color: #4d4d4d;
+	font-size: 24px;
+	
+	padding: 20px 0 20px 0;
+}
+
+.user-form input[type="password"], .user-form input[type="text"],
+.user-form input[type="email"], .user-form input[type="date"],
+.user-form select[name="severity"], .user-form input[type="number"] {
+	width: 100%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing: border-box;
+}
+
+
+.user-form input[name="startDate"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+
+.user-form input[name="startDate"]:focus:before,
+.user-form input[name="startDate"]:valid:before {content: "Start Date"";
+}
+
+.user-form input[name="endDate"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+
+.user-form input[name="endDate"]:focus:before,
+.user-form input[name="endDate"]:valid:before {content: "End Date"";
+}
+
+.user-form input[type="submit"] {
+	width: 100%;
+	padding: 15px;
+	background-color: #535b63;
+	border: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #4CAF50;
+}
+
+
+.taskTable td, .taskTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.taskTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.taskTable tr:hover {background-color: #ddd;}
+
+
+.taskTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:  #4d4d4d;
+  color: white;
+}
