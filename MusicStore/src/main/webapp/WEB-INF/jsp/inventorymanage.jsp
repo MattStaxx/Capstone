@@ -15,11 +15,11 @@
     <link href="css/main.css" rel="stylesheet">
 
 
-    <title>Homepage</title>
+    <title>Manage Inventory</title>
   </head>
   <body>
     <ul>	
-		<li><a class="active" href="home">Home</a></li>
+		<li><a href="home">Home</a></li>
 		<li><a href="catalog">Catalog</a></li>
 		<li><a href="about">About</a></li>
 		
@@ -40,7 +40,7 @@
 		<!-- Admin View -->
 		<sec:authorize access="hasAnyRole('ADMIN')">
     		<li><a href="admin">Admin</a></li>
-    		<li><a href="manageinventory">Manage Inventory</a></li>
+    		<li><a class="active" href="manageinventory">Manage Inventory</a></li>
     		<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 	</ul>

@@ -9,9 +9,10 @@
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.0.3.min.js"></script>   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <meta charset="ISO-8859-1">
-<title>Loginr</title>
+<title>Order Confirmation</title>
 </head>
 <body>
+	<h1>TODO</h1>
 	<ul>	
 		<li><a href="home">Home</a></li>
 		<li><a href="catalog">Catalog</a></li>
@@ -19,7 +20,7 @@
 		
 		<!-- Not logged in -->
 		<sec:authorize access="!isAuthenticated()">
- 			<li><a class="active" href="login">Login</a></li>
+ 			<li><a href="login">Login</a></li>
 			<li><a href="register">Register</a></li>
 		</sec:authorize>
 		

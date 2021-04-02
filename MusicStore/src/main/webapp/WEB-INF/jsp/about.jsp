@@ -15,13 +15,13 @@
     <link href="css/main.css" rel="stylesheet">
 
 
-    <title>Homepage</title>
+    <title>About</title>
   </head>
   <body>
     <ul>	
-		<li><a class="active" href="home">Home</a></li>
+		<li><a href="home">Home</a></li>
 		<li><a href="catalog">Catalog</a></li>
-		<li><a href="about">About</a></li>
+		<li><a class="active" href="about">About</a></li>
 		
 		<!-- Not logged in -->
 		<sec:authorize access="!isAuthenticated()">

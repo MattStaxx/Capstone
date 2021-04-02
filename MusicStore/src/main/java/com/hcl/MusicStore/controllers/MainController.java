@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-	
+	// Viewable by All
     @GetMapping("/")
     public String defaultpage() {
-        return "index";
+        return "home";
     }
     
-    @GetMapping("/index")
-    public String showIndex() {
-        return "index";
+    @GetMapping("/home")
+    public String showHome() {
+        return "home";
     }
     
     @GetMapping("/login")
@@ -26,15 +26,46 @@ public class MainController {
     public String showRegister() {
         return "register";
     }
-
-    @GetMapping("/home")
-    public String showHome() {
-        return "home";
+    
+    @GetMapping("/catalog")
+    public String showCatalog() {
+        return "catalog";
     }
     
+    @GetMapping("/about")
+    public String showAbout() {
+        return "about";
+    }
+    // Viewable by Customers
+    @GetMapping("/shoppingcart")
+    public String showShoppingCart() {
+        return "shoppingcart";
+    }
+    
+    @GetMapping("/profile")
+    public String showProfile() {
+        return "profile";
+    }
+    
+    @GetMapping("/orderhistory")
+    public String showHistory() {
+        return "orderhistory";
+    }
+    
+    // Viewable by Admins
     @GetMapping("/admin")
     public String showAdmin() {
         return "admin";
+    }
+    
+    @GetMapping("/manageinventory")
+    public String showInventoryManage() {
+    	return "inventorymanage";
+    }
+    
+    @GetMapping("/manageusers")
+    public String showUserManage() {
+    	return "usermanage";
     }
     
 }
