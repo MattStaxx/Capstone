@@ -36,36 +36,4 @@ public class MainController {
     public String showAbout() {
         return "about";
     }
-    // Viewable by Customers
-    @GetMapping("/shoppingcart")
-    public String showShoppingCart() {
-        return "shoppingcart";
-    }
-    
-    @GetMapping("/profile")
-    public String showProfile() {
-        return "profile";
-    }
-    
-    @GetMapping("/orderhistory")
-    public String showHistory() {
-        return "orderhistory";
-    }
-    
-    // Viewable by Admins
-    @GetMapping("/admin")
-    public String showAdmin() {
-        return "admin";
-    }
-    
-    @GetMapping("/manageinventory")
-    public String showInventoryManage() {
-    	return "inventorymanage";
-    }
-    
-    @GetMapping("/manageusers")
-    public String showUserManage() {
-    	return "usermanage";
-    }
-    
 }

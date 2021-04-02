@@ -1,5 +1,6 @@
 package com.hcl.MusicStore.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class MusicUserService {
 	
 	@Autowired
 	private MusicUserRepository userRepository;
+	
+	public List<MusicUser> GetAllUsers(){
+		List<MusicUser> users = userRepository.findAll();
+		return users;
+	}
     
     public MusicUser GetUserByUsername(String username) {
     	Optional<MusicUser> foundUser = userRepository.findByUsername(username);
