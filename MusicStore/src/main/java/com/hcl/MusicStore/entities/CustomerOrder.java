@@ -19,15 +19,13 @@ public class CustomerOrder implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="order_id")
-    private Integer id;
+    private Integer order_id;
     private int orderNumber;
     private enum Status { ORDERED, SHIPPED, DELIVERED }  // maybe include 'PENDING' for orders still in a customers cart?? 
     													 // maybe include 'RETURNED' if an order return capability is need??..just brainstorming...
     
-//    @OneToMany(mappedBy="product_id")  // this is producing a "org.hibernate.AnnotationException:"
-//    private Set<Product> products;    // 'mappedBy reference an unknown target entity property: com.hcl.MusicStore.entities.Product.product_id in com.hcl.MusicStore.entities.CustomerOrder.products'
-    
+    @OneToMany(mappedBy="product_id")
+    private Set<Product> products;    
     
     @ManyToMany
     private List<MusicUser> customer;
@@ -36,16 +34,15 @@ public class CustomerOrder implements Serializable {
 	
     public CustomerOrder(Integer id, int orderNumber) {
 		super();
-		this.id = id;
+		this.order_id = id;
 		this.orderNumber = orderNumber;
 	}
 
-	public Integer getId() { return id; }
+	public Integer getId() { return order_id; }
 	public int getOrderNumber() { return orderNumber; }
 	public Set<Product> getProducts() { return products; }
 	public List<MusicUser> getCustomer() { return customer; }
 
-	public void setId(Integer id) { this.id = id; }
 	public void setOrderNumber(int orderNumber) { this.orderNumber = orderNumber; }
 	public void setProducts(Set<Product> products) { this.products = products; }
 	public void setCustomer(List<MusicUser> customer) { this.customer = customer; }
