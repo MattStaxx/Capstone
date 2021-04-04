@@ -1,5 +1,6 @@
 package com.hcl.MusicStore.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,7 +13,10 @@ import javax.persistence.Table;
 
 @Entity // This tells Hibernate to make a table out of this class
 @Table(name = "usertable")
-public class MusicUser {
+public class MusicUser implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "user_id")

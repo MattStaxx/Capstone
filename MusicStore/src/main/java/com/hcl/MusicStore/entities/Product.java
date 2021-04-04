@@ -1,5 +1,7 @@
 package com.hcl.MusicStore.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="product_id")
@@ -25,7 +30,7 @@ public class Product {
     private int quantity; 
 
     @ManyToOne
-    @JoinColumn(name="product_id", nullable=false)
+    @JoinColumn(name="order_id", nullable=false)
     private CustomerOrder ordered;
     
     public Product() {}
