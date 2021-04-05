@@ -21,9 +21,29 @@ public class CustomerOrderService {
 	@Autowired
 	private MusicUserRepository userRepository;
 	
+	public void saveOrder(CustomerOrder order) {
+		orderRepository.save(order);
+	}
+	
+	public void deleteOrderById(Integer id) {
+		orderRepository.deleteById(id);
+	}
+	
+	public void deleteOrderByOrderNumber(Integer ordnum) {
+		orderRepository.deleteByOrderNumber(ordnum);
+	}
+	
 	public List<CustomerOrder> getAllOrders() {
 		List<CustomerOrder> orders = orderRepository.findAll();
 		return orders;
+	}
+	
+	public CustomerOrder getOrderById(int id) {
+		Optional<CustomerOrder> order = orderRepository.findById(id);
+    	if (!order.isPresent()) {
+    		return null;
+    	}
+    	return(order.get());
 	}
 	
 	public CustomerOrder getOrderByOrderNumber(int ordNum) {

@@ -24,8 +24,16 @@ public class CustomerOrder implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private int orderNumber;
-    private enum Status { ORDERED, SHIPPED, DELIVERED }  // maybe include 'PENDING' for orders still in a customers cart?? 
-    													 // maybe include 'RETURNED' if an order return capability is need??..just brainstorming...
+    public enum Status { ORDERED (0), SHIPPED(1), DELIVERED(2); 
+    	private int status;
+    	
+    	private Status(int status) {
+    		this.status = status;
+    	}
+    }  // maybe include 'PENDING' for orders still in a customers cart?? 
+     // maybe include 'RETURNED' if an order return capability is need??..just brainstorming...
+    
+    private Status status;
     
     @ManyToMany(mappedBy="orders", fetch=FetchType.LAZY)
     private Set<Product> products;    
@@ -45,11 +53,15 @@ public class CustomerOrder implements Serializable {
 
 	public Integer getId() { return id; }
 	public int getOrderNumber() { return orderNumber; }
+	public Status getStatus() {return status;}
 	public Set<Product> getProducts() { return products; }
 	public Set<MusicUser> getCustomer() { return customer; }
 
 	public void setOrderNumber(int orderNumber) { this.orderNumber = orderNumber; }
 	public void setProducts(Set<Product> products) { this.products = products; }
 	public void setCustomer(Set<MusicUser> customer) { this.customer = customer; }
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 	
 }

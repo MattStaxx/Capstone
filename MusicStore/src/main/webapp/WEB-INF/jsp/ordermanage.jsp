@@ -30,7 +30,7 @@
 	crossorigin="anonymous">
 
 
-<title>Manage Inventory</title>
+<ordernumber>Manage Inventory</ordernumber>
 </head>
 <body>
 	<ul>
@@ -53,8 +53,8 @@
 
 		<!-- Admin View -->
 		<sec:authorize access="hasAnyRole('ADMIN')">
-			<li><a class="active" href="manageinventory">Manage Inventory</a></li>
-			<li><a href="manageorders">Manage Orders</a></li>
+			<li><a href="manageinventory">Manage Inventory</a></li>
+			<li><a class="active" href="manageorders">Manage Orders</a></li>
 			<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 		
@@ -73,12 +73,12 @@
 	<div id="deleteErrorMessage"
 		style="visibility: hidden; text-align: center;">
 		<br /> <b style="color: red; text-align: center">Error: Cannot
-			delete logged in Product!</b> <br />
+			delete logged in Order!</b> <br />
 	</div>
 
 	<div id="deleteSuccessMessage"
 		style="visibility: hidden; text-align: center;">
-		<br /> <b style="color: red; text-align: center">Product Successfully
+		<br /> <b style="color: red; text-align: center">Order Successfully
 			Deleted!</b> <br />
 	</div>
 
@@ -86,27 +86,20 @@
 		<br /> <br />
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
-				<tr><h1>List of All Products</h1></tr>
 				<tr>		
 					<th scope="col">Id</th>
-					<th scope="col">Title</th>
-					<th scope="col">Artist</th>
-					<th scope="col">Style</th>
-					<th scope="col">Format</th>
-					<th scope="col">Price</th>
-					<th scope="col">Genre</th>
-					<th scope="col">Quantity</th>
+					<th scope="col">Order Number</th>
+					<th scope="col">Status</th>
+					<th scope="col">Items</th>
+					<th scope="col">Customer</th>
 				</tr>
-				<c:forEach items="${products}" var="product">
+				<c:forEach items="${orders}" var="order">
 					<tr>
-						<td><c:out value="${product.id}" /></td>
-						<td><c:out value="${product.title}" /></td>
-						<td><c:out value="${product.artist}" /></td>
-						<td><c:out value="${product.style}" /></td>
-						<td><c:out value="${product.format}" /></td>
-						<td><c:out value="${product.price}" /></td>
-						<td><c:out value="${product.genre}" /></td>
-						<td><c:out value="${product.quantity}" /></td>
+						<td><c:out value="${order.id}" /></td>
+						<td><c:out value="${order.orderNumber}" /></td>
+						<td><c:out value="${order.status}" /></td>
+						<td><c:out value="${order.products}" /></td>
+						<td><c:out value="${order.customer}" /></td>
 					</tr>
 				</c:forEach>
 			</thead>
@@ -117,56 +110,58 @@
 		<div style="color: #0000FF;">${successMessage}</div>
 		<div style="color: #FF0000;">${errorMessage}</div>
 		
-		<form action="/addProduct" method="post"">	
+		<form action="/addOrder" method="post"">	
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
-				<tr><h1>Add a Product</h1></tr>
+				<tr><h1>Add an Order</h1></tr>
 				<tr>		
-					<th><input type="text" name="title" placeholder="Title" required></th>
-					<th><input type="text" name="artist" placeholder="Artist" ></th>
-					<th><input type="text" name="style" placeholder="Style" ></th>
-					<th><input type="text" name="format" placeholder="Format" required></th>
-					<th><input type="number" step="0.01" name="price" placeholder="Price" required></th>
-					<th><input type="text" name="genre" placeholder="Genre"></th>
-					<th><input type="number" name="quantity" placeholder="Quantity" required></th>
+					<th><input type="number" name="ordernumber" placeholder="Order Number" ></th>
+					<th><select name="status" id="status">
+					  <option value="" disabled selected>Status</option>
+			 		  <option value="ORDERED">Ordered</option>
+ 					  <option value="SHIPPED">Shipped</option>
+ 					  <option value="DELIVERED">Delivered</option>
+					</select></th>
+					<th><input type="text" name="products" placeholder="Products [TODO]" required></th>
+					<th><input type="text" name="user" placeholder="user"></th>
 					<th><input type="submit" value="Add"></th>
 				</tr>
 			</thead>
 		</form>
 		
-		<form action="/deleteProduct" method="post"">
+		<form action="/deleteOrder" method="post"">
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
-				<tr><h1>Delete a Product</h1></tr>
+				<tr><h1>Delete an Order</h1></tr>
 				<tr>		
-					<th><input type="number" name="id" placeholder="ID to Delete" required></th>
+					<th><input type="number" name="id" placeholder="Order Number to Delete" required></th>
 					<th><input type="submit" value="Delete"></th>
 				</tr>
 			</thead>
 		</form>
 		
-		<form action="/updateProduct" method="post"">
+		<form action="/updateOrder" method="post"">
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
-				<tr><h1>Edit a Product</h1></td>
+				<tr><h1>Edit an Order</h1></td>
 				<tr>
-					<th><input type="text" id="id" placeholder="ID of the Product to update" required></th>	
-				<tr>
-					<th><input type="text" name="title" placeholder="Title" required></th>
-					<th><input type="text" name="artist" placeholder="Artist" required></th>
-					<th><input type="text" name="style" placeholder="Style" required></th>
-					<th><input type="text" name="format" placeholder="Format" required></th>
-					<th><input type="number" step="0.01" name="price" placeholder="Price" required></th>
-					<th><input type="text" name="genre" placeholder="Genre" required></th>
-					<th><input type="number" name="quantity" placeholder="Quantity" required></th>
+					<th><input type="text" id="id" placeholder="ID of the Order to update" required></th>	
+				<tr>		
+					<th><input type="text" name="id" placeholder="id" required></th>
+					<th><input type="number" name="ordernumber" placeholder="Order Number" ></th>
+					<th><select name="status" id="status">
+					  <option value="" disabled selected>Status</option>
+			 		  <option value="ORDERED">Ordered</option>
+ 					  <option value="DELIVERED">Shipped</option>
+ 					  <option value="SHIPPED">Delivered</option>
+					</select></th>
+					<th><input type="text" name="products" placeholder="Products [TODO]" required></th>
+					<th><input type="text" name="user" placeholder="user"></th>
 					<th><input type="submit" value="Update"></th>
 				</tr>
 				</tr>
 			</thead>
 		</form>
 	</div>
-	
-	
-	
 </body>
 </html>

@@ -75,5 +75,4 @@ public class LoginRegistrationController {
 	    modelAndView.setViewName("login");
 	    return modelAndView;
 	}
-    
 }

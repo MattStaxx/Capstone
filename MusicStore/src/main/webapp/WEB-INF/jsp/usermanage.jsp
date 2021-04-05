@@ -7,11 +7,21 @@
 <!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Required meta tags -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 
 <!-- Bootstrap CSS -->
 <link
@@ -35,19 +45,22 @@
 			<li><a href="register">Register</a></li>
 		</sec:authorize>
 
-		<!-- User View -->
+		<!-- Order View -->
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="shoppingcart">Cart</a></li>
 			<li><a href="orderhistory">Order History</a></li>
 			<li><a href="profile">Profile</a></li>
-			<li><a href="logout">Logout</a></li>
 		</sec:authorize>
 
 		<!-- Admin View -->
 		<sec:authorize access="hasAnyRole('ADMIN')">
-			<li><a href="admin">Admin</a></li>
 			<li><a href="manageinventory">Manage Inventory</a></li>
+			<li><a href="manageorders">Manage Orders</a></li>
 			<li><a class="active" href="manageusers">Manage Users</a></li>
+		</sec:authorize>
+		
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="logout">Logout</a></li>
 		</sec:authorize>
 	</ul>
 
@@ -72,11 +85,12 @@
 
 	<div class="container">
 		<button type="button" id="btnAdd" class="btn btn-default btn-sm">
-			<span class="glyphicon glyphicon-plus"></span> Add User
+			
 		</button>
 		<br /> <br />
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
+				<tr><h1>List of All Users</h1></tr>
 				<tr>		
 					<th scope="col">Id</th>
 					<th scope="col">First Name</th>
@@ -101,6 +115,65 @@
 			<tbody>
 			</tbody>
 		</table>
+		
+		<div style="color: #0000FF;">${successMessage}</div>
+		<div style="color: #FF0000;">${errorMessage}</div>
+		
+		<form action="/addUser" method="post"">	
+			<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h1>Add a User</h1></tr>
+				<tr>		
+					<th><input type="text" name="firstname" id="firstname" placeholder="First Name" required></th>
+					<th><input type="text" name="lastname" id="lastname" placeholder="Last Name" required></th>
+					<th><input type="text" name="username" id="username" placeholder="Username" required></th>
+					<th><input type="email" name="email" id="email" placeholder="Email" required></th>
+					<th><input type="password" name="password" id="password" placeholder="Password" required></th>
+					<th>
+						<select name="role" id="role">
+					  	<option value="" disabled selected>Account Type</option>
+			 		  	<option value="USER">User</option>
+ 					  	<option value="ADMIN">Admin</option>
+					  	</select></th>
+					<th><input type="submit" value="Add"></th>
+				</tr>
+			</thead>
+		</form>
+		
+		<form action="/deleteUser" method="post"">
+			<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h1>Delete a User</h1></tr>
+				<tr>		
+					<th><input type="number" name="id" placeholder="ID to Delete" required></th>
+					<th><input type="submit" value="Delete"></th>
+				</tr>
+			</thead>
+		</form>
+		
+		<form action="/updateUser" method="post"">
+			<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h1>Edit a User</h1></td>
+				<tr>
+					<th><input type="text" id="id" placeholder="ID of the User to update" required></th>	
+				<tr>
+					<th><input type="text" id="firstname" placeholder="First Name" required></th>
+					<th><input type="text" id="lastname" placeholder="Last Name" required></th>
+					<th><input type="text" id="username" placeholder="Username" required></th>
+					<th><input type="email" id="email" placeholder="Email" required></th>
+					<th><input type="password" id="password" placeholder="Password" required></th>
+					<th><select name="severity" id="severity">
+					  <option value="" disabled selected>Account Type</option>
+			 		  <option value="USER">User</option>
+ 					  <option value="ADMIN">Admin</option>
+					</select></th>
+					<th><input type="submit" value="Update"></th>
+				</tr>
+				</tr>
+			</thead>
+		</form>
 	</div>
 </body>
+
 </html>

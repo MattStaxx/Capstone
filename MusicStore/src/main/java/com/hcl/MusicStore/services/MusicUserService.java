@@ -60,5 +60,7 @@ public class MusicUserService {
     	return userRepository.save(usertoUpdate);
     }
 
-
+    public void DeleteUserById(int id) {
+    	userRepository.deleteById(id);
+    }
 }
