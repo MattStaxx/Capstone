@@ -10,14 +10,18 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hcl.MusicStore.controllers.AdminController;
 import com.hcl.MusicStore.entities.Product;
 import com.hcl.MusicStore.repositories.ProductRepository;
 
 @Service
 public class ProductService {
+	private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
     
 	@Autowired
 	private ProductRepository productRepository;
@@ -47,13 +51,13 @@ public class ProductService {
 	}
 	
 	public List<Product> searchForProducts(String selection, String name) {
+		logger.info("In Product Service... " + selection + " " + name);
 		CriteriaBuilder finding= em.getCriteriaBuilder();
 		CriteriaQuery<Product>  result= finding.createQuery(Product.class);
 		
 	    Root<Product> searchSet= result.from(Product.class);
 		Predicate searchPredicate= finding.equal(searchSet.get(selection), name);
 		result.where(searchPredicate);
-		
 		TypedQuery<Product> query = em.createQuery(result);
 		return query.getResultList();
 	}
