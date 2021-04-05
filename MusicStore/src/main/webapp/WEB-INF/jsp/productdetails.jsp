@@ -51,56 +51,9 @@
 			<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 	</ul>
+	<h1 class="display-1">TODO</h1>
+
 	
-
-	<!-- Search Catalog Forms -->
-	<div>
-		<!-- Search for everything but Price-->
-		<form action="search">
-			<label for="options"> Search By: </label> <select id="options"
-				name="options">
-				<option value="artist">Artist Name</option>
-				<option value="format">Music Format</option>
-				<option value="genre">Genre</option>
-				<option value="style">Style</option>
-				<option value="title">Title</option>
-			</select> <input type="text" id="name" name="name" required> 
-			<input type="submit" value="Search">
-		</form>
-
-		<!-- Search by Price -->
-		<form action="searchprice">
-		    <label for="lowerprice"> Search by Price: </label> <br> Max:
-			<input type="number" id="lowerprice" name="lowerprice" required> Min:
-			  <input type="number" id="higherprice"
-				name="higherprice" required> <input
-				type="submit" value="Search"><br>
-		</form>
-
-	</div>
-
-	<div>
-		<table>
-		 <tr>
-		   <td> Artist</td>
-		   <td> Genre</td>
-		   <td> Title</td>
-		   <td> Price</td>
-		 </tr>
-			<c:forEach items="${products}" var="product">
-				<tr>
-					<td>${products.artist}</td>
-					<td>${products.genre}</td>
-					<td>${products.title}</td>
-					<td>${products.price}</td>
-<!-- 					<td> <form action="details"> -->
-<!-- 					 <input type="text" id="productid" name="productid" value=${products.id} > <br> -->
-<!-- 			           <input type="submit" value="Details"><br > -->
-<!-- 					 </form></td> -->
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
 
 
 
