@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      			"/swagger-ui.html",
 	      			"/webjars/springfox-swagger-ui/css/**")
 	      			.permitAll()
-	      .antMatchers("/profile", "/orderhistory","/search","/searchprice", "/details").authenticated() //Endpoints that all logged in users can access
+	      .antMatchers("/profile", "/orderhistory","/search","/searchprice", "/details", "shoppingcart").authenticated() //Endpoints that all logged in users can access
 	      .antMatchers("/*").hasRole("ADMIN") // Endpoints that admins can access (All of them)
 	      .and()
 	      .formLogin()
