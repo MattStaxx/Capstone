@@ -1,13 +1,17 @@
 package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -18,7 +22,7 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer product_id;
+    private Integer id;
     private String title;
     private String artist;
     private String style;
@@ -28,15 +32,20 @@ public class Product implements Serializable {
     private enum Rating { ONE, TWO, THREE, FOUR, FIVE } // Was thinking we'd want a star rating sys??
     private int quantity; 
 
-    @ManyToOne
-    @JoinColumn(name="order_id", nullable=false)
-    private CustomerOrder ordered;
+    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+    @JoinTable(name="prodsOrdered", 
+			    joinColumns={@JoinColumn(name="product_id", referencedColumnName="id", nullable=false, updatable=false)},
+			    inverseJoinColumns={@JoinColumn(name="order_id", referencedColumnName="id", nullable=false, updatable=false)})
+    private Set<CustomerOrder> orders;
+
+    @ManyToMany(mappedBy="products")
+    private Set<MusicUser> customer;
     
     public Product() {}
     
     public Product(Integer id, String title, String artist, String style, String format, double price, String genre, int quantity) {
 		super();
-		this.product_id = id;
+		this.id = id;
 		this.title = title;
 		this.artist = artist;
 		this.style = style;
@@ -46,7 +55,7 @@ public class Product implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public Integer getId() { return this.product_id; }
+	public Integer getId() { return this.id; }
 	public String getTitle() { return this.title; }
 	public String getArtist() { return this.artist; }
 	public String getStyle() { return this.style; }

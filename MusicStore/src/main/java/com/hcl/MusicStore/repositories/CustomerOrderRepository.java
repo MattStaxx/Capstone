@@ -12,5 +12,5 @@ import com.hcl.MusicStore.entities.MusicUser;
 public interface CustomerOrderRepository extends JpaRepository<CustomerOrder, Integer> {
 	
 	public Optional<CustomerOrder> findByOrderNumber(Integer ordNum);
-	public Iterable<CustomerOrder> findAllByCustomer(MusicUser user);
+	public Iterable<CustomerOrder> findAllOrdersByCustomer(Optional<MusicUser> customer);
 }

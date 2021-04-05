@@ -40,7 +40,7 @@
 	</ul>
 <div class="user-form">
 		<h1>Sign in</h1>
-		<form action="/performLogin" method="post"">
+		<form action="/performLogin" method="post">
 			<div style="color: #0000FF;">${successMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
 			<input type="text" name="username" id="username" placeholder="Username" required> 
@@ -48,7 +48,6 @@
 			<input type="submit" value="Login">
 		</form>
 		<hr>
-		</form>
 			<form action="/register" method="get">
 			<input type="submit" value="Register">
 		</form>

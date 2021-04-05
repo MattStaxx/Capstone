@@ -1,15 +1,10 @@
 package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
 @Table(name = "usertable")
@@ -19,7 +14,6 @@ public class MusicUser implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "user_id")
     private Integer id;   
     private String firstname;   
     private String lastname;
@@ -29,11 +23,14 @@ public class MusicUser implements Serializable {
     private String creditcard;    
     private String role; // Either "ADMIN" or "USER"
     
-    @ManyToMany
-    private List<CustomerOrder> orders; // This will map to the user's orders in the database
+    @ManyToMany(mappedBy="customer", fetch=FetchType.LAZY)
+    private Set<CustomerOrder> orders; // This will map to the user's orders in the database
     
-    @ManyToMany
-    private List<Product> products; // This will represent the shopping cart
+    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+    @JoinTable(name="cart", 
+			    joinColumns={@JoinColumn(name="user_id", referencedColumnName="id", nullable=false, updatable=false)},
+			    inverseJoinColumns={@JoinColumn(name="product_id", referencedColumnName="id", nullable=false, updatable=false)})
+    private Set<Product> products; // This will represent the shopping cart
 
     public MusicUser() {}
     
@@ -54,8 +51,8 @@ public class MusicUser implements Serializable {
 	public String getPassword() { return password; }
 	public String getCreditcard() { return creditcard; }
 	public String getRole() { return role; }
-	public List<CustomerOrder> getOrders() { return orders; }
-	public List<Product> getProducts() { return products; }
+	public Set<CustomerOrder> getOrders() { return orders; }
+	public Set<Product> getProducts() { return products; }
 
 	public void setId(Integer id) { this.id = id; }
 	public void setFirstname(String firstname) { this.firstname = firstname; }
@@ -65,6 +62,6 @@ public class MusicUser implements Serializable {
 	public void setPassword(String password) { this.password = password; }
 	public void setCreditcard(String creditcard) { this.creditcard = creditcard; }
 	public void setRole(String role) { this.role = role; }
-	public void setOrders(List<CustomerOrder> orders) { this.orders = orders; }
-	public void setProducts(List<Product> products) { this.products = products; }
+	public void setOrders(Set<CustomerOrder> orders) { this.orders = orders; }
+	public void setProducts(Set<Product> products) { this.products = products; }
 }
