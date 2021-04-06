@@ -106,25 +106,25 @@
 		
 		<div style="color: #0000FF;">${successMessage}</div>
 		<div style="color: #FF0000;">${errorMessage}</div>
-		
-		<form action="/addProduct" method="post"">	
-			<table class="table table-striped table-bordered" id="tblData">
-			<thead>
-				<tr><h1>Add a Product</h1></tr>
-				<tr>		
-					<th><input type="text" name="title" placeholder="Title" required></th>
-					<th><input type="text" name="artist" placeholder="Artist" ></th>
-					<th><input type="text" name="style" placeholder="Style" ></th>
-					<th><input type="text" name="format" placeholder="Format" required></th>
-					<th><input type="number" step="0.01" name="price" placeholder="Price" required></th>
-					<th><input type="text" name="genre" placeholder="Genre"></th>
-					<th><input type="number" name="quantity" placeholder="Quantity" required></th>
-					<th><input type="submit" value="Add"></th>
-				</tr>
-			</thead>
-		</form>
-		
-		<form action="/deleteProduct" method="post"">
+		</div>
+			<form action="/addProduct" method="post">	
+				<table class="table table-striped table-bordered" id="tblData">
+				<thead>
+					<tr><h1>Add a Product</h1></tr>
+					<tr>		
+						<th><input type="text" name="title" placeholder="Title" required></th>
+						<th><input type="text" name="artist" placeholder="Artist" ></th>
+						<th><input type="text" name="style" placeholder="Style" ></th>
+						<th><input type="text" name="format" placeholder="Format" required></th>
+						<th><input type="number" step="0.01" name="price" placeholder="Price" required></th>
+						<th><input type="text" name="genre" placeholder="Genre"></th>
+						<th><input type="number" name="quantity" placeholder="Quantity" required></th>
+						<th><input type="submit" value="Add"></th>
+					</tr>
+				</thead>
+				</table>
+			</form>
+		<form action="/deleteProduct" method="post">
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr><h1>Delete a Product</h1></tr>
@@ -133,14 +133,13 @@
 					<th><input type="submit" value="Delete"></th>
 				</tr>
 			</thead>
+			</table>
 		</form>
-		
-		<form action="/updateProduct" method="post"">
+		<form action="/updateProduct" method="post">
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
-				<tr><h1>Edit a Product</h1></td>
-				<tr>
-					<th><input type="text" id="id" placeholder="ID of the Product to update" required></th>	
+				<tr><h1>Edit a Product</h1></tr>
+					<tr><th><input type="number" name="id" placeholder="ID of the Product to update" required></th></tr>
 				<tr>
 					<th><input type="text" name="title" placeholder="Title" required></th>
 					<th><input type="text" name="artist" placeholder="Artist" required></th>
@@ -151,11 +150,9 @@
 					<th><input type="number" name="quantity" placeholder="Quantity" required></th>
 					<th><input type="submit" value="Update"></th>
 				</tr>
-				</tr>
 			</thead>
+			</table>
 		</form>
-	</div>
-	
 	
 	
 </body>

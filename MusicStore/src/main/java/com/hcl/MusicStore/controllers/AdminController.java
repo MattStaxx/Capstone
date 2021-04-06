@@ -181,6 +181,7 @@ public class AdminController {
      		@RequestParam(required=false) String genre,
      		@RequestParam Integer quantity,
      		Model model){
+ 		logger.info("Updating product... " + id + " " + title);
      	Optional<Product> foundProduct = productService.searchProductByTitle(title);
      	if (!foundProduct.isPresent()) {
      		throw new ProductNotFoundException(title);
