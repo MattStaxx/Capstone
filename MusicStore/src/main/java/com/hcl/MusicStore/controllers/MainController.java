@@ -1,11 +1,19 @@
 package com.hcl.MusicStore.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.hcl.MusicStore.entities.Product;
+import com.hcl.MusicStore.services.ProductService;
+
 @Controller
 public class MainController {
+	
+	@Autowired
+	ProductService productService;
+	
 	// Viewable by All
     @GetMapping("/")
     public String defaultpage() {
@@ -28,7 +36,9 @@ public class MainController {
     }
     
     @GetMapping("/catalog")
-    public String showCatalog() {
+    public String showCatalog(ModelMap m) {
+    	Iterable<Product> products=productService.getAllProducts();
+        m.addAttribute("products", products);
         return "catalog";
     }
     
