@@ -34,12 +34,13 @@ public class MusicUser implements Serializable {
 
     public MusicUser() {}
     
-    public MusicUser(String firstname, String lastname, String username, String email, String password, String role) {
+    public MusicUser(String firstname, String lastname, String username, String email, String password, String creditcard, String role) {
     	this.firstname = firstname;
     	this.lastname = lastname;
     	this.username = username;
     	this.email = email;
     	this.password = password;
+    	this.creditcard = creditcard;
     	this.role = role;
     }
     
