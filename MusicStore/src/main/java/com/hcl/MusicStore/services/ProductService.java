@@ -42,7 +42,7 @@ public class ProductService {
 		return productRepository.findByTitle(title);
 	}
 	
-	public Optional <Product> searchProductByID(int productID) {
+	public Optional<Product> searchProductByID(int productID) {
 		return productRepository.findById(productID);
 	}
 	
@@ -72,4 +72,9 @@ public class ProductService {
 		TypedQuery<Product> query = em.createQuery(result);
 		return query.getResultList();
 	}
+	
+	public List<Product> displayCatalog(){
+	 return productRepository.findAllByCustomerOrder(null);
+	}
+		
 }

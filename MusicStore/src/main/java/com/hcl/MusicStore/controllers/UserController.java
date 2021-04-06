@@ -1,5 +1,7 @@
 package com.hcl.MusicStore.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.security.Principal;
 import java.util.Optional;
 
@@ -94,11 +96,14 @@ public class UserController {
         return "catalog";
     }
     @GetMapping("/details")
-    public String showDetails(ModelMap m, @RequestParam int productid) {
+    public String showDetails(ModelMap m, @RequestParam int idnumber) {
         log.info("Searching");
-        Optional<Product> products=productService.searchProductByID(productid);
+        Optional<Product> products= productService.searchProductByID(idnumber);
+        Product dproduct=products.get();
+        List <Product> dprod = new ArrayList<Product>();
+        dprod.add(dproduct);
         log.info("Search successful");
-        m.addAttribute("products", products);
+        m.addAttribute("products", dprod);
         return "productdetails";
     }
 }

@@ -69,8 +69,8 @@
 
 		<!-- Search by Price -->
 		<form action="searchprice">
-		    <label for="lowerprice"> Search by Price: </label> <br> Max:
-			<input type="number" id="lowerprice" name="lowerprice" required> Min:
+		    <label for="lowerprice"> Search by Price: </label> <br> Min:
+			<input type="number" id="lowerprice" name="lowerprice" required> Max:
 			  <input type="number" id="higherprice"
 				name="higherprice" required> <input
 				type="submit" value="Search"><br>
@@ -92,6 +92,14 @@
 					<td>${product.genre}</td>
 					<td>${product.title}</td>
 					<td>${product.price}</td>
+					<td> 
+					<form action="details">
+					
+			  <input type="hidden" id="idnumber"
+				name="idnumber" value="${product.id }"> <input
+				type="submit" value="Details">
+					</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>
