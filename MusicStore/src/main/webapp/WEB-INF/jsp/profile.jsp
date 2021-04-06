@@ -84,7 +84,26 @@
 			<tbody>
 			</tbody>
 		</table>
-		</div>
+		<form action="/updateProfile" method="post">
+			<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h1>Editing your Profile</h1></td>
+				<tr>
+					<th><input type="hidden" name="id" placeholder="ID of the Product to update" required></th>	
+				<tr>
+					<th><input type="text" name="firstname" placeholder="First Name" required></th>
+					<th><input type="text" name="lastname" placeholder="Last Name" required></th>
+					<th><input type="text" name="username" placeholder="User Name" required></th>
+					<th><input type="text" name="email" placeholder="Email" required></th>
+					<th><input type="text" name="password" placeholder="Password" required></th>
+					<th><input type="text" name="creditcard" placeholder="Card Nmuber" required></th>
+					<th><input type="text" name="role" placeholder="Role" required></th>
+					<th><input type="submit" value="Update"></th>
+				</tr>
+			</thead>
+			</table>
+		</form>
+	</div>
 
 
 

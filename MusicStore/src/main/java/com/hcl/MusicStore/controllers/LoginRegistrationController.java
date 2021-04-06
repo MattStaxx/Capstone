@@ -43,7 +43,7 @@ public class LoginRegistrationController {
     	if (foundUser != null) {
     		throw new UserAlreadyExistsException(username);
     	} else {
-    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, "ADMIN");
+    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, null, "ADMIN");
     		userService.UpdateUser(newUser);
     		logger.info("New User Registered: " + newUser);
     		model.addAttribute("successMessage", "Registration Successful!");
