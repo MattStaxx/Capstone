@@ -53,6 +53,10 @@ public class CustomerOrderService {
     	}
     	return(order.get());
 	}
+	
+	public List<CustomerOrder> getOrdersByUser(MusicUser user) {
+		return orderRepository.findAllByCustomer(user);
+	}
 
 	public Iterable<CustomerOrder> getOrdersByUser(String username) {
 

@@ -1,6 +1,7 @@
 package com.hcl.MusicStore.controllers;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -45,8 +46,44 @@ public class UserController {
         return "profile";
     }
     
+    @GetMapping("/checkout")
+    public String showCheckout(Principal principal, ModelMap m) {
+    	String username = principal.getName();
+		MusicUser user = musUseServ.GetUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			m.addAttribute("cart", productService.getAllProductsByUser(user));
+		}
+        return "orderconfirm";
+    }
+    
+    @PostMapping("/checkout")
+    public String performCheckout(Principal principal, ModelMap m) {
+    	String username = principal.getName();
+		MusicUser user = musUseServ.GetUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			List<Product> cart = productService.getAllProductsByUser(user);
+			CustomerOrder.Status status = CustomerOrder.Status.ORDERED;
+			CustomerOrder newOrder = new CustomerOrder(CustomerOrder.Status.ORDERED, cart);
+	    	custOrdServ.saveOrder(newOrder);
+			log.info("New Order Posted");
+		}
+    	// TODO need to do payment
+    	return "checkoutresult";
+    }
+    
     @GetMapping("/orderhistory")                                      // this searches for all orders by username
-    public String showHistory(ModelMap m) {
+    public String showHistory(Principal principal, ModelMap m) {
+    	String username = principal.getName();
+		MusicUser user = musUseServ.GetUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			m.addAttribute("orders", custOrdServ.getOrdersByUser(user));
+		}
         return "orderhistory";                       // hijacked the homepage for now, but this should be a profile view(customer) and an admin capability
     }
     

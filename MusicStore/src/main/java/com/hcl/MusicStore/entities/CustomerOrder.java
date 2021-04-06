@@ -2,6 +2,7 @@ package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 //import javax.persistence.Column;
@@ -49,6 +50,12 @@ public class CustomerOrder implements Serializable {
     public CustomerOrder(int orderNumber) {
 		super();
 		this.orderNumber = orderNumber;
+	}
+    
+    public CustomerOrder(Status status, List<Product> products) {
+		super();
+		this.status = status;
+		this.products.addAll(products);
 	}
 
 	public Integer getId() { return id; }
