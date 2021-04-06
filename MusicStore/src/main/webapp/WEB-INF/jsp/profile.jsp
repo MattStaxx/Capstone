@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
 <!doctype html>
 <html>
 <head>
@@ -51,6 +51,41 @@
 	</ul>
 
 	<h1 class="display-1">Profile Page</h1>
+
+
+	<div class="container">
+		<br /> <br />
+		<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h1>${username}'s Profile</h1></tr>
+				<tr>		
+					<th scope="col">Id</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">User Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Password</th>
+					<th scope="col">Card Number</th>
+					<th scope="col">Role</th>
+				</tr>
+				<c:forEach items="${userdetails}" var="usr">
+					<tr>
+						<td><c:out value="${usr.id}" /></td>
+						<td><c:out value="${usr.firstname}" /></td>
+						<td><c:out value="${usr.lastname}" /></td>
+						<td><c:out value="${usr.username}" /></td>
+						<td><c:out value="${usr.email}" /></td>
+						<td><c:out value="${usr.password}" /></td>
+						<td><c:out value="${usr.creditcard}" /></td>
+						<td><c:out value="${usr.role}" /></td>
+					</tr>
+				</c:forEach>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		</div>
+
 
 
 

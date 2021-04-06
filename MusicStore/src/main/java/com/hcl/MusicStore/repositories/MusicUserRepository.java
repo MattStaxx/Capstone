@@ -12,4 +12,5 @@ import com.hcl.MusicStore.entities.MusicUser;
 public interface MusicUserRepository extends JpaRepository<MusicUser, Integer> {
 
     public Optional<MusicUser> findByUsername(String username);
+    public Iterable<MusicUser> findByFirstname(String firstname);
 }
