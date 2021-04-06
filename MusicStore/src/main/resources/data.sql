@@ -1,3 +1,5 @@
+truncate product_tbl;
+
 insert into product_tbl
 	(title, artist, style, format, price, genre, quantity)
 values
