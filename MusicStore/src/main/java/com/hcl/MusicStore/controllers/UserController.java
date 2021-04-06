@@ -1,6 +1,8 @@
 package com.hcl.MusicStore.controllers;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -41,7 +43,23 @@ public class UserController {
     }
     
     @GetMapping("/profile")
-    public String showProfile() {
+    public String showProfile(Principal principal, ModelMap m) {
+    	String username = principal.getName();
+		MusicUser user = musUseServ.GetUserByUsername(username);
+    	if(user == null) {
+    		throw new UserNotFoundException(username);
+    	} else {
+    		//
+    	}
+    	Iterable<MusicUser> ud = musUseServ.findUserByUser(user.getFirstname());
+//    	m.addAttribute("firstname", user.getFirstname());
+//    	m.addAttribute("lastname", user.getLastname());
+//    	m.addAttribute("email", user.getEmail());
+//    	m.addAttribute("password", user.getPassword());
+//    	m.addAttribute("creditcard", user.getCreditcard());
+//    	m.addAttribute("role", user.getRole());
+    	m.addAttribute("username", username);
+    	m.addAttribute("userdetails", ud);
         return "profile";
     }
     
