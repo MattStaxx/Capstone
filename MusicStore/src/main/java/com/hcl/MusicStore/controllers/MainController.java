@@ -37,7 +37,7 @@ public class MainController {
     
     @GetMapping("/catalog")
     public String showCatalog(ModelMap m) {
-    	Iterable<Product> products=productService.getAllProducts();
+    	Iterable<Product> products=productService.displayCatalog();
         m.addAttribute("products", products);
         return "catalog";
     }

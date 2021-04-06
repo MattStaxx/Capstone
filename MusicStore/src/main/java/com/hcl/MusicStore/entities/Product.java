@@ -75,6 +75,6 @@ public class Product implements Serializable {
 	public void setPrice(double price) { this.price = price; }
 	public void setGenre(String genre) { this.genre = genre; }
 	public void setQuantity(int quantity) { this.quantity = quantity; }
-	public void setCustomerOrder(CustomerOrder order) { this.customerOrder = order; }
+	public void setCustomerOrder(CustomerOrder customerOrder) { this.customerOrder = customerOrder; }
 	public void setCustomer(MusicUser customer) {this.customer = customer; }
 }

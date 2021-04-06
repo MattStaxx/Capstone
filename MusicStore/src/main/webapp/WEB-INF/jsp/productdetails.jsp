@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -51,9 +51,41 @@
 			<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 	</ul>
-	<h1 class="display-1">TODO</h1>
+	<div>
+		<table>
+			<tr>
+				<td>Artist</td>
+				<td>Genre</td>
+				<td>Title</td>
+				<td>Style</td>
+				<td>Format</td>
+				<td>In Stock</td>
+				<td>Price</td>
+			</tr>
+			<c:forEach items="${products}" var="product">
+				<tr>
+					<td>${product.artist}</td>
+					<td>${product.genre}</td>
+					<td>${product.title}</td>
+					<td>${product.style}</td>
+					<td>${product.format}</td>
+					<td>${product.quantity}</td>
+					<td>${product.price}</td>
+					<td>
+						<form>
+							<input type="hidden" id="idnumber" name="idnumber"
+								value="${product.id}"> <input type="submit"
+								value="Add to Cart">
+						</form>
+					</td>
+				</tr>
+			</c:forEach>
 
-	
+		</table>
+
+	</div>
+
+
 
 
 
