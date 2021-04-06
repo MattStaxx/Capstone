@@ -1,7 +1,6 @@
 package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 //import javax.persistence.Column;
@@ -22,6 +21,7 @@ public class CustomerOrder implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="order_id")
     private Integer id;
     private int orderNumber;
     public enum Status { ORDERED (0), SHIPPED(1), DELIVERED(2); 
@@ -35,14 +35,12 @@ public class CustomerOrder implements Serializable {
     
     private Status status;
     
-    @ManyToMany(mappedBy="orders", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="orders", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<Product> products;    
-    
-    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
-    @JoinTable(name="orders_by_customers", 
-			    joinColumns={@JoinColumn(name="order_id", referencedColumnName="id", nullable=false, updatable=false)},
-			    inverseJoinColumns={@JoinColumn(name="user_id", referencedColumnName="id", nullable=false, updatable=false)})
-    private Set<MusicUser> customer;
+
+    @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinColumn(name="user_id", nullable=false)
+    private MusicUser customer;
     
 	public CustomerOrder() { super(); }
 	
@@ -55,11 +53,11 @@ public class CustomerOrder implements Serializable {
 	public int getOrderNumber() { return orderNumber; }
 	public Status getStatus() {return status;}
 	public Set<Product> getProducts() { return products; }
-	public Set<MusicUser> getCustomer() { return customer; }
+	public MusicUser getCustomer() { return customer; }
 
 	public void setOrderNumber(int orderNumber) { this.orderNumber = orderNumber; }
 	public void setProducts(Set<Product> products) { this.products = products; }
-	public void setCustomer(Set<MusicUser> customer) { this.customer = customer; }
+	public void setCustomer(MusicUser customer) { this.customer = customer; }
 	public void setStatus(Status status) {
 		this.status = status;
 	}

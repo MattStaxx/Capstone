@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!doctype html>
 <html>
   <head>
@@ -46,22 +46,7 @@
 	</ul>
         <h1 class="display-1">TODO</h1>
                    
-    <form style="text-align:center" action="orderhistory" method="get">   <!-- line 49(here) to line64 is being hijacked for testing -->
-		<input type="text" id="username" name="username">                 <!-- this should all go in a profile page or usermanage -->
-	
-		<input type="submit" value="View Orders">
-	</form>
-		   
-	<table style="text-align:left;width:70%; cellpadding:2px" >
-		<tr><th>Order Number</th></tr>
-		<c:forEach items="${orderList}" var="ord">
-		   <tr>  
-		   <td>${ord.id}</td> 
-		   </tr>
-		   </c:forEach>
-		   </table>
-		
-		   <br/>                                                          <!-- to here(line 64) -->
+
 	
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

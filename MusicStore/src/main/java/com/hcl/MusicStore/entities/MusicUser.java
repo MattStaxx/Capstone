@@ -1,19 +1,19 @@
 package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
-@Table(name = "usertable")
+//@Table(name = "usertable")
 public class MusicUser implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="user_id")
     private Integer id;   
     private String firstname;   
     private String lastname;
@@ -23,13 +23,13 @@ public class MusicUser implements Serializable {
     private String creditcard;    
     private String role; // Either "ADMIN" or "USER"
     
-    @ManyToMany(mappedBy="customer", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="customer", fetch=FetchType.LAZY)
     private Set<CustomerOrder> orders; // This will map to the user's orders in the database
     
     @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
     @JoinTable(name="cart", 
-			    joinColumns={@JoinColumn(name="user_id", referencedColumnName="id", nullable=false, updatable=false)},
-			    inverseJoinColumns={@JoinColumn(name="product_id", referencedColumnName="id", nullable=false, updatable=false)})
+			    joinColumns={@JoinColumn(name="user_id", referencedColumnName="user_id", nullable=false, updatable=false)},
+			    inverseJoinColumns={@JoinColumn(name="product_id", referencedColumnName="product_id", nullable=false, updatable=false)})
     private Set<Product> products; // This will represent the shopping cart
 
     public MusicUser() {}

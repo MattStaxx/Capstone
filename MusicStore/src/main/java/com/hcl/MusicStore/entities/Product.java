@@ -3,7 +3,6 @@ package com.hcl.MusicStore.entities;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -22,6 +20,7 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="product_id")
     private Integer id;
     private String title;
     private String artist;
@@ -29,14 +28,20 @@ public class Product implements Serializable {
     private String format;
     private double price;
     private String genre;
-    private enum Rating { ONE, TWO, THREE, FOUR, FIVE } // Was thinking we'd want a star rating sys??
     private int quantity; 
+    private enum Rating { ONE(0), TWO(1), THREE(2), FOUR(3), FIVE(4); 
+    	private int rating;
+    	
+    	private Rating(int rating) {
+    		this.rating = rating;
+    	}
+	} 
+    
+    private Rating rating;
 
-    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
-    @JoinTable(name="prodsOrdered", 
-			    joinColumns={@JoinColumn(name="product_id", referencedColumnName="id", nullable=false, updatable=false)},
-			    inverseJoinColumns={@JoinColumn(name="order_id", referencedColumnName="id", nullable=false, updatable=false)})
-    private Set<CustomerOrder> orders;
+    @ManyToOne(fetch=FetchType.LAZY, optional=false)
+    @JoinColumn(name="order_id", nullable=false)
+    private CustomerOrder orders;
 
     @ManyToMany(mappedBy="products")
     private Set<MusicUser> customer;
