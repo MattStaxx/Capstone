@@ -13,9 +13,11 @@ import java.util.Set;
 //import javax.persistence.JoinTable;
 //import javax.persistence.ManyToMany;
 //import javax.persistence.OneToMany;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name = "order_tbl")
 public class CustomerOrder implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -35,14 +37,12 @@ public class CustomerOrder implements Serializable {
     
     private Status status;
     
-    @ManyToMany(mappedBy="orders", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="id", fetch=FetchType.LAZY)
     private Set<Product> products;    
     
-    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
-    @JoinTable(name="orders_by_customers", 
-			    joinColumns={@JoinColumn(name="order_id", referencedColumnName="id", nullable=false, updatable=false)},
-			    inverseJoinColumns={@JoinColumn(name="user_id", referencedColumnName="id", nullable=false, updatable=false)})
-    private Set<MusicUser> customer;
+    @ManyToOne
+    @JoinColumn(name="customer_id")
+    private MusicUser customer;
     
 	public CustomerOrder() { super(); }
 	
@@ -55,11 +55,11 @@ public class CustomerOrder implements Serializable {
 	public int getOrderNumber() { return orderNumber; }
 	public Status getStatus() {return status;}
 	public Set<Product> getProducts() { return products; }
-	public Set<MusicUser> getCustomer() { return customer; }
+	public MusicUser getCustomer() { return customer; }
 
 	public void setOrderNumber(int orderNumber) { this.orderNumber = orderNumber; }
 	public void setProducts(Set<Product> products) { this.products = products; }
-	public void setCustomer(Set<MusicUser> customer) { this.customer = customer; }
+	public void setCustomer(MusicUser customer) { this.customer = customer; }
 	public void setStatus(Status status) {
 		this.status = status;
 	}

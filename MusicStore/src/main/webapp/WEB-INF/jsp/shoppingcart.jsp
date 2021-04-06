@@ -49,6 +49,24 @@
 			<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 	</ul>
+	
+	<form action="/addToCart" method="post"">	
+			<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h2>Test Add to Cart Functionality: </h2></tr>
+				<tr>		
+					<th><input type="text" name="title" placeholder="Title" required></th>
+					<th><input type="text" name="artist" placeholder="Artist" ></th>
+					<th><input type="text" name="style" placeholder="Style" ></th>
+					<th><input type="text" name="format" placeholder="Format" required></th>
+					<th><input type="number" step="0.01" name="price" placeholder="Price" required></th>
+					<th><input type="text" name="genre" placeholder="Genre"></th>
+					<th><input type="number" name="quantity" placeholder="Quantity" required></th>
+					<th><input type="submit" value="Add"></th>
+				</tr>
+			</thead>
+		</form>
+		
 
 	<h1 class="display-1">Cart</h1>
 

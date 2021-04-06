@@ -1,5 +1,6 @@
 package com.hcl.MusicStore.controllers;
 
+import java.security.Principal;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -8,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hcl.MusicStore.Exceptions.UserNotFoundException;
 import com.hcl.MusicStore.entities.CustomerOrder;
 import com.hcl.MusicStore.entities.MusicUser;
 import com.hcl.MusicStore.entities.Product;
@@ -45,6 +48,27 @@ public class UserController {
     @GetMapping("/orderhistory")                                      // this searches for all orders by username
     public String showHistory(ModelMap m) {
         return "orderhistory";                       // hijacked the homepage for now, but this should be a profile view(customer) and an admin capability
+    }
+    
+    @PostMapping("/addToCart")
+    public String addToCart(
+    		@RequestParam String title,
+     		@RequestParam(required=false) String artist, 
+     		@RequestParam(required=false) String style, 
+     		@RequestParam String format, 
+     		@RequestParam Double price , 
+     		@RequestParam(required=false) String genre,
+     		@RequestParam Integer quantity, 
+     		Principal principal,
+     		ModelMap m) {
+    		String username = principal.getName();
+    		MusicUser user = musUseServ.GetUserByUsername(username);
+    		if (user == null) {
+    			throw new UserNotFoundException(username);
+    		} else {
+    			//
+    		}
+    	return "catalog";
     }
     
     @GetMapping("/search") // Searches for everything but price returns list to be passed into table

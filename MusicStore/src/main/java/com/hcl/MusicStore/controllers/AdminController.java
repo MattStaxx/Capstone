@@ -145,7 +145,7 @@ public class AdminController {
      	if (foundProduct.isPresent()) {
      		throw new ProductAlreadyExistsException(title);
      	} else {
-     		Product newProduct = new Product(null, title, artist, style, format, price, genre, quantity);
+     		Product newProduct = new Product(null, title, artist, style, format, price, genre, quantity, null, null);
      		productService.saveProduct(newProduct);
      		logger.info("New Product Added: " + newProduct);
      		model.addAttribute("successMessage", "Product Creation Successful!");
@@ -185,7 +185,7 @@ public class AdminController {
      	if (!foundProduct.isPresent()) {
      		throw new ProductNotFoundException(title);
      	} else {
-     		Product newProduct = new Product(id, title, artist, style, format, price, genre, quantity);
+     		Product newProduct = new Product(id, title, artist, style, format, price, genre, quantity, null, null);
      		productService.saveProduct(newProduct);
      		logger.info("Product Updated: " + newProduct);
      		model.addAttribute("successMessage", "Product Update Successful!");

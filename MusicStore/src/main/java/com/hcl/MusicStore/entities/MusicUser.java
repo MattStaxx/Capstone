@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
-@Table(name = "usertable")
+@Table(name = "user_tbl")
 public class MusicUser implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -23,14 +23,14 @@ public class MusicUser implements Serializable {
     private String creditcard;    
     private String role; // Either "ADMIN" or "USER"
     
-    @ManyToMany(mappedBy="customer", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="customer")
     private Set<CustomerOrder> orders; // This will map to the user's orders in the database
     
-    @ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
-    @JoinTable(name="cart", 
-			    joinColumns={@JoinColumn(name="user_id", referencedColumnName="id", nullable=false, updatable=false)},
-			    inverseJoinColumns={@JoinColumn(name="product_id", referencedColumnName="id", nullable=false, updatable=false)})
-    private Set<Product> products; // This will represent the shopping cart
+    @OneToMany(mappedBy ="id")
+    // @JoinTable(name="cart" )
+    /*joinColumns={@JoinColumn(name="user_id", referencedColumnName="id", nullable=false, updatable=false)},
+		    inverseJoinColumns={@JoinColumn(name="product_id", referencedColumnName="id", nullable=false, updatable=false)}*/
+    private Set<Product> cart; // This will represent the shopping cart
 
     public MusicUser() {}
     
@@ -52,7 +52,7 @@ public class MusicUser implements Serializable {
 	public String getCreditcard() { return creditcard; }
 	public String getRole() { return role; }
 	public Set<CustomerOrder> getOrders() { return orders; }
-	public Set<Product> getProducts() { return products; }
+	public Set<Product> getCart() { return cart; }
 
 	public void setId(Integer id) { this.id = id; }
 	public void setFirstname(String firstname) { this.firstname = firstname; }
@@ -63,5 +63,5 @@ public class MusicUser implements Serializable {
 	public void setCreditcard(String creditcard) { this.creditcard = creditcard; }
 	public void setRole(String role) { this.role = role; }
 	public void setOrders(Set<CustomerOrder> orders) { this.orders = orders; }
-	public void setProducts(Set<Product> products) { this.products = products; }
+	public void setCart(Set<Product> cart) { this.cart = cart; }
 }
