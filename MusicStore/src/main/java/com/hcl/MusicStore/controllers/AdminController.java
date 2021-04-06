@@ -208,7 +208,7 @@ public class AdminController {
     	if (foundUser != null) {
     		throw new UserAlreadyExistsException(username);
     	} else {
-    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, "USER");
+    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, role);
     		userService.UpdateUser(newUser);
     		logger.info("New User Registered: " + newUser);
     		model.addAttribute("successMessage", "Registration Successful!");
