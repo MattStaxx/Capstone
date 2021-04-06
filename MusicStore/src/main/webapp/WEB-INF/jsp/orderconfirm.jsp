@@ -12,7 +12,7 @@
 <title>Order Confirmation</title>
 </head>
 <body>
-	<h1>TODO</h1>
+	<h1>Checkout</h1>
 	<ul>	
 		<li><a href="home">Home</a></li>
 		<li><a href="catalog">Catalog</a></li>
@@ -38,21 +38,48 @@
     		<li><a href="manageinventory">Manage Inventory</a></li>
     		<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
+		
+		<sec:authorize access="isAuthenticated()">
+ 			<li><a class="active" href="Checkout">Checkout</a></li>
+ 			<li><a href="logout">Logout</a></li>
+		</sec:authorize>
 	</ul>
-<div class="user-form">
-		<h1>Sign in</h1>
-		<form action="/performLogin" method="post"">
-			<div style="color: #0000FF;">${successMessage}</div>
-			<div style="color: #FF0000;">${errorMessage}</div>
-			<input type="text" name="username" id="username" placeholder="Username" required> 
-			<input type="password" name="password" id="password" placeholder="Password" required> 
-			<input type="submit" value="Login">
-		</form>
-		<hr>
-		</form>
-			<form action="/register" method="get">
-			<input type="submit" value="Register">
-		</form>
+
+	<div class="container">
+		<br /> <br />
+		<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h1>Your Order</h1></tr>
+				<tr>		
+					<th scope="col">Id</th>
+					<th scope="col">Title</th>
+					<th scope="col">Artist</th>
+					<th scope="col">Style</th>
+					<th scope="col">Format</th>
+					<th scope="col">Price</th>
+					<th scope="col">Genre</th>
+					<th scope="col">Quantity</th>
+				</tr>
+				<c:set var="total" value="${0}"/>
+				<c:forEach items="${cart}" var="product">
+					<tr>
+						<td><c:out value="${product.id}" /></td>
+						<td><c:out value="${product.title}" /></td>
+						<td><c:out value="${product.artist}" /></td>
+						<td><c:out value="${product.style}" /></td>
+						<td><c:out value="${product.format}" /></td>
+						<td><c:out value="${product.price}" /></td>
+						<td><c:out value="${product.genre}" /></td>
+						<td><c:out value="${product.quantity}" /></td>
+					</tr>
+					<c:set var="total" value="${total + product.price}" />
+				</c:forEach>
+				<tr>Your Total: ${total}</tr>
+				<tr>
+					<form action="/checkout" method="post">	
+					<input type="submit" value="Checkout"></form>
+				</tr>
+			</thead>
+		</table>
 	</div>
-</body>
 </html>
