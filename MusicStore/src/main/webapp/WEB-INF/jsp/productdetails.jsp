@@ -72,10 +72,10 @@
 					<td>${product.quantity}</td>
 					<td>${product.price}</td>
 					<td>
-						<form>
-							<input type="hidden" id="idnumber" name="idnumber"
-								value="${product.id}"> <input type="submit"
-								value="Add to Cart">
+						<form action="/addToCart" method="post">
+							<input type="hidden" id="idnumber" name="id" value="${product.id}"> 
+							Quantity <input type="number" id="quantity" name="quantity" value="1" required>
+							<input type="submit" value="Add to Cart">
 						</form>
 					</td>
 				</tr>

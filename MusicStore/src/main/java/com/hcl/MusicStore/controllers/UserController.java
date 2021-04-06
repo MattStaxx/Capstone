@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hcl.MusicStore.Exceptions.ProductNotFoundException;
 import com.hcl.MusicStore.Exceptions.UserNotFoundException;
 import com.hcl.MusicStore.entities.CustomerOrder;
 import com.hcl.MusicStore.entities.MusicUser;
@@ -39,10 +40,6 @@ public class UserController {
 	Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	// Viewable by Customers
-    @GetMapping("/shoppingcart")
-    public String showShoppingCart() {
-        return "shoppingcart";
-    }
     
     @GetMapping("/profile")
     public String showProfile(Principal principal, ModelMap m) {
@@ -90,16 +87,21 @@ public class UserController {
  		m.addAttribute("username", username);
 		return "profile";
     }
-    @GetMapping("/checkout")
+    @GetMapping("/shoppingcart")
     public String showCheckout(Principal principal, ModelMap m) {
     	String username = principal.getName();
 		MusicUser user = musUseServ.GetUserByUsername(username);
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		} else {
-			m.addAttribute("cart", productService.getAllProductsByUser(user));
+			List<Product> cart = productService.getAllProductsByUser(user);
+			log.info("Cart size... " + cart.size());
+			for (Product product : cart) {
+				log.info(product.toString());
+			}
+			m.addAttribute("products", cart);
 		}
-        return "orderconfirm";
+        return "shoppingcart";
     }
     
     @PostMapping("/checkout")
@@ -110,13 +112,24 @@ public class UserController {
 			throw new UserNotFoundException(username);
 		} else {
 			List<Product> cart = productService.getAllProductsByUser(user);
+			log.info("Order size... " + cart.size());
+			for (Product product : cart) {
+				log.info(product.toString());
+			}
 			CustomerOrder.Status status = CustomerOrder.Status.ORDERED;
 			CustomerOrder newOrder = new CustomerOrder(CustomerOrder.Status.ORDERED, cart);
+			newOrder.setCustomer(user);
 	    	custOrdServ.saveOrder(newOrder);
+	    	m.addAttribute("order", newOrder);
+	    	
+	    	// Clear out the shopping cart
+	    	for(Product product : cart) {
+	    		productService.deleteProduct(product.getId());
+	    	}
 			log.info("New Order Posted");
 		}
     	// TODO need to do payment
-    	return "checkoutresult";
+    	return "orderconfirm";
     }
     
     @GetMapping("/orderhistory")                                      // this searches for all orders by username
@@ -126,28 +139,43 @@ public class UserController {
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		} else {
-			m.addAttribute("orders", custOrdServ.getOrdersByUser(user));
+			List<CustomerOrder> orders = custOrdServ.getOrdersByUser(user);
+			log.info("Order History.. " + orders.size() + " items");
+			m.addAttribute("orders", orders);
 		}
         return "orderhistory";                       // hijacked the homepage for now, but this should be a profile view(customer) and an admin capability
     }
     
     @PostMapping("/addToCart")
     public String addToCart(
-    		@RequestParam String title,
-     		@RequestParam(required=false) String artist, 
-     		@RequestParam(required=false) String style, 
-     		@RequestParam String format, 
-     		@RequestParam Double price , 
-     		@RequestParam(required=false) String genre,
-     		@RequestParam Integer quantity, 
+    	@RequestParam Integer id,
+    	@RequestParam Integer quantity,
  		Principal principal,
  		ModelMap m) {
+    	
 		String username = principal.getName();
 		MusicUser user = musUseServ.GetUserByUsername(username);
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		} else {
-			// 
+			Optional<Product> foundproduct = productService.searchProductByID(id);
+	    	if (foundproduct.isEmpty()) {
+	    		throw new ProductNotFoundException(id);
+	    	}
+	    	Product product = foundproduct.get();
+	    	Product cartProduct = new Product(
+	    			null, 
+	    			product.getTitle(), 
+	    			product.getArtist(), 
+	    			product.getStyle(), 
+	    			product.getFormat(), 
+	    			product.getPrice(), 
+	    			product.getGenre(), 
+	    			quantity,
+	    			null, 
+	    			null);
+	    	cartProduct.setCustomer(user);
+	    	productService.saveProduct(cartProduct);
 		}
     	return "catalog";
     }

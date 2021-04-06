@@ -93,6 +93,9 @@
 					<th scope="col">Items</th>
 					<th scope="col">Customer</th>
 				</tr>
+				
+			</thead>
+			<tbody>
 				<c:forEach items="${orders}" var="order">
 					<tr>
 						<td><c:out value="${order.id}" /></td>
@@ -102,8 +105,6 @@
 						<td><c:out value="${order.customer}" /></td>
 					</tr>
 				</c:forEach>
-			</thead>
-			<tbody>
 			</tbody>
 		</table>
 		

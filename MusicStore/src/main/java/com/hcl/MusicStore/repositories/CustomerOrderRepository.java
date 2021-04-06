@@ -15,5 +15,7 @@ public interface CustomerOrderRepository extends JpaRepository<CustomerOrder, In
 	public Optional<CustomerOrder> findByOrderNumber(Integer ordNum);
 	public Iterable<CustomerOrder> findAllOrdersByCustomer(Optional<MusicUser> customer);
 	public List<CustomerOrder> findAllByCustomer(MusicUser user);
+	public List<CustomerOrder> findAllByCustomerId(Integer id);
+	
 	public void deleteByOrderNumber (Integer ordNum);
 }

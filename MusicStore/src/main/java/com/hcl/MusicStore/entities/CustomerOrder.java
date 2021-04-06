@@ -39,7 +39,7 @@ public class CustomerOrder implements Serializable {
     private Status status;
     
     @OneToMany(mappedBy="id", fetch=FetchType.LAZY)
-    private Set<Product> products;    
+    private List<Product> products;    
     
     @ManyToOne
     @JoinColumn(name="customer_id")
@@ -55,17 +55,17 @@ public class CustomerOrder implements Serializable {
     public CustomerOrder(Status status, List<Product> products) {
 		super();
 		this.status = status;
-		this.products.addAll(products);
+		this.products = products;
 	}
 
 	public Integer getId() { return id; }
 	public int getOrderNumber() { return orderNumber; }
 	public Status getStatus() {return status;}
-	public Set<Product> getProducts() { return products; }
+	public List<Product> getProducts() { return products; }
 	public MusicUser getCustomer() { return customer; }
 
 	public void setOrderNumber(int orderNumber) { this.orderNumber = orderNumber; }
-	public void setProducts(Set<Product> products) { this.products = products; }
+	public void setProducts(List<Product> products) { this.products = products; }
 	public void setCustomer(MusicUser customer) { this.customer = customer; }
 	public void setStatus(Status status) {
 		this.status = status;

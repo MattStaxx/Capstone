@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <!doctype html>
@@ -49,26 +51,47 @@
 			<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 	</ul>
-	
-	<form action="/addToCart" method="post"">	
-			<table class="table table-striped table-bordered" id="tblData">
-			<thead>
-				<tr><h2>Test Add to Cart Functionality: </h2></tr>
-				<tr>		
-					<th><input type="text" name="title" placeholder="Title" required></th>
-					<th><input type="text" name="artist" placeholder="Artist" ></th>
-					<th><input type="text" name="style" placeholder="Style" ></th>
-					<th><input type="text" name="format" placeholder="Format" required></th>
-					<th><input type="number" step="0.01" name="price" placeholder="Price" required></th>
-					<th><input type="text" name="genre" placeholder="Genre"></th>
-					<th><input type="number" name="quantity" placeholder="Quantity" required></th>
-					<th><input type="submit" value="Add"></th>
-				</tr>
-			</thead>
-		</form>
-		
 
 	<h1 class="display-1">Cart</h1>
+	
+	<div class="container">
+		<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr><h1>Your Order</h1></tr>
+				<tr>		
+					<th scope="col">Id</th>
+					<th scope="col">Title</th>
+					<th scope="col">Artist</th>
+					<th scope="col">Style</th>
+					<th scope="col">Format</th>
+					<th scope="col">Price</th>
+					<th scope="col">Genre</th>
+					<th scope="col">Quantity</th>
+				</tr>
+				<c:set var="total" value="${0}"/>
+				<c:forEach items="${products}" var="product">
+					<tr>
+						<td><c:out value="${product.id}" /></td>
+						<td><c:out value="${product.title}" /></td>
+						<td><c:out value="${product.artist}" /></td>
+						<td><c:out value="${product.style}" /></td>
+						<td><c:out value="${product.format}" /></td>
+						<td><c:out value="${product.price}" /></td>
+						<td><c:out value="${product.genre}" /></td>
+						<td><c:out value="${product.quantity}" /></td>
+					</tr>
+					<c:set var="total" value="${total + product.price}" />
+				</c:forEach>
+				
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		Your Total: ${total}
+		<form action="/checkout" method="post">	
+		<input type="submit" value="Checkout"></form>
+	</div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

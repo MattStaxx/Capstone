@@ -57,7 +57,12 @@ public class CustomerOrderService {
 	public List<CustomerOrder> getOrdersByUser(MusicUser user) {
 		return orderRepository.findAllByCustomer(user);
 	}
+	
+	public List<CustomerOrder> getOrdersByUser(Integer id) {
+		return orderRepository.findAllByCustomerId(id);
+	}
 
+	
 	public Iterable<CustomerOrder> getOrdersByUser(String username) {
 
     	Optional<MusicUser> customer = userRepository.findByUsername(username);

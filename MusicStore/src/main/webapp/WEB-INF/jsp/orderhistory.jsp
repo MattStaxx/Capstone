@@ -2,9 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.hcl.MusicStore.entities.Product" %>
-<%@ page import="com.hcl.MusicStore.entities.CustomerOrder" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -55,35 +53,22 @@
 	<h1 class="display-1">Order History</h1>
 	<table class="table table-striped table-bordered" id="tblData">
 			<thead>
+				<tr><h1>Your Order Confirmation</h1></tr>
 				<tr>		
 					<th scope="col">Id</th>
 					<th scope="col">Order Number</th>
 					<th scope="col">Status</th>
-					<th scope="col">Items</th>
+					<th scope="col">Customer</th>
 				</tr>
+			</thead>
+			<tbody>
 				<c:forEach items="${orders}" var="order">
 					<tr>
 						<td><c:out value="${order.id}" /></td>
 						<td><c:out value="${order.orderNumber}" /></td>
 						<td><c:out value="${order.status}" /></td>
-						<td>
-							<c:forEach items = "${order.products}" var = "product">
-								<tr>
-									<td><c:out value="${product.id}" /></td>
-									<td><c:out value="${product.title}" /></td>
-									<td><c:out value="${product.artist}" /></td>
-									<td><c:out value="${product.style}" /></td>
-									<td><c:out value="${product.format}" /></td>
-									<td><c:out value="${product.price}" /></td>
-									<td><c:out value="${product.genre}" /></td>
-									<td><c:out value="${product.quantity}" /></td>
-								</tr>
-							</c:forEach>
-						</td>
 					</tr>
 				</c:forEach>
-			</thead>
-			<tbody>
 			</tbody>
 		</table>
 

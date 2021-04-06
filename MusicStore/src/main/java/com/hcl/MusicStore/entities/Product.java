@@ -67,7 +67,8 @@ public class Product implements Serializable {
 	public int getQuantity() { return this.quantity; }
 	public CustomerOrder getCustomerOrder( ) {return this.customerOrder; }
 	public MusicUser getCustomer() {return this.customer; }
-
+	
+	public void setId(Integer id) { this.id = id; }
 	public void setTitle(String title) { this.title = title; }
 	public void setArtist(String artist) { this.artist = artist; }
 	public void setStyle(String style) { this.style = style; }
