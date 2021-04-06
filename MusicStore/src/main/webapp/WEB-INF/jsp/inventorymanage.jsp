@@ -140,7 +140,7 @@
 			<thead>
 				<tr><h1>Edit a Product</h1></td>
 				<tr>
-					<th><input type="text" id="id" placeholder="ID of the Product to update" required></th>	
+					<th><input type="number" name="id" placeholder="ID of the Product to update" required></th>	
 				<tr>
 					<th><input type="text" name="title" placeholder="Title" required></th>
 					<th><input type="text" name="artist" placeholder="Artist" required></th>
