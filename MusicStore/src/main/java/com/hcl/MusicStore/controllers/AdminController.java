@@ -209,7 +209,7 @@ public class AdminController {
     	if (foundUser != null) {
     		throw new UserAlreadyExistsException(username);
     	} else {
-    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, role);
+    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, null, role);
     		userService.UpdateUser(newUser);
     		logger.info("New User Registered: " + newUser);
     		model.addAttribute("successMessage", "Registration Successful!");
@@ -248,7 +248,7 @@ public class AdminController {
     	if (foundUser == null) {
     		throw new UserNotFoundException(id);
     	} else {
-    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, role);
+    		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, null, role);
     		newUser.setId(id);
     		userService.UpdateUser(foundUser);
     		logger.debug("User Updated: " + foundUser);

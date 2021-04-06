@@ -3,6 +3,8 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.hcl.MusicStore.entities.Product" %>
+<%@ page import="com.hcl.MusicStore.entities.CustomerOrder" %>
 <!doctype html>
 <html>
 <head>
@@ -51,7 +53,39 @@
 	</ul>
 
 	<h1 class="display-1">Order History</h1>
-
+	<table class="table table-striped table-bordered" id="tblData">
+			<thead>
+				<tr>		
+					<th scope="col">Id</th>
+					<th scope="col">Order Number</th>
+					<th scope="col">Status</th>
+					<th scope="col">Items</th>
+				</tr>
+				<c:forEach items="${orders}" var="order">
+					<tr>
+						<td><c:out value="${order.id}" /></td>
+						<td><c:out value="${order.orderNumber}" /></td>
+						<td><c:out value="${order.status}" /></td>
+						<td>
+							<c:forEach items = "${order.products}" var = "product">
+								<tr>
+									<td><c:out value="${product.id}" /></td>
+									<td><c:out value="${product.title}" /></td>
+									<td><c:out value="${product.artist}" /></td>
+									<td><c:out value="${product.style}" /></td>
+									<td><c:out value="${product.format}" /></td>
+									<td><c:out value="${product.price}" /></td>
+									<td><c:out value="${product.genre}" /></td>
+									<td><c:out value="${product.quantity}" /></td>
+								</tr>
+							</c:forEach>
+						</td>
+					</tr>
+				</c:forEach>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 
 
 	<script

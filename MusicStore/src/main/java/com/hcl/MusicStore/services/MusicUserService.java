@@ -55,7 +55,7 @@ public class MusicUserService {
     	return(foundUser.get());
     }
     
-    public Iterable<MusicUser> findUserByUser(String firstname) {
+    public Iterable<MusicUser> findUserByFirstname(String firstname) {
     	return userRepository.findByFirstname(firstname);
     }
     
