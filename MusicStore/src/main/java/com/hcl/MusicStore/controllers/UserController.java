@@ -72,14 +72,11 @@ public class UserController {
     	if(user == null) {
     		throw new UserNotFoundException(un);
     	} else {  }
-//    	MusicUser mUser = new MusicUser(firstname, lastname, username, email, password, creditcard, role);
     	user.setFirstname(firstname);
     	user.setLastname(lastname);
-    	user.setUsername(username);
     	user.setEmail(email);
     	user.setPassword(password);
     	user.setCreditcard(creditcard);
-    	user.setRole(role);
     	musUseServ.UpdateUser(user);
     	Iterable<MusicUser> mu = musUseServ.findUserByFirstname(user.getFirstname());
  		m.addAttribute("successMessage", "Profile Update Successful!");
