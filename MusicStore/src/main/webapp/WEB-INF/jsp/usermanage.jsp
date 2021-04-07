@@ -93,6 +93,7 @@
 						<th scope="col">Email</th>
 						<th scope="col">Password</th>
 						<th scope="col">Role</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -126,7 +127,6 @@
 	 					  	<option value="ADMIN">Admin</option>
 						  	</select>
 							<th><input type="submit" value="Add"></th>
-					  	</th>
 					</thead>
 					<tbody>
 						<tr>		

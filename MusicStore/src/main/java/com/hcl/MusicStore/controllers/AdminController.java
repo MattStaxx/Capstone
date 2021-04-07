@@ -67,6 +67,21 @@ public class AdminController {
     	return "inventorymanage";
     }
     
+    @PostMapping("/editOrder")
+    public String showOrderEdit(
+    		@RequestParam Integer id, 
+    		Model model) {
+    	CustomerOrder order = customerOrderService.getOrderById(id);
+    	if (order == null) {
+    		throw new OrderNotFoundException(id);
+    	}
+    	List<Product> products = productService.getAllProductsByOrder(order);
+    	logger.info("Products in the order: " + products.size());
+    	model.addAttribute("products", products);
+    	model.addAttribute("order", order);
+    	return "orderedit";
+    }
+    
     @GetMapping("/manageorders")
     public String showOrderManage(Model model) {
     	List<CustomerOrder> orders = customerOrderService.getAllOrders();
@@ -83,15 +98,17 @@ public class AdminController {
     public String addOrder(
      		@RequestParam Integer ordernumber,
      		@RequestParam CustomerOrder.Status status, 
-     		@RequestParam String products, 
      		@RequestParam String user,
      		Model model){
+    	MusicUser foundUser = userService.GetUserByUsername(user);
      	CustomerOrder foundOrder = customerOrderService.getOrderByOrderNumber(ordernumber);
      	if (foundOrder != null) {
      		throw new OrderAlreadyExistsException(ordernumber);
+     	} else if (foundUser == null) {
+     		throw new UserNotFoundException(user);
      	} else {
-     		CustomerOrder newOrder = new CustomerOrder(ordernumber);
-     		newOrder.setStatus(status);
+     		CustomerOrder newOrder = new CustomerOrder(status, null);
+     		newOrder.setCustomer(foundUser);
      		customerOrderService.saveOrder(newOrder);
      		logger.debug("New Order Added: " + newOrder);
      		model.addAttribute("successMessage", "Order Creation Successful!");
@@ -137,47 +154,99 @@ public class AdminController {
      	return "ordermanage";
     }
     
+    @PostMapping("/updateOrderStatus")
+    public String updateOrder(
+     		@RequestParam Integer id,
+     		@RequestParam CustomerOrder.Status status, 
+     		Model model){
+     	CustomerOrder foundOrder = customerOrderService.getOrderById(id);
+     	if (foundOrder == null) {
+     		throw new OrderNotFoundException(id);
+     	} else {
+     		foundOrder.setStatus(status);
+     		customerOrderService.saveOrder(foundOrder);
+     		logger.debug("Order Status Updated: " + foundOrder);
+     		model.addAttribute("successMessage", "Order Update Successful!");
+     		model.addAttribute("orders", customerOrderService.getAllOrders());
+     	}
+     	return "ordermanage";
+    }
+    
  	@PostMapping("/addProduct")
     public String addProduct(
+    		@RequestParam(required=false) Integer orderid,
      		@RequestParam String title,
      		@RequestParam(required=false) String artist, 
      		@RequestParam(required=false) String style, 
      		@RequestParam String format, 
-     		@RequestParam Double price , 
+     		@RequestParam Double price, 
      		@RequestParam(required=false) String genre,
      		@RequestParam Integer quantity,
      		Model model){
+ 		Product newProduct = null;
      	Optional<Product> foundProduct = productService.searchProductByTitle(title);
-     	if (foundProduct.isPresent()) {
-     		throw new ProductAlreadyExistsException(title);
-     	} else {
-     		Product newProduct = new Product(null, title, artist, style, format, price, genre, quantity, null, null);
-     		productService.saveProduct(newProduct);
-     		logger.info("New Product Added: " + newProduct);
-     		model.addAttribute("successMessage", "Product Creation Successful!");
-     		model.addAttribute("products", productService.getAllProducts());
+     	if (orderid != null ) { // New Product In Order
+     		CustomerOrder foundOrder = customerOrderService.getOrderById(orderid);
+     		if (foundOrder == null) {
+         		throw new OrderNotFoundException(orderid);
+     		} else {
+     			
+     			newProduct = new Product(null, title, artist, style, format, price, genre, quantity, foundOrder, null);
+     			productService.saveProduct(newProduct);
+     			List<Product> products = productService.getAllProductsByOrder(foundOrder);
+     			model.addAttribute("products", products);
+     	    	model.addAttribute("order", foundOrder);
+     	    	model.addAttribute("successMessage", "Product added to Order!");
+     		}
+     	} else { // New Product In Catalog
+     		if (foundProduct.isPresent()) {
+         		throw new ProductAlreadyExistsException(title);
+         	} else {
+         		newProduct = new Product(null, title, artist, style, format, price, genre, quantity, null, null);	
+         		model.addAttribute("products", productService.getAllProducts());
+         		model.addAttribute("successMessage", "Product Creation Successful!");
+         		productService.saveProduct(newProduct);
+         	}     	
      	}
-     	return "inventorymanage";
+ 		logger.info("New Product Added: " + newProduct);
+ 		if (orderid != null) {
+ 			return "orderedit";
+ 		}
+ 		return "inventorymanage";
     }
  	
  	@PostMapping("/deleteProduct")
     public String deleteProduct(
+    		@RequestParam(required=false) Integer orderid,
     		@RequestParam Integer id,
     		Model model){
  		Optional<Product> foundProduct = productService.searchProductByID(id);
-    	if (!foundProduct.isPresent()) {
-    		throw new ProductNotFoundException(id);
-    	} else {
-    		productService.deleteProduct(id);
-    		logger.debug("Product with ID: " + id + " deleted.");
-    		model.addAttribute("successMessage", "Delete Successful");
-    		model.addAttribute("products", productService.getAllProducts());
-    	}
-    	return "inventorymanage";
+	    if (!foundProduct.isPresent()) {
+	    	throw new ProductNotFoundException(id);
+	    } else {
+	    	productService.deleteProduct(id);
+	    		logger.debug("Product with ID: " + id + " deleted.");
+	    	model.addAttribute("successMessage", "Delete Successful");
+	    	model.addAttribute("products", productService.getAllProducts());
+	    }
+ 		if (orderid != null) {
+ 			CustomerOrder foundOrder = customerOrderService.getOrderById(orderid);
+     		if (foundOrder == null) {
+         		throw new OrderNotFoundException(orderid);
+     		} else {
+     			List<Product> products = productService.getAllProductsByOrder(foundOrder);
+     			model.addAttribute("products", products);
+     	    	model.addAttribute("order", foundOrder);
+     	    	return "orderedit";
+     		}
+ 		}
+ 		return "inventorymanage";
+ 		
     }
  	
  	@PostMapping("/updateProduct")
     public String updateProduct(
+    		@RequestParam(required=false) Integer orderid,
     		@RequestParam Integer id,
      		@RequestParam String title,
      		@RequestParam(required=false) String artist, 
@@ -187,11 +256,26 @@ public class AdminController {
      		@RequestParam(required=false) String genre,
      		@RequestParam Integer quantity,
      		Model model){
-     	Optional<Product> foundProduct = productService.searchProductByTitle(title);
+     	Optional<Product> foundProduct = productService.searchProductByID(id);
+     	Product newProduct = null;
      	if (!foundProduct.isPresent()) {
      		throw new ProductNotFoundException(title);
+     	} 
+     	if (orderid != null ) { // New Product In Order
+     		CustomerOrder foundOrder = customerOrderService.getOrderById(orderid);
+     		if (foundOrder == null) {
+         		throw new OrderNotFoundException(orderid);
+     		} else {	
+     			newProduct = new Product(id, title, artist, style, format, price, genre, quantity, foundOrder, null);
+     			productService.saveProduct(newProduct);
+     			List<Product> products = productService.getAllProductsByOrder(foundOrder);
+     			model.addAttribute("products", products);
+     	    	model.addAttribute("order", foundOrder);
+     	    	model.addAttribute("successMessage", "Product Updated");
+     	    	return "orderedit";
+     		}
      	} else {
-     		Product newProduct = new Product(id, title, artist, style, format, price, genre, quantity, null, null);
+     		newProduct = new Product(id, title, artist, style, format, price, genre, quantity, null, null);
      		productService.saveProduct(newProduct);
      		logger.info("Product Updated: " + newProduct);
      		model.addAttribute("successMessage", "Product Update Successful!");

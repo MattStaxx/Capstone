@@ -42,25 +42,11 @@
 		</sec:authorize>
 	</ul>
 
-
-	<div id="emptyFieldErrorMessage"
-		style="display: none; text-align: center;">
-		<br /> <b style="color: red; text-align: center">Error: Missing
-			required information!</b> <br />
-	</div>
-
-	<div id="deleteErrorMessage"
-		style="visibility: hidden; text-align: center;">
-		<br /> <b style="color: red; text-align: center">Error: Cannot
-			delete logged in Order!</b> <br />
-	</div>
-
-	<div id="deleteSuccessMessage"
-		style="visibility: hidden; text-align: center;">
-		<br /> <b style="color: red; text-align: center">Order Successfully
-			Deleted!</b> <br />
-	</div>
-
+	<h2>
+		<div style="color: #0000FF;">${successMessage}</div>
+		<div style="color: #FF0000;">${errorMessage}</div>
+	</h2>
+	
 	<div class="container">
 		<br /> <br />
 		<table class="table table-striped table-bordered" id="tblData">
@@ -69,6 +55,8 @@
 					<th scope="col">Order Id</th>
 					<th scope="col">Status</th>
 					<th scope="col">Customer</th>
+					<th scope="col"># Products Ordered</th>
+					<th scope="col"></th>
 				</tr>
 				
 			</thead>
@@ -78,6 +66,17 @@
 						<td><c:out value="${order.id}" /></td>
 						<td><c:out value="${order.status}" /></td>
 						<td><c:out value="${order.customer.getUsername()}" /></td>
+						<td><c:out value="${order.products.size()}" /></td>
+						<td>
+							<form action="/editOrder" method="post"">
+								<input type="hidden" name="id" value="${order.id}">
+								<input type="submit" value="Edit Products">
+							</form>
+							<form action="/deleteOrder" method="post"">
+								<input type="hidden" name="id" value="${order.id}">
+								<input type="submit" value="Delete Order">
+							</form>
+						</td>
 					</tr>
 					<!-- Print out all products
 					<tr>
@@ -104,16 +103,12 @@
 								<td><c:out value="${product.genre}" /></td>
 								<td><c:out value="${product.quantity}" /></td>
 							</tr>
-						</c:forEach>
-					
-						
+						</c:forEach>			
 					<tr><td><hr></td><tr> -->
 				</c:forEach>
 			</tbody>
 		</table>
 		
-		<div style="color: #0000FF;">${successMessage}</div>
-		<div style="color: #FF0000;">${errorMessage}</div>
 		
 		<form action="/addOrder" method="post"">	
 			<table class="table table-striped table-bordered" id="tblData">
@@ -127,41 +122,25 @@
  					  <option value="SHIPPED">Shipped</option>
  					  <option value="DELIVERED">Delivered</option>
 					</select></th>
-					<th><input type="text" name="products" placeholder="Products [TODO]" required></th>
-					<th><input type="text" name="user" placeholder="user"></th>
+					<th><input type="text" name="user" placeholder="Customer"></th>
 					<th><input type="submit" value="Add"></th>
 				</tr>
 			</thead>
 		</form>
 		
-		<form action="/deleteOrder" method="post"">
+		<form action="/updateOrderStatus" method="post"">
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
-				<tr><h1>Delete an Order</h1></tr>
-				<tr>		
-					<th><input type="number" name="id" placeholder="Order Number to Delete" required></th>
-					<th><input type="submit" value="Delete"></th>
-				</tr>
-			</thead>
-		</form>
-		
-		<form action="/updateOrder" method="post"">
-			<table class="table table-striped table-bordered" id="tblData">
-			<thead>
-				<tr><h1>Edit an Order</h1></td>
+				<tr><h1>Update Order Status</h1></td>
 				<tr>
-					<th><input type="text" id="id" placeholder="ID of the Order to update" required></th>	
+					<th><input type="text" name="id" placeholder="Order Id" required></th>	
 				<tr>		
-					<th><input type="text" name="id" placeholder="id" required></th>
-					<th><input type="number" name="ordernumber" placeholder="Order Number" ></th>
 					<th><select name="status" id="status">
 					  <option value="" disabled selected>Status</option>
 			 		  <option value="ORDERED">Ordered</option>
- 					  <option value="DELIVERED">Shipped</option>
- 					  <option value="SHIPPED">Delivered</option>
+			 		  <option value="SHIPPED">Shipped</option>
+ 					  <option value="DELIVERED">Delivered</option>	  
 					</select></th>
-					<th><input type="text" name="products" placeholder="Products [TODO]" required></th>
-					<th><input type="text" name="user" placeholder="user"></th>
 					<th><input type="submit" value="Update"></th>
 				</tr>
 				</tr>
