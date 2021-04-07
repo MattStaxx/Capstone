@@ -13,29 +13,6 @@
     	  integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
     	  crossorigin="anonymous">
   	<link rel="stylesheet" href="css/style.css">
-    	  
-		<style type="text/css" media="screen">
-		
-		#background1 {		
-			background-image: url(/images/headphones2.jpg);
-			background-repeat: no-repeat;
-			background-position: center top;
-			padding-top:50px;
-			height: 92vh;
-		   }
-		   
-		.carousel-inner > .item > img,  
-		.carousel-inner > .item > a > img { 
-			max-width: 100%; 
-			height: 91vh;
-			margin: auto;  
-		    }  
-		    
-	    .carousel-indicators .active {
-	    	background-color: green;
-	    }
-		    
-		</style>
 
     <title>Homepage</title>
   </head>
@@ -68,8 +45,7 @@
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="logout">Logout</a></li>
 		</sec:authorize>	
-	</ul>
-        <h1 class="display-1">TODO</h1>                                          
+	</ul>                                          
 	
 	 <div class="container" style="background-color: rgb(2, 8, 1);" >
 	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
