@@ -36,19 +36,22 @@
 			<li><a href="register">Register</a></li>
 		</sec:authorize>
 
-		<!-- User View -->
+		<!-- Order View -->
 		<sec:authorize access="isAuthenticated()">
 			<li><a class="active" href="shoppingcart">Cart</a></li>
 			<li><a href="orderhistory">Order History</a></li>
 			<li><a href="profile">Profile</a></li>
-			<li><a href="logout">Logout</a></li>
 		</sec:authorize>
 
 		<!-- Admin View -->
 		<sec:authorize access="hasAnyRole('ADMIN')">
-			<li><a href="admin">Admin</a></li>
 			<li><a href="manageinventory">Manage Inventory</a></li>
+			<li><a href="manageorders">Manage Orders</a></li>
 			<li><a href="manageusers">Manage Users</a></li>
+		</sec:authorize>
+		
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="logout">Logout</a></li>
 		</sec:authorize>
 	</ul>
 
