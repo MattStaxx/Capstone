@@ -55,6 +55,7 @@ public class Product implements Serializable {
 		this.genre = genre;
 		this.quantity = quantity;
 		this.customer = customer;
+		this.customerOrder = order;
 	}
 
 	public Integer getId() { return this.id; }

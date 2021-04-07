@@ -9,28 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-<!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
-
-
-<ordernumber>Manage Inventory</ordernumber>
+  	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<ul>
@@ -87,10 +66,8 @@
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr>		
-					<th scope="col">Id</th>
-					<th scope="col">Order Number</th>
+					<th scope="col">Order Id</th>
 					<th scope="col">Status</th>
-					<th scope="col">Items</th>
 					<th scope="col">Customer</th>
 				</tr>
 				
@@ -99,11 +76,38 @@
 				<c:forEach items="${orders}" var="order">
 					<tr>
 						<td><c:out value="${order.id}" /></td>
-						<td><c:out value="${order.orderNumber}" /></td>
 						<td><c:out value="${order.status}" /></td>
-						<td><c:out value="${order.products}" /></td>
-						<td><c:out value="${order.customer}" /></td>
+						<td><c:out value="${order.customer.getUsername()}" /></td>
 					</tr>
+					<!-- Print out all products
+					<tr>
+						<td>Products: ${order.products.size()}</td>
+					</tr>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Title</th>
+						<th scope="col">Artist</th>
+						<th scope="col">Style</th>
+						<th scope="col">Format</th>
+						<th scope="col">Price</th>
+						<th scope="col">Genre</th>
+						<th scope="col">Quantity</th>
+					</tr>
+						<c:forEach items="${order.products}" var="product">
+							<tr>
+								<td><c:out value="${product.id}" /></td>
+								<td><c:out value="${product.title}" /></td>
+								<td><c:out value="${product.artist}" /></td>
+								<td><c:out value="${product.style}" /></td>
+								<td><c:out value="${product.format}" /></td>
+								<td><c:out value="${product.price}" /></td>
+								<td><c:out value="${product.genre}" /></td>
+								<td><c:out value="${product.quantity}" /></td>
+							</tr>
+						</c:forEach>
+					
+						
+					<tr><td><hr></td><tr> -->
 				</c:forEach>
 			</tbody>
 		</table>
@@ -165,4 +169,7 @@
 		</form>
 	</div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>

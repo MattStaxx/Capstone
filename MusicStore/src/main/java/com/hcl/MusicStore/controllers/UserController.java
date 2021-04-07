@@ -121,6 +121,18 @@ public class UserController {
 	    	
 	    	// Clear out the shopping cart
 	    	for(Product product : cart) {
+	    		Product orderProduct = new Product(
+		    		null, 
+		    		product.getTitle(), 
+		    		product.getArtist(), 
+		    		product.getStyle(), 
+		    		product.getFormat(), 
+		    		product.getPrice(), 
+		    		product.getGenre(), 
+		    		product.getQuantity(),
+		    		newOrder, 
+		    		null);
+	    		productService.saveProduct(orderProduct);
 	    		productService.deleteProduct(product.getId());
 	    	}
 			log.info("New Order Posted");
@@ -129,7 +141,7 @@ public class UserController {
     	return "orderconfirm";
     }
     
-    @GetMapping("/orderhistory")                                      // this searches for all orders by username
+    @GetMapping("/orderhistory") // Gets orders by Username
     public String showHistory(Principal principal, ModelMap m) {
     	String username = principal.getName();
 		MusicUser user = musUseServ.GetUserByUsername(username);
@@ -138,9 +150,14 @@ public class UserController {
 		} else {
 			List<CustomerOrder> orders = custOrdServ.getOrdersByUser(user);
 			log.info("Order History.. " + orders.size() + " items");
+			for (CustomerOrder order : orders ) { 
+				List<Product> products = productService.getAllProductsByOrder(order);
+				order.setProducts(products);
+				log.info("Order #" + order.getId() + " " + products.size() + " item(s)");
+			}
 			m.addAttribute("orders", orders);
 		}
-        return "orderhistory";                       // hijacked the homepage for now, but this should be a profile view(customer) and an admin capability
+        return "orderhistory";                       
     }
     
     @PostMapping("/addToCart")

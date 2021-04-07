@@ -69,7 +69,13 @@ public class AdminController {
     
     @GetMapping("/manageorders")
     public String showOrderManage(Model model) {
-    	model.addAttribute("orders", customerOrderService.getAllOrders());
+    	List<CustomerOrder> orders = customerOrderService.getAllOrders();
+    	for (CustomerOrder order : orders ) { 
+			List<Product> products = productService.getAllProductsByOrder(order);
+			order.setProducts(products);
+			logger.info("Order #" + order.getId() + " " + products.size() + " item(s)");
+		}
+    	model.addAttribute("orders", orders);
     	return "ordermanage";
     }
     
