@@ -93,4 +93,9 @@
 .carousel-indicators .active {
 	background-color: green;
 }
+
+.table table-striped table-bordered {
+	 margin-left: 80%; 
+	 margin-right: 80%;
+}
 		    

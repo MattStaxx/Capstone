@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
 <!doctype html>
 <html>
 <head>
@@ -56,11 +55,10 @@
 		  </div>
 		</nav>
 	
-		<h1 class="display-1">Profile Page</h1>
+		<h1 class="display-1">${username}'s Profile</h1>
 		<div class="container">
 		<table class="table table-striped table-bordered" id="tblData">
 				<thead>
-					<tr><h1>${username}'s Profile</h1></tr>
 					<tr>		
 						<th scope="col">First Name</th>
 						<th scope="col">Last Name</th>
@@ -68,36 +66,51 @@
 						<th scope="col">Password</th>
 						<th scope="col">Card Number</th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${userdetails}" var="usr">
 						<tr>
 							<td><c:out value="${usr.firstname}" /></td>
 							<td><c:out value="${usr.lastname}" /></td>
 							<td><c:out value="${usr.email}" /></td>
-							<td><c:out value="${usr.password}" /></td>
+							<td><c:out value="******" /></td>
 							<td><c:out value="${usr.creditcard}" /></td>
-						</tr>
+						</tr><br><br>
 					</c:forEach>
-				</thead>
-				<tbody>
 				</tbody>
-			</table>
+				</table>
+		<div class="container">
+		<table class="table table-striped table-bordered" id="tblData">
+				<thead>
+					
+				</thead>
+				</table>
+				</div>
 			<form action="/updateProfile" method="post">
 				<table class="table table-striped table-bordered" id="tblData">
 				<thead>
-					<tr><h1>Editing your Profile</h1></td>
-					<tr>
-						<th><input type="hidden" name="id" placeholder="ID of the Product to update" required></th>	
-					<tr>
-						<th><input type="text" name="firstname" placeholder="First Name" required></th>
-						<th><input type="text" name="lastname" placeholder="Last Name" required></th>
-						<th><input type="hidden" name="username" placeholder="User Name" required></th>
-						<th><input type="text" name="email" placeholder="Email" required></th>
-						<th><input type="text" name="password" placeholder="Password" required></th>
-						<th><input type="text" name="creditcard" placeholder="Card Nmuber" required></th>
-						<th><input type="hidden" name="role" placeholder="Role" required></th>
-						<th><input type="submit" value="Update"></th>
+				<h2>New Values</h2>
+					<tr>		
+						<th scope="col">First Name</th>
+						<th scope="col">Last Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Password</th>
+						<th scope="col">Card Number</th>
 					</tr>
 				</thead>
+				<tbody>
+					<tr>
+						<th><input type="text" name="firstname" placeholder="First Name" value="${fn}" required></th>
+						<th><input type="text" name="lastname" placeholder="Last Name" value="${ln}"></th>
+						<th><input type="text" name="email" placeholder="Email" value="${em}"></th>
+						<th><input type="text" name="password" placeholder="Password" required></th>
+						<th><input type="text" name="creditcard" placeholder="Card Number" value="${cc}"></th>
+						<th><input type="hidden" name="id" placeholder="ID of the Product to update" required></th>	
+						<th><input type="hidden" name="role" placeholder="Role" value="${rl}" required></th>
+						<th><input type="hidden" name="username" placeholder="User Name" value="${username}" required></th>
+						<th><input type="submit" value="Update"></th>
+					</tr>
+				</tbody>
 				</table>
 			</form>
 		</div>
