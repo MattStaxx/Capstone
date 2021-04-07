@@ -39,12 +39,12 @@ public class LoginRegistrationController {
     		@RequestParam String password, 
     		@RequestParam String email, 
     		Model model){
-    	MusicUser foundUser = userService.GetUserByUsername(username);
+    	MusicUser foundUser = userService.getUserByUsername(username);
     	if (foundUser != null) {
     		throw new UserAlreadyExistsException(username);
     	} else {
     		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, null, "ADMIN");
-    		userService.UpdateUser(newUser);
+    		userService.updateUser(newUser);
     		logger.info("New User Registered: " + newUser);
     		model.addAttribute("successMessage", "Registration Successful!");
     	}

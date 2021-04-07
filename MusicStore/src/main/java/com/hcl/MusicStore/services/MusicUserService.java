@@ -27,7 +27,7 @@ public class MusicUserService {
 		return users;
 	}
     
-    public MusicUser GetUserByUsername(String username) {
+    public MusicUser getUserByUsername(String username) {
     	Optional<MusicUser> foundUser = userRepository.findByUsername(username);
     	if (!foundUser.isPresent()) {
     		return null;
@@ -59,12 +59,12 @@ public class MusicUserService {
     	return userRepository.findByFirstname(firstname);
     }
     
-    public MusicUser UpdateUser(MusicUser usertoUpdate) {
+    public MusicUser updateUser(MusicUser usertoUpdate) {
     	usertoUpdate.setPassword(passwordEncoder.encode(usertoUpdate.getPassword()));
     	return userRepository.save(usertoUpdate);
     }
 
-    public void DeleteUserById(int id) {
+    public void deleteUserById(int id) {
     	userRepository.deleteById(id);
     }
 }

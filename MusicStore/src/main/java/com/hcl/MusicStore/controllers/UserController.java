@@ -44,7 +44,7 @@ public class UserController {
     @GetMapping("/profile")
     public String showProfile(Principal principal, ModelMap m) {
     	String username = principal.getName();
-		MusicUser user = musUseServ.GetUserByUsername(username);
+		MusicUser user = musUseServ.getUserByUsername(username);
     	if(user == null) {
     		throw new UserNotFoundException(username);
     	} else {
@@ -68,7 +68,7 @@ public class UserController {
 			Principal principal,
 			ModelMap m) {
     	String un = principal.getName();
-		MusicUser user = musUseServ.GetUserByUsername(un);
+		MusicUser user = musUseServ.getUserByUsername(un);
     	if(user == null) {
     		throw new UserNotFoundException(un);
     	} else {  }
@@ -77,7 +77,7 @@ public class UserController {
     	user.setEmail(email);
     	user.setPassword(password);
     	user.setCreditcard(creditcard);
-    	musUseServ.UpdateUser(user);
+    	musUseServ.updateUser(user);
     	Iterable<MusicUser> mu = musUseServ.findUserByFirstname(user.getFirstname());
  		m.addAttribute("successMessage", "Profile Update Successful!");
  		m.addAttribute("userdetails", mu);
@@ -87,7 +87,7 @@ public class UserController {
     @GetMapping("/shoppingcart")
     public String showCheckout(Principal principal, ModelMap m) {
     	String username = principal.getName();
-		MusicUser user = musUseServ.GetUserByUsername(username);
+		MusicUser user = musUseServ.getUserByUsername(username);
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		} else {
@@ -102,18 +102,30 @@ public class UserController {
     }
     
     @PostMapping("/checkout")
-    public String performCheckout(Principal principal, ModelMap m) {
+    public String performCheckout(
+    		@RequestParam String cardnumber,
+    		@RequestParam String expire,
+    		@RequestParam String cvc,
+    		Principal principal, 
+    		ModelMap m) {
     	String username = principal.getName();
-		MusicUser user = musUseServ.GetUserByUsername(username);
+		MusicUser user = musUseServ.getUserByUsername(username);
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		} else {
+			// Set Payment Info
+			user.setCreditcard(cardnumber);
+			musUseServ.updateUser(user);
+			
+			// Retrieve Cart
 			List<Product> cart = productService.getAllProductsByUser(user);
 			log.info("Order size... " + cart.size());
 			for (Product product : cart) {
 				log.info(product.toString());
 			}
 			CustomerOrder.Status status = CustomerOrder.Status.ORDERED;
+			
+			// Create New Order
 			CustomerOrder newOrder = new CustomerOrder(CustomerOrder.Status.ORDERED, cart);
 			newOrder.setCustomer(user);
 	    	custOrdServ.saveOrder(newOrder);
@@ -137,14 +149,19 @@ public class UserController {
 	    	}
 			log.info("New Order Posted");
 		}
-    	// TODO need to do payment
     	return "orderconfirm";
+    }
+    
+
+    @GetMapping("/payment") // Gets orders by Username
+    public String showPayment(Principal principal, ModelMap m) {
+    	return "payment";
     }
     
     @GetMapping("/orderhistory") // Gets orders by Username
     public String showHistory(Principal principal, ModelMap m) {
     	String username = principal.getName();
-		MusicUser user = musUseServ.GetUserByUsername(username);
+		MusicUser user = musUseServ.getUserByUsername(username);
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		} else {
@@ -168,7 +185,7 @@ public class UserController {
  		ModelMap m) {
     	
 		String username = principal.getName();
-		MusicUser user = musUseServ.GetUserByUsername(username);
+		MusicUser user = musUseServ.getUserByUsername(username);
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		} else {

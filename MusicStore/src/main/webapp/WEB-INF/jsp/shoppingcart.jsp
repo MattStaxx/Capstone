@@ -81,7 +81,7 @@
 			</tbody>
 		</table>
 		Your Total: ${total}
-		<form action="/checkout" method="post">	
+		<form action="/payment" method="get">
 		<input type="submit" value="Checkout"></form>
 	</div>
 </body>

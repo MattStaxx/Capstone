@@ -26,18 +26,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      .csrf().disable()
 	      .authorizeRequests()
 	      .antMatchers( // Endpoints that ANYONE can access //
-	    		  	"/",
+	    		 	"/",
 	      			"/home*",
 	      			"/register*",
 	      			"/login",
 	      			"/css/**",
 	      			"/images/**",
-	      			"/static/**",
 	      			"/loginError",
 	      			"/catalog",
-	      			"/about*")
-	      			.permitAll()
-	      .antMatchers("/profile", "/orderhistory","/search","/searchprice", "/details", "/shoppingcart", "/addToCart","/checkout","/checkoutresult").authenticated() //Endpoints that all logged in users can access
+	      			"/about*").permitAll()
+	      .antMatchers(
+	    		  "/profile", 
+	    		  "/orderhistory",
+	    		  "/search",
+	    		  "/searchprice",
+	    		  "/details",
+	    		  "/shoppingcart",
+	    		  "/addToCart",
+	    		  "/checkout",
+	    		  "/payment",
+	    		  "/checkoutresult").authenticated() //Endpoints that all logged in users can access
 	      .antMatchers("/*").hasRole("ADMIN") // Endpoints that admins can access (All of them)
 	      .and()
 	      .formLogin()

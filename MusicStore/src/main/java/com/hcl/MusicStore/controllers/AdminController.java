@@ -100,7 +100,7 @@ public class AdminController {
      		@RequestParam CustomerOrder.Status status, 
      		@RequestParam String user,
      		Model model){
-    	MusicUser foundUser = userService.GetUserByUsername(user);
+    	MusicUser foundUser = userService.getUserByUsername(user);
      	CustomerOrder foundOrder = customerOrderService.getOrderByOrderNumber(ordernumber);
      	if (foundOrder != null) {
      		throw new OrderAlreadyExistsException(ordernumber);
@@ -294,12 +294,12 @@ public class AdminController {
     		@RequestParam String email, 
     		@RequestParam String role, 
     		Model model){
-    	MusicUser foundUser = userService.GetUserByUsername(username);
+    	MusicUser foundUser = userService.getUserByUsername(username);
     	if (foundUser != null) {
     		throw new UserAlreadyExistsException(username);
     	} else {
     		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, null, role);
-    		userService.UpdateUser(newUser);
+    		userService.updateUser(newUser);
     		logger.info("New User Registered: " + newUser);
     		model.addAttribute("successMessage", "Registration Successful!");
     		model.addAttribute("users", userService.GetAllUsers());
@@ -315,7 +315,7 @@ public class AdminController {
     	if (foundUser == null) {
     		throw new UserNotFoundException(id);
     	} else {
-    		userService.DeleteUserById(id);
+    		userService.deleteUserById(id);
     		logger.debug("User with ID: " + id + " deleted.");
     		model.addAttribute("successMessage", "Delete Successful");
     		model.addAttribute("users", userService.GetAllUsers());
@@ -339,7 +339,7 @@ public class AdminController {
     	} else {
     		MusicUser newUser = new MusicUser(firstname, lastname, username, email, password, null, role);
     		newUser.setId(id);
-    		userService.UpdateUser(foundUser);
+    		userService.updateUser(foundUser);
     		logger.debug("User Updated: " + foundUser);
     		model.addAttribute("successMessage", "Update Successful!");
     		model.addAttribute("users", userService.GetAllUsers());
