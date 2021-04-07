@@ -16,13 +16,7 @@
     	  
 		<style type="text/css" media="screen">
 		
-		#background1 {		
-			background-image: url(/images/headphones2.jpg);
-			background-repeat: no-repeat;
-			background-position: center top;
-			padding-top:50px;
-			height: 92vh;
-		   }
+		
 		   
 		.carousel-inner > .item > img,  
 		.carousel-inner > .item > a > img { 
