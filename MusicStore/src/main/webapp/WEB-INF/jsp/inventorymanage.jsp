@@ -78,6 +78,7 @@
 		</div>
 	
 		<div class="container">
+			<div>
 			<table class="table table-striped table-bordered" id="tblData">
 				<thead>
 					<tr><h1>List of Products In Order</h1></tr>
@@ -146,8 +147,8 @@
 				<thead>
 					<tr><h1>Edit a Product</h1>
 					
-						<tr><input type="text" name="id" placeholder="ID of the Product to update" required>
-						<tr><th><input type="submit" value="Update">
+						<tr><th><input type="text" name="id" placeholder="ID of the Product to update" required>
+						<tr><input type="submit" value="Update">
 				</thead>
 				<tbody>	
 					<tr>
@@ -162,6 +163,7 @@
 				</tbody>
 				</table>
 			</form>
+		</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
