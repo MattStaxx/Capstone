@@ -19,71 +19,90 @@
 	rel="stylesheet"
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
-<link href="css/main.css" rel="stylesheet">
 
 
-<title>Catalog</title>
+
+<title>Product Details</title>
 </head>
 <body>
-	<ul>
-		<li><a href="home">Home</a></li>
-		<li><a class="active" href="catalog">Catalog</a></li>
-		<li><a href="about">About</a></li>
+	<h1 class="display-1">The Music Store</h1>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="home">Home</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav"">
+					<a class="nav-link" href="catalog">Catalog</a> <a class="nav-link"
+						href="about">About</a>
+					<sec:authorize access="isAuthenticated()">
+						<a class="nav-link" href="shoppingcart">Cart</a>
+						<a class="nav-link" href="orderhistory">Order History</a>
+						<a class="nav-link" href="profile">Profile</a>
 
-		<!-- Not logged in -->
-		<sec:authorize access="!isAuthenticated()">
-			<li><a href="login">Login</a></li>
-			<li><a href="register">Register</a></li>
-		</sec:authorize>
+					</sec:authorize>
 
-		<!-- Order View -->
-		<sec:authorize access="isAuthenticated()">
-			<li><a href="shoppingcart">Cart</a></li>
-			<li><a href="orderhistory">Order History</a></li>
-			<li><a href="profile">Profile</a></li>
-		</sec:authorize>
+					<sec:authorize access="hasAnyRole('ADMIN')">
 
-		<!-- Admin View -->
-		<sec:authorize access="hasAnyRole('ADMIN')">
-			<li><a href="manageinventory">Manage Inventory</a></li>
-			<li><a href="manageorders">Manage Orders</a></li>
-			<li><a href="manageusers">Manage Users</a></li>
-		</sec:authorize>
-		
-		<sec:authorize access="isAuthenticated()">
-			<li><a href="logout">Logout</a></li>
-		</sec:authorize>
-	</ul>
-	<div>
-		<table>
-			<tr>
-				<td>Artist</td>
-				<td>Genre</td>
-				<td>Title</td>
-				<td>Style</td>
-				<td>Format</td>
-				<td>In Stock</td>
-				<td>Price</td>
-			</tr>
-			<c:forEach items="${products}" var="product">
+						<a class="nav-link" href="admin">Admin</a>
+						<a class="nav-link" href="manageinventory">Manage Inventory</a>
+						<a class="nav-link" href="manageusers">Manage Orders</a>
+						<a class="nav-link" href="manageusers">Manage Users</a>
+					</sec:authorize>
+
+					<sec:authorize access="!isAuthenticated()">
+
+						<a class="nav-link" href="login">Login</a>
+						<a class="nav-link" href="register">Register</a>
+
+					</sec:authorize>
+
+					<sec:authorize access="isAuthenticated()">
+						<a class="nav-link" href="logout">Logout</a>
+					</sec:authorize>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<table class="table">
+			<thead>
 				<tr>
-					<td>${product.artist}</td>
-					<td>${product.genre}</td>
-					<td>${product.title}</td>
-					<td>${product.style}</td>
-					<td>${product.format}</td>
-					<td>${product.quantity}</td>
-					<td>${product.price}</td>
-					<td>
-						<form action="/addToCart" method="post">
-							<input type="hidden" id="idnumber" name="id" value="${product.id}"> 
-							Quantity <input type="number" id="quantity" name="quantity" value="1" required>
-							<input type="submit" value="Add to Cart">
-						</form>
-					</td>
+					<td scope="col">Artist</td>
+					<td scope="col">Genre</td>
+					<td scope="col">Title</td>
+					<td scope="col">Style</td>
+					<td scope="col">Format</td>
+					<td scope="col">In Stock</td>
+					<td scope="col">Price</td>
 				</tr>
-			</c:forEach>
-
+			</thead>
+			<tbody>
+				<c:forEach items="${products}" var="product">
+					<tr>
+						<td>${product.artist}</td>
+						<td>${product.genre}</td>
+						<td>${product.title}</td>
+						<td>${product.style}</td>
+						<td>${product.format}</td>
+						<td>${product.quantity}</td>
+						<td>${product.price}</td>
+						<td>
+							<form action="/addToCart" method="post">
+								<input type="hidden" id="idnumber" name="id"
+									value="${product.id}"> Quantity <input type="number"
+									id="quantity" name="quantity" value="1" required> <input
+									type="submit" value="Add to Cart">
+							</form>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
 
 	</div>

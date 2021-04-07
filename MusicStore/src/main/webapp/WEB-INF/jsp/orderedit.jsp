@@ -54,6 +54,7 @@
 		    </div>
 		  </div>
 		</nav>
+		<div class="container"></div>
 
 	<h2>
 		<div style="color: #0000FF;">${successMessage}</div>
@@ -146,6 +147,7 @@
 			</table>
 		</form>
 	</div>
+	
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
