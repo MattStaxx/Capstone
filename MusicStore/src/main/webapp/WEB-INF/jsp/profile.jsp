@@ -55,7 +55,7 @@
 		  </div>
 		</nav>
 	
-		<h1 class="display-1">${username}'s Profile</h1>
+		<h1 class="display-1">${user.username}'s Profile</h1>
 		<div class="container">
 		<table class="table table-striped table-bordered" id="tblData">
 				<thead>
@@ -100,14 +100,14 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th><input type="text" name="firstname" placeholder="First Name" value="${fn}" required></th>
-						<th><input type="text" name="lastname" placeholder="Last Name" value="${ln}"></th>
-						<th><input type="text" name="email" placeholder="Email" value="${em}"></th>
+						<th><input type="text" name="firstname" placeholder="First Name" value="${user.firstname}" required></th>
+						<th><input type="text" name="lastname" placeholder="Last Name" value="${user.lastname}"></th>
+						<th><input type="text" name="email" placeholder="Email" value="${user.email}"></th>
 						<th><input type="text" name="password" placeholder="Password" required></th>
-						<th><input type="text" name="creditcard" placeholder="Card Number" value="${cc}"></th>
+						<th><input type="text" name="creditcard" placeholder="Card Number" value="${user.creditcard}"></th>
 						<th><input type="hidden" name="id" placeholder="ID of the Product to update" required></th>	
-						<th><input type="hidden" name="role" placeholder="Role" value="${rl}" required></th>
-						<th><input type="hidden" name="username" placeholder="User Name" value="${username}" required></th>
+						<th><input type="hidden" name="role" placeholder="Role" value="${user.role}" required></th>
+						<th><input type="hidden" name="username" placeholder="User Name" value="${user.username}" required></th>
 						<th><input type="submit" value="Update"></th>
 					</tr>
 				</tbody>

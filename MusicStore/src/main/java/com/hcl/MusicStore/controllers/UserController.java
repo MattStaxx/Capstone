@@ -51,12 +51,7 @@ public class UserController {
     		//
     	}
     	Iterable<MusicUser> ud = musUseServ.findUserByFirstname(user.getFirstname());
-    	m.addAttribute("fn", user.getFirstname());
-    	m.addAttribute("ln", user.getLastname());
-    	m.addAttribute("em", user.getEmail());
-    	m.addAttribute("cc", user.getCreditcard());
-    	m.addAttribute("rl", user.getRole());
-    	m.addAttribute("username", username);
+    	m.addAttribute("user", user);
     	m.addAttribute("userdetails", ud);
         return "profile";
     }
