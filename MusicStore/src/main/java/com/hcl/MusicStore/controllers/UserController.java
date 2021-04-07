@@ -197,12 +197,13 @@ public class UserController {
     @GetMapping("/search") // Searches for everything but price returns list to be passed into table
     public String showSearch(ModelMap m, @RequestParam String options, @RequestParam String name){
         log.info("Searching");
+        System.out.println("options: "+options);
         Iterable<Product> products=productService.searchForProducts(options,name);
         log.info("Search successful Results:");
         for (Product product : products ) {
         	log.info(product.getTitle());
         }
-        m.addAttribute("products", products);
+        m.addAttribute("Product", products);
         return "catalog";
     }
    
@@ -211,11 +212,14 @@ public class UserController {
             @RequestParam int higherprice){
         log.info("Searching");
         Iterable<Product> products=productService.searchForProductsByPrice(lowerprice,higherprice);
-        
+        for (Product product : products ) {
+        	log.info(product.getPrice()+"");
+        }
         log.info("Search successful");
-        m.addAttribute("products", products);
+        m.addAttribute("Product", products);
         return "catalog";
     }
+    
     @GetMapping("/details")
     public String showDetails(ModelMap m, @RequestParam int idnumber) {
         log.info("Searching");
