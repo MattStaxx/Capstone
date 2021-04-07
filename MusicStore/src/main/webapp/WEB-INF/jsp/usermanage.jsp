@@ -18,6 +18,7 @@
 	<title>Manage Users</title>
 	</head>
 	<body>
+		<h1 class="display-1">Managing Users</h1>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			  <div class="container-fluid">
 			    <a class="navbar-brand" href="home">Home</a>
@@ -59,7 +60,6 @@
 	
 		<div class="container">
 		<div class="col-11">
-			<h1 class="display-1">Managing Users</h1>
 		
 			<div id="emptyFieldErrorMessage"
 				style="display: none; text-align: center;">

@@ -16,6 +16,7 @@
 <title>Profile</title>
 </head>
 	<body>
+		<h1 class="display-1">${user.username}'s Profile</h1>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="home">Home</a>
@@ -55,7 +56,6 @@
 		  </div>
 		</nav>
 	
-		<h1 class="display-1">${user.username}'s Profile</h1>
 		<div class="container">
 		<table class="table table-striped table-bordered" id="tblData">
 				<thead>
@@ -78,7 +78,7 @@
 						</tr><br><br>
 					</c:forEach>
 				</tbody>
-				</table>
+			</table>
 		<div class="container">
 		<table class="table table-striped table-bordered" id="tblData">
 				<thead>
@@ -105,9 +105,9 @@
 						<th><input type="text" name="email" placeholder="Email" value="${user.email}"></th>
 						<th><input type="text" name="password" placeholder="Password" required></th>
 						<th><input type="text" name="creditcard" placeholder="Card Number" value="${user.creditcard}"></th>
-						<th><input type="hidden" name="id" placeholder="ID of the Product to update" required></th>	
-						<th><input type="hidden" name="role" placeholder="Role" value="${user.role}" required></th>
-						<th><input type="hidden" name="username" placeholder="User Name" value="${user.username}" required></th>
+						<input type="hidden" name="id" placeholder="ID of the Product to update" required>
+						<input type="hidden" name="role" placeholder="Role" value="${user.role}" required>
+						<input type="hidden" name="username" placeholder="User Name" value="${user.username}" required>
 						<th><input type="submit" value="Update"></th>
 					</tr>
 				</tbody>
