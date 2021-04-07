@@ -68,8 +68,7 @@
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="logout">Logout</a></li>
 		</sec:authorize>	
-	</ul>
-        <h1 class="display-1">TODO</h1>                                          
+	</ul>                                        
 	
 	 <div class="container" style="background-color: rgb(2, 8, 1);" >
 	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
