@@ -24,7 +24,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav"">
         <a class="nav-link" href="catalog">Catalog</a>
         <a class="nav-link" href="about">About</a>
     	<sec:authorize access="isAuthenticated()">
@@ -38,6 +38,7 @@
     	
     	 <a class="nav-link" href="admin">Admin</a>
     	 <a class="nav-link" href="manageinventory">Manage Inventory</a>
+    	 <a class="nav-link" href="manageusers">Manage Orders</a>
     	 <a class="nav-link" href="manageusers">Manage Users</a>
 		</sec:authorize>
     	
