@@ -65,9 +65,6 @@
 	</div>
 
 	<div class="container">
-		<button type="button" id="btnAdd" class="btn btn-default btn-sm">
-			
-		</button>
 		<br /> <br />
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
@@ -80,6 +77,7 @@
 					<th scope="col">Email</th>
 					<th scope="col">Password</th>
 					<th scope="col">Role</th>
+					<th></th>
 				</tr>
 				<c:forEach items="${users}" var="user">
 					<tr>
@@ -90,6 +88,12 @@
 						<td><c:out value="${user.email}" /></td>
 						<td><c:out value="${user.password}" /></td>
 						<td><c:out value="${user.role}" /></td>
+						<td>
+							<form action="/deleteUser" method="post"">
+								<input type="hidden" name="id" value="${user.id}">
+								<input type="submit" value="Delete">
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</thead>
@@ -117,17 +121,6 @@
  					  	<option value="ADMIN">Admin</option>
 					  	</select></th>
 					<th><input type="submit" value="Add"></th>
-				</tr>
-			</thead>
-		</form>
-		
-		<form action="/deleteUser" method="post"">
-			<table class="table table-striped table-bordered" id="tblData">
-			<thead>
-				<tr><h1>Delete a User</h1></tr>
-				<tr>		
-					<th><input type="number" name="id" placeholder="ID to Delete" required></th>
-					<th><input type="submit" value="Delete"></th>
 				</tr>
 			</thead>
 		</form>

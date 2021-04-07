@@ -38,7 +38,7 @@ public class CustomerOrder implements Serializable {
     
     private Status status;
     
-    @OneToMany(mappedBy="id", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="id")
     private List<Product> products;    
     
     @ManyToOne

@@ -67,7 +67,6 @@
 					<th scope="col">Id</th>
 					<th scope="col">Order Number</th>
 					<th scope="col">Status</th>
-					<th scope="col">Customer</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -105,9 +104,11 @@
 						<td><c:out value="${product.genre}" /></td>
 						<td><c:out value="${product.quantity}" /></td>
 					</tr>
+					<c:set var="total" value="${total + (product.price * product.quantity)}" />
 				</c:forEach>
 			</tbody>
 		</table>
+		<h1>Your Total: ${total}</h1>
 	</div>
 
 	<script
