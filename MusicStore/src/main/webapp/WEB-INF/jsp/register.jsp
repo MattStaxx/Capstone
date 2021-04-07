@@ -11,35 +11,47 @@
 <title>Register</title>
 </head>
 <body>
-	<ul>
-		<li><a href="home">Home</a></li>
-		<li><a href="catalog">Catalog</a></li>
-		<li><a href="about">About</a></li>
+	<h1 class="display-1">The Music Store</h1>
 
-		<!-- Not logged in -->
-		<sec:authorize access="!isAuthenticated()">
-			<li><a href="login">Login</a></li>
-			<li><a class="active" href="register">Register</a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="home">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav"">
+        <a class="nav-link" href="catalog">Catalog</a>
+        <a class="nav-link" href="about">About</a>
+    	<sec:authorize access="isAuthenticated()">
+    	   <a class="nav-link" href="shoppingcart">Cart</a>
+    	   <a class="nav-link" href="orderhistory">Order History</a>
+    	   <a class="nav-link" href="profile">Profile</a>
+
+    	</sec:authorize>
+    	
+    	<sec:authorize access="hasAnyRole('ADMIN')">
+    	
+    	 <a class="nav-link" href="admin">Admin</a>
+    	 <a class="nav-link" href="manageinventory">Manage Inventory</a>
+    	 <a class="nav-link" href="manageusers">Manage Orders</a>
+    	 <a class="nav-link" href="manageusers">Manage Users</a>
 		</sec:authorize>
+    	
+    	<sec:authorize access="!isAuthenticated()">
 
-		<!-- Order View -->
-		<sec:authorize access="isAuthenticated()">
-			<li><a href="shoppingcart">Cart</a></li>
-			<li><a href="orderhistory">Order History</a></li>
-			<li><a href="profile">Profile</a></li>
-		</sec:authorize>
+    			 <a class="nav-link" href="login"  >Login</a>
+    			 <a class="nav-link" href="register">Register</a>
 
-		<!-- Admin View -->
-		<sec:authorize access="hasAnyRole('ADMIN')">
-			<li><a href="manageinventory">Manage Inventory</a></li>
-			<li><a href="manageorders">Manage Orders</a></li>
-			<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 		
-		<sec:authorize access="isAuthenticated()">
-			<li><a href="logout">Logout</a></li>
-		</sec:authorize>
-	</ul>
+		    	<sec:authorize access="isAuthenticated()">
+		    	    	   <a class="nav-link" href="logout" >Logout</a>
+		    	</sec:authorize>
+      </div>
+    </div>
+  </div>
+</nav>         
 	<div class="user-form">
 		<h1>Register Form</h1>
 		<form action="/register" method="POST">

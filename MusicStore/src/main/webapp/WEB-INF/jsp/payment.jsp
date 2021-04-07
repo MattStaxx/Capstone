@@ -16,7 +16,8 @@
 
     <title>Homepage</title>
   </head>
-  <body style="background-color: rgb(2, 8, 1);">   
+  <body style="background-color: rgb(2, 8, 1);"> 
+  <h1 class="display-1">The Music Store</h1>  
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Home</a>

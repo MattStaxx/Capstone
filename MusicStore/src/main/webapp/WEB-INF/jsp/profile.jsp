@@ -16,7 +16,8 @@
 <title>Profile</title>
 </head>
 	<body>
-		<h1 class="display-1">${user.username}'s Profile</h1>
+	     <h1 class="display-1">The Music Store</h1>
+		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="home">Home</a>
@@ -56,7 +57,7 @@
 		    </div>
 		  </div>
 		</nav>
-	
+	    <p>Hi, ${user.username}'s</p>
 		<div class="container">
 		<table class="table table-striped table-bordered" id="tblData">
 				<thead>

@@ -16,7 +16,8 @@
 
     <title>Homepage</title>
   </head>
-  <body style="background-color: rgb(2, 8, 1);">   
+  <body style="background-color: rgb(2, 8, 1);">  
+   
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Home</a>
@@ -69,15 +70,21 @@
 		  </div>
 	      <div class="carousel-item active">
 	      	<img alt="no image" class="image-fluid" src="images/guitar.jpg">
-	          
+	          <div class="carousel-caption d-none d-md-block">
+             <h5>Search for all your favorite genres</h5>
+           </div>
 	      </div>
 	        <div class="carousel-item">
 	          <img alt="no image" class="image-fluid" src="images/bluecomp.jpg">
-	            
+	            <div class="carousel-caption d-none d-md-block">
+             <h5>Search for all your favorite Artist</h5>
+           </div>
 	        </div>
 	        <div class="carousel-item">
 	          <img alt="no image" class="image-fluid" src="images/headphones2.jpg">
-	           
+	           <div class="carousel-caption d-none d-md-block">
+             <h5>List on all formats</h5>
+           </div>
 	        </div>
 	        <div class="carousel-item">
 	          <img alt="no image" class="image-fluid" src="images/beats.jpg">

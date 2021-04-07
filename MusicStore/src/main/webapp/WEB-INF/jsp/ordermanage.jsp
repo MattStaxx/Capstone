@@ -15,7 +15,7 @@
 	  	<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<h1 class="display-1">Managing Orders</h1>
+		<h1 class="display-1">The Music Store:Admin Side</h1>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="home">Home</a>
