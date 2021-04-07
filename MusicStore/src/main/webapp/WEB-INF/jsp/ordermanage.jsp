@@ -140,25 +140,26 @@
 			</form>
 			</div>
 			<div>
-			<form action="/updateOrderStatus" method="post">
-				<table class="table table-striped table-bordered" id="tblData">
-				<thead>
-					<tr><h1>Update Order Status</h1></td>
-					<tr>
-						<th><input type="text" name="id" placeholder="Order Id" required></th>	
-					<tr>		
-						<th><select name="status" id="status">
-						  <option value="" disabled selected>Status</option>
-				 		  <option value="ORDERED">Ordered</option>
-				 		  <option value="SHIPPED">Shipped</option>
-	 					  <option value="DELIVERED">Delivered</option>	  
-						</select></th>
-						<th><input type="submit" value="Update"></th>
-				</thead>
-			</table>
-			</form>
+				<form action="/updateOrderStatus" method="post">
+					<table class="table table-striped table-bordered" id="tblData">
+					<thead>
+						<tr><h1>Update Order Status</h1></td>
+						<tr>
+							<th><input type="text" name="id" placeholder="Order Id" required></th>	
+						<tr>		
+							<th><select name="status" id="status">
+							  <option value="" disabled selected>Status</option>
+					 		  <option value="ORDERED">Ordered</option>
+					 		  <option value="SHIPPED">Shipped</option>
+		 					  <option value="DELIVERED">Delivered</option>	  
+							</select></th>
+							<th><input type="submit" value="Update"></th>
+					</thead>
+				</table>
+				</form>
+			</div>
 		</div>
-	</body>
+	</body>s
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
