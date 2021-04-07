@@ -51,33 +51,24 @@
 	</ul>
 
 	<h1 class="display-1">Profile Page</h1>
-
-
 	<div class="container">
-		<br /> <br />
-		<table class="table table-striped table-bordered" id="tblData">
+	<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr><h1>${username}'s Profile</h1></tr>
 				<tr>		
-					<th scope="col">Id</th>
 					<th scope="col">First Name</th>
 					<th scope="col">Last Name</th>
-					<th scope="col">User Name</th>
 					<th scope="col">Email</th>
 					<th scope="col">Password</th>
 					<th scope="col">Card Number</th>
-					<th scope="col">Role</th>
 				</tr>
 				<c:forEach items="${userdetails}" var="usr">
 					<tr>
-						<td><c:out value="${usr.id}" /></td>
 						<td><c:out value="${usr.firstname}" /></td>
 						<td><c:out value="${usr.lastname}" /></td>
-						<td><c:out value="${usr.username}" /></td>
 						<td><c:out value="${usr.email}" /></td>
 						<td><c:out value="${usr.password}" /></td>
 						<td><c:out value="${usr.creditcard}" /></td>
-						<td><c:out value="${usr.role}" /></td>
 					</tr>
 				</c:forEach>
 			</thead>
@@ -93,18 +84,18 @@
 				<tr>
 					<th><input type="text" name="firstname" placeholder="First Name" required></th>
 					<th><input type="text" name="lastname" placeholder="Last Name" required></th>
-					<th><input type="text" name="username" placeholder="User Name" required></th>
+					<th><input type="hidden" name="username" placeholder="User Name" required></th>
 					<th><input type="text" name="email" placeholder="Email" required></th>
 					<th><input type="text" name="password" placeholder="Password" required></th>
 					<th><input type="text" name="creditcard" placeholder="Card Nmuber" required></th>
-					<th><input type="text" name="role" placeholder="Role" required></th>
+					<th><input type="hidden" name="role" placeholder="Role" required></th>
 					<th><input type="submit" value="Update"></th>
 				</tr>
 			</thead>
 			</table>
 		</form>
 	</div>
-
+		
 
 
 
