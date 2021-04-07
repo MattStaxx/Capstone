@@ -15,11 +15,11 @@
         crossorigin="anonymous">
 		<style type="text/css" media="screen">
 		   #background1 {
-		      background-image: url(../images/beats.jpg);
+		      background-image: url(/images/headphones2.jpg);
 		      background-repeat: no-repeat;
-		      background-position: left top;
-		      padding-top:68px;
-		      margin-bottom:50px;
+		      background-position: center top;
+		      padding-top:50px;
+		      height: 92vh;
 		   }
 		</style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
 
     <title>Homepage</title>
   </head>
-  <body>
+  <body>    
 	<ul>
 		<li><a class="active" href="home">Home</a></li>
 		<li><a href="catalog">Catalog</a></li>
@@ -56,9 +56,9 @@
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="logout">Logout</a></li>
 		</sec:authorize>
-	</ul>
-	<div class="container-fluid" id="background1"></div>                                                  
+	</ul>                                             
 	
+	<div class="container-fluid" id="background1"></div> 
         
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

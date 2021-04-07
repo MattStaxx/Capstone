@@ -25,13 +25,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    http
 	      .csrf().disable()
 	      .authorizeRequests()
-	      .antMatchers( // Endpoints that ANYONE can access
+	      .antMatchers( // Endpoints that ANYONE can access //
 	    		  	"/",
 	      			"/home*",
 	      			"/register*",
 	      			"/login",
 	      			"/css/**",
 	      			"/images/**",
+	      			"/static/**",
 	      			"/loginError",
 	      			"/catalog",
 	      			"/about*",
