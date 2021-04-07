@@ -89,7 +89,7 @@
 			<input type="submit" value="Search">
 		</form>
 		
-		<form action="search" id="search2">
+		<form action="searchprice" id="search2">
 			<label for="options"> Search By: </label> <select id="options2"
 				name="options">
 				<option value="artist">Artist Name</option>
@@ -99,8 +99,8 @@
 				<option value="title">Title</option>
 				<option value="price">Price</option>
 			</select> 
-			<input type="text" id="name" name="name" required> 
-			<input type="text" id="name2" name="name2" > 
+			<input type="number" id="lowerprice" name="lowerprice" placeholder="min" required> 
+			<input type="number" id="higherprice" name="higherprice" placeholder="max" required > 
 			<input type="submit" value="Search">
 		</form>
 </div>
