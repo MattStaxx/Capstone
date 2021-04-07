@@ -83,9 +83,9 @@ public class ProductService {
 		TypedQuery<Product> query = em.createQuery(result);
 		return query.getResultList();
 	}
-	
+
 	public List<Product> displayCatalog(){
-	 return productRepository.findAllByCustomerOrder(null);
+		return productRepository.findAll();
 	}
 		
 }

@@ -34,11 +34,14 @@ public class MainController {
     public String showRegister() {
         return "register";
     }
-    
+
     @GetMapping("/catalog")
     public String showCatalog(ModelMap m) {
     	Iterable<Product> products=productService.displayCatalog();
-        m.addAttribute("products", products);
+    	for(Product s: products){
+    		System.out.println(s.getArtist());
+    	}
+        m.addAttribute("Product", products);
         return "catalog";
     }
     
