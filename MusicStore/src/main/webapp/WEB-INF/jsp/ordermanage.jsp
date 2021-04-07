@@ -35,6 +35,7 @@
 		    	<sec:authorize access="hasAnyRole('ADMIN')">
 			    	 <a class="nav-link" href="admin">Admin</a>
 			    	 <a class="nav-link" href="manageinventory">Manage Inventory</a>
+					 <a class="nav-link" href="manageorders">Manage Orders</a>
 			    	 <a class="nav-link" href="manageusers">Manage Users</a>
 				</sec:authorize>
 		    	
