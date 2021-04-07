@@ -12,15 +12,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "product_tbl")
 public class Product implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="product_id")
     private Integer id;
     private String title;
     private String artist;
@@ -28,27 +29,20 @@ public class Product implements Serializable {
     private String format;
     private double price;
     private String genre;
+    private enum Rating { ONE, TWO, THREE, FOUR, FIVE } // Was thinking we'd want a star rating sys??
     private int quantity; 
-    private enum Rating { ONE(0), TWO(1), THREE(2), FOUR(3), FIVE(4); 
-    	private int rating;
-    	
-    	private Rating(int rating) {
-    		this.rating = rating;
-    	}
-	} 
+
+    @ManyToOne
+    @JoinColumn(name="order_id") // Order that this product is associated with
+    private CustomerOrder customerOrder;
     
-    private Rating rating;
-
-    @ManyToOne(fetch=FetchType.LAZY, optional=false)
-    @JoinColumn(name="order_id", nullable=false)
-    private CustomerOrder orders;
-
-    @ManyToMany(mappedBy="products")
-    private Set<MusicUser> customer;
+    @ManyToOne
+    @JoinColumn(name="cart_id") // User ID of the cart that this product is associated with
+    private MusicUser customer;
     
     public Product() {}
     
-    public Product(Integer id, String title, String artist, String style, String format, double price, String genre, int quantity) {
+    public Product(Integer id, String title, String artist, String style, String format, double price, String genre, int quantity, CustomerOrder order, MusicUser customer) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -58,6 +52,8 @@ public class Product implements Serializable {
 		this.price = price;
 		this.genre = genre;
 		this.quantity = quantity;
+		this.customer = customer;
+		this.customerOrder = order;
 	}
 
 	public Integer getId() { return this.id; }
@@ -68,7 +64,10 @@ public class Product implements Serializable {
 	public double getPrice() { return this.price; }
 	public String getGenre() { return this.genre; }
 	public int getQuantity() { return this.quantity; }
-
+	public CustomerOrder getCustomerOrder( ) {return this.customerOrder; }
+	public MusicUser getCustomer() {return this.customer; }
+	
+	public void setId(Integer id) { this.id = id; }
 	public void setTitle(String title) { this.title = title; }
 	public void setArtist(String artist) { this.artist = artist; }
 	public void setStyle(String style) { this.style = style; }
@@ -76,5 +75,6 @@ public class Product implements Serializable {
 	public void setPrice(double price) { this.price = price; }
 	public void setGenre(String genre) { this.genre = genre; }
 	public void setQuantity(int quantity) { this.quantity = quantity; }
-	
+	public void setCustomerOrder(CustomerOrder customerOrder) { this.customerOrder = customerOrder; }
+	public void setCustomer(MusicUser customer) {this.customer = customer; }
 }

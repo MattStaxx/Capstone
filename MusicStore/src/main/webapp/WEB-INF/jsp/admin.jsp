@@ -18,30 +18,33 @@
     <title>Admin</title>
   </head>
   <body>
-    <ul>	
+	<ul>
 		<li><a href="home">Home</a></li>
 		<li><a href="catalog">Catalog</a></li>
 		<li><a href="about">About</a></li>
-		
+
 		<!-- Not logged in -->
 		<sec:authorize access="!isAuthenticated()">
- 			<li><a href="login">Login</a></li>
+			<li><a href="login">Login</a></li>
 			<li><a href="register">Register</a></li>
 		</sec:authorize>
-		
-		<!-- User View -->
+
+		<!-- Order View -->
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="shoppingcart">Cart</a></li>
 			<li><a href="orderhistory">Order History</a></li>
- 			<li><a href="profile">Profile</a></li>
- 			<li><a href="logout">Logout</a></li>
+			<li><a href="profile">Profile</a></li>
 		</sec:authorize>
-		
+
 		<!-- Admin View -->
 		<sec:authorize access="hasAnyRole('ADMIN')">
-    		<li><a class="active" href="admin">Admin</a></li>
-    		<li><a href="manageinventory">Manage Inventory</a></li>
-    		<li><a href="manageusers">Manage Users</a></li>
+			<li><a href="manageinventory">Manage Inventory</a></li>
+			<li><a href="manageorders">Manage Orders</a></li>
+			<li><a href="manageusers">Manage Users</a></li>
+		</sec:authorize>
+		
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="logout">Logout</a></li>
 		</sec:authorize>
 	</ul>
 	

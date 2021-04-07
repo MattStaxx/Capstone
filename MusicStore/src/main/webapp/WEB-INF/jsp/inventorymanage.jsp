@@ -1,3 +1,4 @@
+  
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List" %>
@@ -9,17 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
-
-
+  	<link rel="stylesheet" href="css/style.css">
 <title>Manage Inventory</title>
 </head>
 <body>
@@ -107,7 +98,7 @@
 		<div style="color: #0000FF;">${successMessage}</div>
 		<div style="color: #FF0000;">${errorMessage}</div>
 		
-		<form action="/addProduct" method="post"">	
+		<form action="/addProduct" method="post">	
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr><h1>Add a Product</h1></tr>
@@ -122,9 +113,10 @@
 					<th><input type="submit" value="Add"></th>
 				</tr>
 			</thead>
+			</table>
 		</form>
 		
-		<form action="/deleteProduct" method="post"">
+		<form action="/deleteProduct" method="post">
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr><h1>Delete a Product</h1></tr>
@@ -133,14 +125,15 @@
 					<th><input type="submit" value="Delete"></th>
 				</tr>
 			</thead>
+			</table>
 		</form>
 		
-		<form action="/updateProduct" method="post"">
+		<form action="/updateProduct" method="post">
 			<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr><h1>Edit a Product</h1></td>
 				<tr>
-					<th><input type="text" id="id" placeholder="ID of the Product to update" required></th>	
+					<th><input type="text" name="id" placeholder="ID of the Product to update" required></th>	
 				<tr>
 					<th><input type="text" name="title" placeholder="Title" required></th>
 					<th><input type="text" name="artist" placeholder="Artist" required></th>
@@ -151,12 +144,11 @@
 					<th><input type="number" name="quantity" placeholder="Quantity" required></th>
 					<th><input type="submit" value="Update"></th>
 				</tr>
-				</tr>
 			</thead>
+			</table>
 		</form>
 	</div>
-	
-	
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

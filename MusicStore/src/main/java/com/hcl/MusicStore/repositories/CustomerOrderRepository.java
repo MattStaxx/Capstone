@@ -1,5 +1,6 @@
 package com.hcl.MusicStore.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +14,8 @@ public interface CustomerOrderRepository extends JpaRepository<CustomerOrder, In
 	
 	public Optional<CustomerOrder> findByOrderNumber(Integer ordNum);
 	public Iterable<CustomerOrder> findAllOrdersByCustomer(Optional<MusicUser> customer);
+	public List<CustomerOrder> findAllByCustomer(MusicUser user);
+	public List<CustomerOrder> findAllByCustomerId(Integer id);
+	
 	public void deleteByOrderNumber (Integer ordNum);
 }

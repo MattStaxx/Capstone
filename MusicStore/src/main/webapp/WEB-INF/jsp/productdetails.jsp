@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -36,24 +36,59 @@
 			<li><a href="register">Register</a></li>
 		</sec:authorize>
 
-		<!-- User View -->
+		<!-- Order View -->
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="shoppingcart">Cart</a></li>
 			<li><a href="orderhistory">Order History</a></li>
 			<li><a href="profile">Profile</a></li>
-			<li><a href="logout">Logout</a></li>
 		</sec:authorize>
 
 		<!-- Admin View -->
 		<sec:authorize access="hasAnyRole('ADMIN')">
-			<li><a href="admin">Admin</a></li>
 			<li><a href="manageinventory">Manage Inventory</a></li>
+			<li><a href="manageorders">Manage Orders</a></li>
 			<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
+		
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="logout">Logout</a></li>
+		</sec:authorize>
 	</ul>
-	<h1 class="display-1">TODO</h1>
+	<div>
+		<table>
+			<tr>
+				<td>Artist</td>
+				<td>Genre</td>
+				<td>Title</td>
+				<td>Style</td>
+				<td>Format</td>
+				<td>In Stock</td>
+				<td>Price</td>
+			</tr>
+			<c:forEach items="${products}" var="product">
+				<tr>
+					<td>${product.artist}</td>
+					<td>${product.genre}</td>
+					<td>${product.title}</td>
+					<td>${product.style}</td>
+					<td>${product.format}</td>
+					<td>${product.quantity}</td>
+					<td>${product.price}</td>
+					<td>
+						<form action="/addToCart" method="post">
+							<input type="hidden" id="idnumber" name="id" value="${product.id}"> 
+							Quantity <input type="number" id="quantity" name="quantity" value="1" required>
+							<input type="submit" value="Add to Cart">
+						</form>
+					</td>
+				</tr>
+			</c:forEach>
 
-	
+		</table>
+
+	</div>
+
+
 
 
 

@@ -55,6 +55,10 @@ public class MusicUserService {
     	return(foundUser.get());
     }
     
+    public Iterable<MusicUser> findUserByFirstname(String firstname) {
+    	return userRepository.findByFirstname(firstname);
+    }
+    
     public MusicUser UpdateUser(MusicUser usertoUpdate) {
     	usertoUpdate.setPassword(passwordEncoder.encode(usertoUpdate.getPassword()));
     	return userRepository.save(usertoUpdate);
