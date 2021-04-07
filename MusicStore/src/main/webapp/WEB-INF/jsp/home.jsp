@@ -31,6 +31,10 @@
 			margin: auto;  
 		    }  
 		    
+	    .carousel-indicators .active {
+	    	background-color: green;
+	    }
+		    
 		</style>
 
     <title>Homepage</title>
@@ -67,7 +71,7 @@
 	</ul>                                             
 	
 	 <div class="container" style="background-color: rgb(2, 8, 1);" >
-	  <div id="carouselExampleIndicators" class="carousel slide carousel-dark carousel-fade" data-bs-ride="carousel">
+	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
 	    <div class="carousel-inner" style="height:91vh; margin-left:auto; margin-right:auto;">
 	      <div class="carousel-indicators">
 		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
