@@ -12,8 +12,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link href="css/main.css" rel="stylesheet">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
+        crossorigin="anonymous">
+		<style type="text/css" media="screen">
+		   #background1 {
+		      background-image: url(../images/beats.jpg);
+		      background-repeat: no-repeat;
+		      background-position: left top;
+		      padding-top:68px;
+		      margin-bottom:50px;
+		   }
+		</style>
 
     <title>Homepage</title>
   </head>
@@ -44,27 +56,11 @@
     		<li><a href="manageusers">Manage Users</a></li>
 		</sec:authorize>
 	</ul>
-        <h1 class="display-1">TODO</h1>
-                   
-    <form style="text-align:center" action="orderhistory" method="get">   <!-- line 49(here) to line64 is being hijacked for testing -->
-		<input type="text" id="username" name="username">                 <!-- this should all go in a profile page or usermanage -->
+	<div class="container-fluid" id="background1"></div>                                                  
 	
-		<input type="submit" value="View Orders">
-	</form>
-		   
-	<table style="text-align:left;width:70%; cellpadding:2px" >
-		<tr><th>Order Number</th></tr>
-		<c:forEach items="${orderList}" var="ord">
-		   <tr>  
-		   <td>${ord.id}</td> 
-		   </tr>
-		   </c:forEach>
-		   </table>
-		
-		   <br/>                                                          <!-- to here(line 64) -->
-	
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.2.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+        
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+      
     </body>
 </html>

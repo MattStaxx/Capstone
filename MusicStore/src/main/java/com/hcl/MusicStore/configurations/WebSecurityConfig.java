@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      			"/register*",
 	      			"/login",
 	      			"/css/**",
+	      			"/images/**",
 	      			"/loginError",
 	      			"/catalog",
 	      			"/about*",
