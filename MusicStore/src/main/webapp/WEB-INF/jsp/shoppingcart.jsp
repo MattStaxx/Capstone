@@ -72,7 +72,7 @@
 						<td><c:out value="${product.genre}" /></td>
 						<td><c:out value="${product.quantity}" /></td>
 					</tr>
-					<c:set var="total" value="${total + product.price}" />
+					<c:set var="total" value="${total + (product.price * product.quantity)}" />
 				</c:forEach>
 				
 			</thead>

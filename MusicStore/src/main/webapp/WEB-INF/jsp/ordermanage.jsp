@@ -66,10 +66,8 @@
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr>		
-					<th scope="col">Id</th>
-					<th scope="col">Order Number</th>
+					<th scope="col">Order Id</th>
 					<th scope="col">Status</th>
-					<th scope="col">Items</th>
 					<th scope="col">Customer</th>
 				</tr>
 				
@@ -78,11 +76,38 @@
 				<c:forEach items="${orders}" var="order">
 					<tr>
 						<td><c:out value="${order.id}" /></td>
-						<td><c:out value="${order.orderNumber}" /></td>
 						<td><c:out value="${order.status}" /></td>
-						<td><c:out value="${order.products}" /></td>
-						<td><c:out value="${order.customer}" /></td>
+						<td><c:out value="${order.customer.getUsername()}" /></td>
 					</tr>
+					<!-- Print out all products
+					<tr>
+						<td>Products: ${order.products.size()}</td>
+					</tr>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Title</th>
+						<th scope="col">Artist</th>
+						<th scope="col">Style</th>
+						<th scope="col">Format</th>
+						<th scope="col">Price</th>
+						<th scope="col">Genre</th>
+						<th scope="col">Quantity</th>
+					</tr>
+						<c:forEach items="${order.products}" var="product">
+							<tr>
+								<td><c:out value="${product.id}" /></td>
+								<td><c:out value="${product.title}" /></td>
+								<td><c:out value="${product.artist}" /></td>
+								<td><c:out value="${product.style}" /></td>
+								<td><c:out value="${product.format}" /></td>
+								<td><c:out value="${product.price}" /></td>
+								<td><c:out value="${product.genre}" /></td>
+								<td><c:out value="${product.quantity}" /></td>
+							</tr>
+						</c:forEach>
+					
+						
+					<tr><td><hr></td><tr> -->
 				</c:forEach>
 			</tbody>
 		</table>

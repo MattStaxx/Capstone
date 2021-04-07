@@ -46,20 +46,20 @@
 	<h1 class="display-1">Order History</h1>
 	<table class="table table-striped table-bordered" id="tblData">
 			<thead>
-				<tr><h1>Your Order Confirmation</h1></tr>
 				<tr>		
-					<th scope="col">Id</th>
-					<th scope="col">Order Number</th>
+					<th scope="col">Order Id</th>
+					<!-- <th scope="col">Order Number</th> Hidden for now-->
 					<th scope="col">Status</th>
-					<th scope="col">Customer</th>
+					<th scope="col">Items</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${orders}" var="order">
 					<tr>
 						<td><c:out value="${order.id}" /></td>
-						<td><c:out value="${order.orderNumber}" /></td>
+						<!-- <td><c:out value="${order.orderNumber}" /></td> Hidden for now-->
 						<td><c:out value="${order.status}" /></td>
+						<td><c:out value="${order.products.size()}" /></td>
 					</tr>
 				</c:forEach>
 			</tbody>
