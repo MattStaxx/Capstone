@@ -14,7 +14,6 @@
 	rel="stylesheet"
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
-<link href="css/main.css" rel="stylesheet">
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
@@ -35,7 +34,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav"">
         <a class="nav-link" href="catalog">Catalog</a>
         <a class="nav-link" href="about">About</a>
     	<sec:authorize access="isAuthenticated()">
@@ -49,6 +48,7 @@
     	
     	 <a class="nav-link" href="admin">Admin</a>
     	 <a class="nav-link" href="manageinventory">Manage Inventory</a>
+    	 <a class="nav-link" href="manageusers">Manage Orders</a>
     	 <a class="nav-link" href="manageusers">Manage Users</a>
 		</sec:authorize>
     	
@@ -65,7 +65,7 @@
       </div>
     </div>
   </div>
-</nav>
+</nav>         
 
  <div>
  <h1 class="display-1" >The Music store</h1>
