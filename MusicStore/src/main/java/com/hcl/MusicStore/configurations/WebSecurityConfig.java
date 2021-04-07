@@ -35,9 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      			"/static/**",
 	      			"/loginError",
 	      			"/catalog",
-	      			"/about*",
-	      			"/swagger-ui.html",
-	      			"/webjars/springfox-swagger-ui/css/**")
+	      			"/about*")
 	      			.permitAll()
 	      .antMatchers("/profile", "/orderhistory","/search","/searchprice", "/details", "/shoppingcart", "/addToCart","/checkout","/checkoutresult").authenticated() //Endpoints that all logged in users can access
 	      .antMatchers("/*").hasRole("ADMIN") // Endpoints that admins can access (All of them)

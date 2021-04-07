@@ -79,6 +79,9 @@
 					<th scope="col">Role</th>
 					<th></th>
 				</tr>
+				
+			</thead>
+			<tbody>
 				<c:forEach items="${users}" var="user">
 					<tr>
 						<td><c:out value="${user.id}" /></td>
@@ -96,8 +99,6 @@
 						</td>
 					</tr>
 				</c:forEach>
-			</thead>
-			<tbody>
 			</tbody>
 		</table>
 		

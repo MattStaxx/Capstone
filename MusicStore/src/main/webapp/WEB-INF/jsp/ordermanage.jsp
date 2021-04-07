@@ -51,10 +51,11 @@
 		<br /> <br />
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
+				<tr><h1>List of All Orders</h1></tr>
 				<tr>		
 					<th scope="col">Order Id</th>
 					<th scope="col">Status</th>
-					<th scope="col">Customer</th>
+					<th scope="col">Customer Username</th>
 					<th scope="col"># Products Ordered</th>
 					<th scope="col"></th>
 				</tr>
