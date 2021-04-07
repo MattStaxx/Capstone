@@ -58,11 +58,13 @@
 	
 	 <div class="container" style="background-color: rgb(2, 8, 1);" >
 	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
-	    <div class="carousel-inner" style="height:91vh; margin-left:auto; margin-right:auto;">
+	    <div class="carousel-inner" style="height:90vh; margin-left:auto; margin-right:auto;">
 	      <div class="carousel-indicators">
 		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
 		  </div>
 	      <div class="carousel-item active">
 	      	<img alt="no image" class="image-fluid" src="images/guitar.jpg">
@@ -74,6 +76,14 @@
 	        </div>
 	        <div class="carousel-item">
 	          <img alt="no image" class="image-fluid" src="images/headphones2.jpg">
+	           
+	        </div>
+	        <div class="carousel-item">
+	          <img alt="no image" class="image-fluid" src="images/beats.jpg">
+	           
+	        </div>
+	        <div class="carousel-item">
+	          <img alt="no image" class="image-fluid" src="images/speaker2.jpg">
 	           
 	        </div>
 	    </div>
