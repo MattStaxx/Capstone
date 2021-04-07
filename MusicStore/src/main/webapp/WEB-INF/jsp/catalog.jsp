@@ -15,6 +15,10 @@
 <title>Catalog</title>
 </head>
 <body>
+ <div>
+ <h1 class="display-1" >The Music store</h1>
+ </div>
+
 	<ul>
 		<li><a href="home">Home</a></li>
 		<li><a class="active" href="catalog">Catalog</a></li>
@@ -47,9 +51,9 @@
 	
 
 	<!-- Search Catalog Forms -->
-	<div>
+	<div class="searchforms">
 		<!-- Search for everything but Price-->
-		<form action="search">
+		<form action="search" >
 			<label for="options"> Search By: </label> <select id="options"
 				name="options">
 				<option value="artist">Artist Name</option>
@@ -71,14 +75,17 @@
 		</form>
 
 	</div>
+	<br>
+	<br>
 
-	<div>
-		<table>
+	<div class="productlist">
+		<table class="table table-hover">
 		 <tr>
-		   <td> Artist</td>
-		   <td> Genre</td>
-		   <td> Title</td>
-		   <td> Price</td>
+		   <td scope="col"> Artist</td>
+		   <td scope="col"> Genre</td>
+		   <td scope="col"> Title</td>
+		   <td scope="col"> Price</td>
+		   <td scope="col"> </td>
 		 </tr>
 			<c:forEach items="${products}" var="product">
 				<tr>
