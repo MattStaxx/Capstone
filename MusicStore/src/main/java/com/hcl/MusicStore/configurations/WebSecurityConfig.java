@@ -27,6 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      .authorizeRequests()
 	      .antMatchers( // Endpoints that ANYONE can access //
 	    		 	"/",
+	    		 	"/error",
 	      			"/home*",
 	      			"/register*",
 	      			"/login",
@@ -53,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      	.loginPage("/login")
 	      	.loginProcessingUrl("/performLogin")
 	      	.defaultSuccessUrl("/home", true)
-	      	.failureUrl("/loginError")
+	      	.failureUrl("/error")
 	      	.and()
 	      .logout()
 	      	.permitAll();

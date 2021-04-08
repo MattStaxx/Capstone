@@ -3,6 +3,7 @@
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+<%@ page isErrorPage="true" %>  
 <!doctype html>
 <html>
   <head>
@@ -14,9 +15,9 @@
     	  crossorigin="anonymous">
   	<link rel="stylesheet" href="css/style.css">
 
-    <title>Homepage</title>
+    <title>Error Page</title>
   </head>
-  <body style="background-color: rgb(2, 8, 1);">  
+  <body>  
    
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -57,49 +58,13 @@
     </div>
   </div>
 </nav>                                         
-	<body>
-	 <div class="container" style="background-color: rgb(2, 8, 1);" >
-	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
-	    <div class="carousel-inner" style="height:90vh; margin-left:auto; margin-right:auto;">
-	      <div class="carousel-indicators">
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-		  </div>
-	      <div class="carousel-item active">
-	      	<img alt="no image" class="image-fluid" src="images/guitar.jpg">
-	          <div class="carousel-caption d-none d-md-block">
-             <h5>Search for all your favorite genres</h5>
-           </div>
-	      </div>
-	        <div class="carousel-item">
-	          <img alt="no image" class="image-fluid" src="images/bluecomp.jpg">
-	            <div class="carousel-caption d-none d-md-block">
-             <h5>Search for all your favorite Artist</h5>
-           </div>
-	        </div>
-	        <div class="carousel-item">
-	          <img alt="no image" class="image-fluid" src="images/headphones2.jpg">
-	           <div class="carousel-caption d-none d-md-block">
-             <h5>List on all formats</h5>
-           </div>
-	        </div>
-	        <div class="carousel-item">
-	          <img alt="no image" class="image-fluid" src="images/beats.jpg">
-	           
-	        </div>
-	        <div class="carousel-item">
-	          <img alt="no image" class="image-fluid" src="images/speaker2.jpg">
-	           
-	        </div>
-	    </div>
-		    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" ></button>
-		    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"></button>
-	  </div>
-	</div>
-	</body>
+<body>
+	<div class="error"> 
+	<h1 class="text-danger">Sorry an exception occured!</h1>  
+	Exception: <%= exception %>  
+</div>  
+
+</body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
         	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
         	    crossorigin="anonymous"></script>
