@@ -14,3 +14,5 @@
 	transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
+body {margin:2em;}
+td:last-child {text-align:center;}

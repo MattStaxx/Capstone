@@ -142,14 +142,13 @@
 				Deleted!</b> <br />
 		</div>
 		
-
 		<div class="container">
 			<table class="table table-hover" id="tblData">
 				<thead>
 					<tr><h1>List of Products In Order</h1></tr>
 					<tr>		
-						<th scope="col">Id</th>
 						<th scope="col">Image</th>
+						<th scope="col">Id</th>
 						<th scope="col">Title</th>
 						<th scope="col">Artist</th>
 						<th scope="col">Style</th>
@@ -231,27 +230,15 @@
 				</tbody>
 				</table>
 			</form>
-		</div>
+        <!-- ### $App Screen Footer ### -->
+        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+          <span>Copyright © 2019 Designed by The Coolest Team! All rights reserved.</span>
+        </footer>
 		</div>
 		<script src="/javascript/search.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
         	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
         	    crossorigin="anonymous"></script>
 	</body>
-	<script>
-var accordion1 = document.getElementsByClassName("accordion1");
-var h;
-
-for (h = 0; h < acc.length; h++) {
-  accordion1[h].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
-</script>
+<script src="/javascript/datatable.js"></script>
 </html>
