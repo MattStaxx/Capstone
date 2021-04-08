@@ -29,7 +29,7 @@
         <li><a href="about" class="nav-link px-2 text-white">About</a></li>
         <sec:authorize access="isAuthenticated()">
         	<li><a class="nav-link px-2 text-white" href="orderhistory">Order History</a></li>
-        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Checkout</a></li>
+        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Cart</a></li>
     	   	
     	</sec:authorize>
       </ul>
