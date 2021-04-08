@@ -133,5 +133,58 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.2.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+  
+  	 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
+    
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+                      <a href="localhost:8080/">The Music tore</a>
+                    </div>
+                    <!-- Copyright -->
+          
+                  </footer>
+                  <!-- Footer -->
+       
+      
+             	<script>
+		var element = document.getElementById("footer");
+		var rect = element.getBoundingClientRect();
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+	
+		console.log(rect.top,  rect.bottom);
+		console.log(w+" "+h);
+		if(rect.bottom<=h){element.style="position: fixed; bottom: 0; width:100%";}
+		//console.log(x);
+		rect = element.getBoundingClientRect();
+				console.log(rect.top, rect.bottom);
+		console.log(w+" "+h);
+		var count=0; 
+		window.onresize = reportWindowSize;
+		function reportWindowSize(){console.log("hi");
+		count++;
+		if(count!=1){
+			 rect = element.getBoundingClientRect();
+			 h = window.innerHeight;
+			 console.log(rect.bottom+" "+h);
+			if(rect.bottom<=h){element.style="position: fixed; bottom: 0; width:100%";}
+			else{element.style="position:width:100%";}
+		}
+		}
+		</script>
+               <style>
+  footer {
+  text-align: center;
+  padding: 3px;
+  background-color: black;
+  color: white;
+}
+</style>       
+
+	
+	
+	
+	
+	
     </body>
 </html>
