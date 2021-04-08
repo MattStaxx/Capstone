@@ -19,7 +19,7 @@
   
   
   <h1 class="display-1">The Music Store</h1>
-	<nav class="p-3 bg-dark text-white">
+<nav class="p-3 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -40,33 +40,57 @@
 	  <div id="divId1" align=right style="margin-right: 10px">
 		<!-- Search for everything but Price-->
 		<form action="search" id="search1">
-			<label for="options"> Search By: </label> <select id="options1"
-				name="options">
-				<option value="artist">Artist Name</option>
-				<option value="format">Music Format</option>
-				<option value="genre">Genre</option>
-				<option value="style">Style</option>
-				<option value="title">Title</option>
-				<option value="category">Category</option>
-				<option value="price">Price</option>
-			</select> <input type="text" id="name" name="name" required> <input
-				type="submit" value="Search">
+			<div class="row">
+				<div class="col-2">
+					<label for="options"><h4 class="fs-6">Search By:</h4></label> 
+				</div>
+				<div class="col-4">
+					<select class="form-select" id="options1" name="options">
+					<option value="artist">Artist Name</option>
+					<option value="format">Music Format</option>
+					<option value="genre">Genre</option>
+					<option value="style">Style</option>
+					<option value="title">Title</option>
+					<option value="category">Category</option>
+					<option value="price">Price</option>
+					</select> 
+					
+				</div>
+				<div class="col-4">
+					<input class="form-control" type="text" id="name" name="name" required>
+				</div>
+				<div class="col-2">
+					<input class="form-control fs-8" type="submit" value="Search">
+				</div>
+			</div>
 		</form>
 
 		<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="searchprice" id="search2">
-			<label for="options"> Search By: </label> <select id="options2"
-				name="options">
-				<option value="artist">Artist Name</option>
-				<option value="format">Music Format</option>
-				<option value="genre">Genre</option>
-				<option value="style">Style</option>
-				<option value="title">Title</option>
-				<option value="category">Category</option>
-				<option value="price">Price</option>
-			</select> <input type="number" id="lowerprice" name="lowerprice"
-				placeholder="min" required> <input type="number"
-				id="higherprice" name="higherprice" placeholder="max" required>
-			<input type="submit" value="Search">
+			<div class="row">
+				<div class="col">
+					<label for="options"> Search By: </label> 
+				</div>
+				<div class="col">
+					<select class="form-select" id="options2" name="options">
+					<option value="artist">Artist Name</option>
+					<option value="format">Music Format</option>
+					<option value="genre">Genre</option>
+					<option value="style">Style</option>
+					<option value="title">Title</option>
+					<option value="category">Category</option>
+					<option value="price">Price</option>
+					</select> 
+				</div>
+				<div class="col">
+					<input class="form-control" type="number" id="lowerprice" name="lowerprice" placeholder="min" required> 		
+				</div>
+				<div class="col">
+					<input class="form-control" type="number" id="higherprice" name="higherprice" placeholder="max" required>
+				</div>
+				<div class="col">
+					<input class="form-control" type="submit" value="Search">
+				</div>
+			</div>
 		</form>
 	</div>
 			
@@ -87,8 +111,7 @@
     			 <li><a class="dropdown-item" href="admin">Admin</a></li>
     	 		 <li><a class="dropdown-item" href="manageinventory">Manage Inventory</a></li>
     			 <li><a class="dropdown-item" href="manageusers">Manage Orders</a></li>
-    			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>
-    			
+    			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>	
 			</sec:authorize>
        	  	<li><a class="dropdown-item" href="profile">Profile</a></li>
        	 	<li><hr class="dropdown-divider"></li>
@@ -99,6 +122,7 @@
     </div>
   </div>
 </nav>
+
         <h2 class="display-1">About Us</h2>
         <div class="container">
         <p> Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
