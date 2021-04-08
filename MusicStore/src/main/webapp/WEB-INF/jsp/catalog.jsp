@@ -126,71 +126,43 @@
     </div>
   </div>
 </nav>
-
-	<!-- Search Catalog Forms -->
-	<div id="divId1" align=right style="margin-right: 10px">
-		<!-- Search for everything but Price-->
-		<form action="search" id="search1">
-			<label for="options"> Search By: </label> <select id="options1"
-				name="options">
-				<option value="artist">Artist Name</option>
-				<option value="format">Music Format</option>
-				<option value="genre">Genre</option>
-				<option value="style">Style</option>
-				<option value="title">Title</option>
-				<option value="category">Category</option>
-				<option value="price">Price</option>
-			</select> <input type="text" id="name" name="name" required> <input
-				type="submit" value="Search">
-		</form>
-
-		<form action="searchprice" id="search2">
-			<label for="options"> Search By: </label> <select id="options2"
-				name="options">
-				<option value="artist">Artist Name</option>
-				<option value="format">Music Format</option>
-				<option value="genre">Genre</option>
-				<option value="style">Style</option>
-				<option value="title">Title</option>
-				<option value="category">Category</option>
-				<option value="price">Price</option>
-			</select> <input type="number" id="lowerprice" name="lowerprice"
-				placeholder="min" required> <input type="number"
-				id="higherprice" name="higherprice" placeholder="max" required>
-			<input type="submit" value="Search">
-		</form>
-	</div>
-	<br>
-	<br>
-
 	<div class="container">
 		<div class="productlist">
+			<h1 class="display-1">Catalog</h1>
 			<div style="color: #0000FF;">${successMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
 			<table class="table table-hover">
 				<thead>
 					<tr>
-					     <th scope="col"  > </th>
-						<th scope="col"  >Product</th>
+					    <th scope="col"  >Name</th>
+						<th scope="col"  >Image</th>
 						<th scope="col"  >Price</th>
 						<th scope="col"  >Category</th>
-						 <th scope="col"  > </th>
+						<th scope="col"  > </th>
 					</tr>
 				</thead>
 				<tbody>
-				
 					<c:forEach items="${Product}" var="product">
 						<tr>
-							<td ><td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td> </td>
-								<td> $ ${product.price} </td>
-								<td> ${product.category} </td>
+								<td>${product.title}</td>
 								<td>
-								<form action="details">
-
+									<img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail">
+								</td>
+								<td> $ ${product.price} </td>
+								<td class="col-2"> ${product.category} </td>
+								<td class="row">
+								<form class="col" action="/addToCart" method="post">
+									<input type="hidden" id="idnumber" name="id"
+										value="${product.id}"><h6>Quantity</h6><input class="w-25" type="number"
+										id="quantity" name="quantity" value="1" required> <input class="btn btn-success"
+										type="submit" value="Add to Cart">
+								</form>
+								<form class="row w-25" action="details">
 									<input type="hidden" id="idnumber" name="idnumber"
-										value="${product.id}"> <input type="submit"
+										value="${product.id}"> <input class="btn btn-secondary" type="submit"
 										value="Details">
-								</form></td>
+								</form>
+								</td>
 								 
 						</tr>
 					</c:forEach>

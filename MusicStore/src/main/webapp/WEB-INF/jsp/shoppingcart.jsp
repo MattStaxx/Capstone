@@ -125,7 +125,7 @@
 </nav>	
 		<div class="container w-25">
 			<ul class="list-group mb-3">
-			<h2 class="display-3">Cart</h2>
+			<h1 class="display-1">Cart</h1>
           	<c:set var="total" value="${0}"/>
           	<c:forEach items="${products}" var="product">
           		<li class="list-group-item d-flex justify-content-between lh-condensed">

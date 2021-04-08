@@ -155,8 +155,8 @@
 			
 					<form action="/addToCart" method="post">
 						<input type="hidden" id="idnumber" name="id" value="${product.id}">
-						Quantity <input type="number" id="quantity" name="quantity"
-							value="1" required> <input type="submit"
+						<h6>Quantity</h6><input class="form-control" type="number" id="quantity" name="quantity"
+							value="1" required> <input type="submit" class="btn btn-secondary"
 							value="Add to Cart">
 					</form>
 					<li>

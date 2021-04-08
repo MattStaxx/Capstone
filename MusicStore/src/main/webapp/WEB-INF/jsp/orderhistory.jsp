@@ -120,7 +120,7 @@
     </div>
   </div>
 </nav>
-
+	<div class="container w-75">
 	<h1 class="display-1">Order History</h1>
 	<table class="table table-striped table-bordered" id="tblData">
 			<thead>
@@ -142,7 +142,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
+	</div>
 	 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
     
                     <!-- Copyright -->
