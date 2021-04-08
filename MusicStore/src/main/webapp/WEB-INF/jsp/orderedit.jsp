@@ -115,6 +115,7 @@
 				<tr><h1>Add a Product</h1></tr>
 				<tr>	
 					<input type="hidden" name="orderid" value="${order.id}" required>
+					<th></th>
 					<th><input type="text" name="title" placeholder="Title" required></th>
 					<th><input type="text" name="imageurl" placeholder="Image URL"></th>
 					<th><input type="text" name="artist" placeholder="Artist" ></th>
