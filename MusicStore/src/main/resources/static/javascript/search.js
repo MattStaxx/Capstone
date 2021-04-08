@@ -1,4 +1,4 @@
-var x = document.getElementById("search1");
+var search1= document.getElementById("search1");
 var xx = document.getElementById("options1");
 var x2 = document.getElementById("search2");
 var xx2 = document.getElementById("options2");
@@ -12,7 +12,7 @@ var option1A = document.getElementById("options1");
 option1A.addEventListener("change", function() {
 
 	if (this.value == "price") {
-		y.removeChild(x);
+		y.removeChild(search1);
 		xx2.selectedIndex = "6";
 		y.appendChild(x2);
 	}
@@ -38,7 +38,7 @@ option1B.addEventListener("change", function() {
 			xx.selectedIndex = "5";
 		}
 
-		y.appendChild(x);
+		y.appendChild(search1);
 	}
 
 });
