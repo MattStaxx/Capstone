@@ -24,6 +24,7 @@ public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
+    private String category;
     private String imageurl;
     private String title;
     private String artist;
@@ -61,6 +62,7 @@ public class Product implements Serializable {
 
 	public Integer getId() { return this.id; }
 	public String getImageurl() { return this.imageurl; }
+	public String getCategory() { return this.category; }
 	public String getTitle() { return this.title; }
 	public String getArtist() { return this.artist; }
 	public String getStyle() { return this.style; }
@@ -73,6 +75,7 @@ public class Product implements Serializable {
 	
 	public void setId(Integer id) { this.id = id; }
 	public void setImageurl(String imageurl) { this.imageurl = imageurl; }
+	public void setCategory(String category) { this.category = category; }
 	public void setTitle(String title) { this.title = title; }
 	public void setArtist(String artist) { this.artist = artist; }
 	public void setStyle(String style) { this.style = style; }
