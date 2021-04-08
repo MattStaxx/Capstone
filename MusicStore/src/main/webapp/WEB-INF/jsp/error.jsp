@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<%@ page isErrorPage="true" %>  
 <!doctype html>
 <html>
   <head>
@@ -13,11 +15,11 @@
     	  crossorigin="anonymous">
   	<link rel="stylesheet" href="css/style.css">
 
-    <title>About</title>
+    <title>Error Page</title>
   </head>
-  <body>
-  <h1 class="display-1">The Music Store</h1>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+  <body>  
+   
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,16 +57,14 @@
       </div>
     </div>
   </div>
-</nav>
-        <h2 class="display-1">About Us</h2>
-        <div class="container">
-        <p> Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
-        <p > Location:  123 Anywhere Street, Nowhere,TX 12345-6789
-        Phone: 123-456-7890</p>
-        </div>
-    </body>
-    
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
+</nav>                                         
+	<div class="error"> 
+	<h1 class="text-danger">Sorry an exception occured!</h1>  
+	Exception: <%= exception %>  
+</div>  
+
+</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
         	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
         	    crossorigin="anonymous"></script>
 </html>

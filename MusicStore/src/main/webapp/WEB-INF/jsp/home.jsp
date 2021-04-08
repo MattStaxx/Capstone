@@ -16,7 +16,9 @@
 
     <title>Homepage</title>
   </head>
-  <body style="background-color: rgb(33, 37, 41);">   
+  <body style="background-color: rgb(33, 37, 41);">   >  
+   
+>>>>>>> branch 'main' of https://github.com/MattStaxx/Capstone.git
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Home</a>
@@ -55,7 +57,7 @@
       </div>
     </div>
   </div>
-</nav>                                         
+</nav>        
 	
 	 <div class="container" style="background-color: rgb(33, 37, 41);" >
 	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
@@ -69,15 +71,21 @@
 		  </div>
 	      <div class="carousel-item active">
 	      	<img alt="no image" class="image-fluid" src="images/turntable1-1280.jpg">
-	          
+	          <div class="carousel-caption d-none d-md-block">
+             <h5>Search for all your favorite genres</h5>
+           </div>
 	      </div>
 	        <div class="carousel-item">
 	          <img alt="no image" class="image-fluid" src="images/audiojack2-1280.jpg">
-	            
+	            <div class="carousel-caption d-none d-md-block">
+             <h5>Search for all your favorite Artist</h5>
+           </div>
 	        </div>
 	        <div class="carousel-item">
 	          <img alt="no image" class="image-fluid" src="images/headphones1-1280.jpg">
-	           
+	           <div class="carousel-caption d-none d-md-block">
+             <h5>List on all formats</h5>
+           </div>
 	        </div>
 	        <div class="carousel-item">
 	          <img alt="no image" class="image-fluid" src="images/coffeebean-1280.jpg">
@@ -92,6 +100,7 @@
 		    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"></button>
 	  </div>
 	</div>
+	</body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
         	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
         	    crossorigin="anonymous"></script>

@@ -1,5 +1,7 @@
 package com.hcl.MusicStore.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,7 +12,8 @@ import com.hcl.MusicStore.services.ProductService;
 
 @Controller
 public class MainController {
-	
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+
 	@Autowired
 	ProductService productService;
 	
@@ -39,7 +42,7 @@ public class MainController {
     public String showCatalog(ModelMap m) {
     	Iterable<Product> products=productService.displayCatalog();
     	for(Product s: products){
-    		System.out.println(s.getArtist());
+    		logger.debug(s.getArtist());
     	}
         m.addAttribute("Product", products);
         return "catalog";

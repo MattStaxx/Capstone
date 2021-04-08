@@ -48,7 +48,7 @@ public class LoginRegistrationController {
     		logger.info("New User Registered: " + newUser);
     		model.addAttribute("successMessage", "Registration Successful!");
     	}
-    	return "register";
+    	return "login";
     }
     
     @ExceptionHandler(UserAlreadyExistsException.class)

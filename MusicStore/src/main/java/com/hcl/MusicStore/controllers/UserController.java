@@ -105,7 +105,7 @@ public class UserController {
     public String performCheckout(
     		@RequestParam String cardnumber,
     		@RequestParam String expire,
-    		@RequestParam String cvc,
+    		@RequestParam String cvv,
     		Principal principal, 
     		ModelMap m) {
     	String username = principal.getName();
@@ -135,6 +135,7 @@ public class UserController {
 	    	for(Product product : cart) {
 	    		Product orderProduct = new Product(
 		    		null, 
+		    		product.getImageurl(),
 		    		product.getTitle(), 
 		    		product.getArtist(), 
 		    		product.getStyle(), 
@@ -152,9 +153,42 @@ public class UserController {
     	return "orderconfirm";
     }
     
-
+    @PostMapping("/redeemcoupon") // Gets orders by Username
+    public String redeemCoupon(
+    		@RequestParam String code,
+    		Principal principal, 
+    		ModelMap m) {
+    	if (code.equals("SAVEEVERYTHING")) {
+    		int discount = 999999999;
+    		m.addAttribute("discount", discount);
+    		m.addAttribute("discountname", "SAVEEVERYTHING");
+    		m.addAttribute("discountdesc", "WAIT STOP we're gonna go bankrupt!");
+    	}
+    	String username = principal.getName();
+		MusicUser user = musUseServ.getUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			List<Product> cart = productService.getAllProductsByUser(user);
+			m.addAttribute("products", cart);
+			m.addAttribute("user",user);
+		}
+    	return "payment";
+    }
+    
     @GetMapping("/payment") // Gets orders by Username
-    public String showPayment(Principal principal, ModelMap m) {
+    public String showPayment(
+    		Principal principal, 
+    		ModelMap m) {
+    	String username = principal.getName();
+		MusicUser user = musUseServ.getUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			List<Product> cart = productService.getAllProductsByUser(user);
+			m.addAttribute("products", cart);
+			m.addAttribute("user",user);
+		}
     	return "payment";
     }
     
@@ -196,6 +230,7 @@ public class UserController {
 	    	Product product = foundproduct.get();
 	    	Product cartProduct = new Product(
 	    			null, 
+	    			product.getImageurl(),
 	    			product.getTitle(), 
 	    			product.getArtist(), 
 	    			product.getStyle(), 
@@ -208,7 +243,34 @@ public class UserController {
 	    	cartProduct.setCustomer(user);
 	    	productService.saveProduct(cartProduct);
 		}
+		List<Product> products = productService.displayCatalog();
+		m.addAttribute("Product", products);
+		m.addAttribute("successMessage", "Product Added to Cart!");
     	return "catalog";
+    }
+    
+    @PostMapping("/deleteFromCart")
+    public String removeFromCart(
+        	@RequestParam Integer id,
+        	Principal principal,
+        	ModelMap m) {
+    	productService.deleteProduct(id);
+    	m.addAttribute("successMessage", "Item Removed!");
+    	// Retrieve Shopping cart again
+    	String username = principal.getName();
+		MusicUser user = musUseServ.getUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			List<Product> cart = productService.getAllProductsByUser(user);
+			log.info("Cart size... " + cart.size());
+			for (Product product : cart) {
+				log.info(product.toString());
+			}
+			m.addAttribute("products", cart);
+		}
+    	
+    	return "shoppingcart";
     }
     
     @GetMapping("/search") // Searches for everything but price returns list to be passed into table

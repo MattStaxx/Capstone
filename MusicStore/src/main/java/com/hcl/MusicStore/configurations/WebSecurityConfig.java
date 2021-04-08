@@ -27,6 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      .authorizeRequests()
 	      .antMatchers( // Endpoints that ANYONE can access //
 	    		 	"/",
+	    		 	"/error",
 	      			"/home*",
 	      			"/register*",
 	      			"/login",
@@ -34,17 +35,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      			"/images/**",
 	      			"/loginError",
 	      			"/catalog",
+	      			"/search",
+		    		"/searchprice",
 	      			"/about*").permitAll()
 	      .antMatchers(
 	    		  "/profile", 
 	    		  "/orderhistory",
-	    		  "/search",
-	    		  "/searchprice",
 	    		  "/details",
 	    		  "/shoppingcart",
 	    		  "/addToCart",
+	    		  "/deleteFromCart",
 	    		  "/checkout",
 	    		  "/payment",
+	    		  "/redeemcoupon",
 	    		  "/checkoutresult").authenticated() //Endpoints that all logged in users can access
 	      .antMatchers("/*").hasRole("ADMIN") // Endpoints that admins can access (All of them)
 	      .and()
@@ -52,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      	.loginPage("/login")
 	      	.loginProcessingUrl("/performLogin")
 	      	.defaultSuccessUrl("/home", true)
-	      	.failureUrl("/loginError")
+	      	.failureUrl("/error")
 	      	.and()
 	      .logout()
 	      	.permitAll();

@@ -17,7 +17,7 @@
 	<title>Manage Inventory</title>
 	</head>
 	<body>
-		<h1 class="display-1">Managing Inventory</h1>
+		<h1 class="display-1">The Music Store:Admin Side</h1>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="home">Home</a>
@@ -84,6 +84,7 @@
 					<tr><h1>List of Products In Order</h1></tr>
 					<tr>		
 						<th scope="col">Id</th>
+						<th scope="col">Image</th>
 						<th scope="col">Title</th>
 						<th scope="col">Artist</th>
 						<th scope="col">Style</th>
@@ -98,6 +99,7 @@
 					<c:forEach items="${products}" var="product">
 						<tr>
 							<td><c:out value="${product.id}" /></td>
+							<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
 							<td><c:out value="${product.title}" /></td>
 							<td><c:out value="${product.artist}" /></td>
 							<td><c:out value="${product.style}" /></td>
@@ -130,6 +132,7 @@
 				<tbody>
 					<tr>		
 						<th><input type="text" name="title" placeholder="Title" required></th>
+						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
 						<th><input type="text" name="artist" placeholder="Artist" ></th>
 						<th><input type="text" name="style" placeholder="Style" ></th>
 						<th><input type="text" name="format" placeholder="Format" required></th>
@@ -153,6 +156,7 @@
 				<tbody>	
 					<tr>
 						<th><input type="text" name="title" placeholder="Title" required></th>
+						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
 						<th><input type="text" name="artist" placeholder="Artist" required></th>
 						<th><input type="text" name="style" placeholder="Style" required></th>
 						<th><input type="text" name="format" placeholder="Format" required></th>
@@ -165,7 +169,8 @@
 			</form>
 		</div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
+        	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
+        	    crossorigin="anonymous"></script>
 	</body>
 </html>
