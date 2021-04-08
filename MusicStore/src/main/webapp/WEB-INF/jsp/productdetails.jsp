@@ -71,6 +71,8 @@
 	</nav>
 	<div class="container">
 		<table class="table">
+			<div style="color: #0000FF;">${successMessage}</div>
+			<div style="color: #FF0000;">${errorMessage}</div>
 			<thead>
 				<tr>
 					<th></th>
@@ -84,26 +86,25 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${products}" var="product">
-					<tr>
-						<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
-						<td>${product.artist}</td>
-						<td>${product.genre}</td>
-						<td>${product.title}</td>
-						<td>${product.style}</td>
-						<td>${product.format}</td>
-						<td>${product.quantity}</td>
-						<td>${product.price}</td>
-						<td>
-							<form action="/addToCart" method="post">
-								<input type="hidden" id="idnumber" name="id"
-									value="${product.id}"> Quantity <input type="number"
-									id="quantity" name="quantity" value="1" required> <input
-									type="submit" value="Add to Cart">
-							</form>
-						</td>
-					</tr>
-				</c:forEach>
+				<tr>
+					<td><img src="${product.imageurl}" alt="${product.title}"
+						class="img-thumbnail"></td>
+					<td>${product.artist}</td>
+					<td>${product.genre}</td>
+					<td>${product.title}</td>
+					<td>${product.style}</td>
+					<td>${product.format}</td>
+					<td>${product.quantity}</td>
+					<td>${product.price}</td>
+					<td>
+						<form action="/addToCart" method="post">
+							<input type="hidden" id="idnumber" name="id"
+								value="${product.id}"> Quantity <input type="number"
+								id="quantity" name="quantity" value="1" required> <input
+								type="submit" value="Add to Cart">
+						</form>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 

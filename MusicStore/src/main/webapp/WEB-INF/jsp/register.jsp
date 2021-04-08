@@ -76,11 +76,10 @@
 				required> <input type="submit" value="Register" id="submit">
 		</form>
 		<hr>
-		<form action="/login" method="GET">
-			<input type="submit" value="Go back to Login Page">
-		</form>
 	</div>
-
+	<form class="user-form" action="/login" method="GET">
+		<input type="submit" value="Go Back To Login" id="submit" >
+	</form>
 	<script>
 		var password = document.getElementById("password");
 		var confirm_password = document.getElementById("password2");

@@ -35,13 +35,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      			"/images/**",
 	      			"/loginError",
 	      			"/catalog",
+	      			"/details",
 	      			"/search",
 		    		"/searchprice",
 	      			"/about*").permitAll()
 	      .antMatchers(
 	    		  "/profile", 
 	    		  "/orderhistory",
-	    		  "/details",
 	    		  "/shoppingcart",
 	    		  "/addToCart",
 	    		  "/deleteFromCart",
@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      	.loginPage("/login")
 	      	.loginProcessingUrl("/performLogin")
 	      	.defaultSuccessUrl("/home", true)
-	      	.failureUrl("/error")
+	      	.failureUrl("/loginError")
 	      	.and()
 	      .logout()
 	      	.permitAll();
