@@ -42,7 +42,7 @@ public class MainController {
     public String showCatalog(ModelMap m) {
     	Iterable<Product> products=productService.displayCatalog();
     	for(Product s: products){
-    		System.out.println(s.getArtist());
+    		logger.debug(s.getArtist());
     	}
         m.addAttribute("Product", products);
         return "catalog";
