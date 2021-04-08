@@ -47,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    		  "/deleteFromCart",
 	    		  "/checkout",
 	    		  "/payment",
+	    		  "/redeemcoupon",
 	    		  "/checkoutresult").authenticated() //Endpoints that all logged in users can access
 	      .antMatchers("/*").hasRole("ADMIN") // Endpoints that admins can access (All of them)
 	      .and()

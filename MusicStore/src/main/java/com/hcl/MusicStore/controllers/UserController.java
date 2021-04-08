@@ -105,7 +105,7 @@ public class UserController {
     public String performCheckout(
     		@RequestParam String cardnumber,
     		@RequestParam String expire,
-    		@RequestParam String cvc,
+    		@RequestParam String cvv,
     		Principal principal, 
     		ModelMap m) {
     	String username = principal.getName();
@@ -153,9 +153,42 @@ public class UserController {
     	return "orderconfirm";
     }
     
-
+    @PostMapping("/redeemcoupon") // Gets orders by Username
+    public String redeemCoupon(
+    		@RequestParam String code,
+    		Principal principal, 
+    		ModelMap m) {
+    	if (code.equals("SAVEEVERYTHING")) {
+    		int discount = 999999999;
+    		m.addAttribute("discount", discount);
+    		m.addAttribute("discountname", "SAVEEVERYTHING");
+    		m.addAttribute("discountdesc", "WAIT STOP we're gonna go bankrupt!");
+    	}
+    	String username = principal.getName();
+		MusicUser user = musUseServ.getUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			List<Product> cart = productService.getAllProductsByUser(user);
+			m.addAttribute("products", cart);
+			m.addAttribute("user",user);
+		}
+    	return "payment";
+    }
+    
     @GetMapping("/payment") // Gets orders by Username
-    public String showPayment(Principal principal, ModelMap m) {
+    public String showPayment(
+    		Principal principal, 
+    		ModelMap m) {
+    	String username = principal.getName();
+		MusicUser user = musUseServ.getUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else {
+			List<Product> cart = productService.getAllProductsByUser(user);
+			m.addAttribute("products", cart);
+			m.addAttribute("user",user);
+		}
     	return "payment";
     }
     

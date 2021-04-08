@@ -58,7 +58,6 @@
     </div>
   </div>
 </nav>                                         
-<body>
 	<div class="error"> 
 	<h1 class="text-danger">Sorry an exception occured!</h1>  
 	Exception: <%= exception %>  
