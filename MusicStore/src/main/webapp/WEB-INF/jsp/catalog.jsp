@@ -158,43 +158,41 @@
 			<div style="color: #0000FF;">${successMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
 			<table class="table table-hover">
-			<thead>
-				<tr>
-					<th></th>
-					<th scope="col">Artist</th>
-					<th scope="col">Genre</th>
-					<th scope="col">Title</th>
-					<th scope="col">Price</th>
-					<th scope="col"></th>
-				</tr>
+				<thead>
+					<tr>
+					     <th scope="col"  > </th>
+						<th scope="col"  >Product</th>
+						<th scope="col"  >Price</th>
+						<th scope="col"  >Category</th>
+						 <th scope="col"  > </th>
+					</tr>
 				</thead>
 				<tbody>
-				<c:forEach items="${Product}" var="product">
-					<tr>
-						<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
-						</tr>
+				
+					<c:forEach items="${Product}" var="product">
 						<tr>
-						<td>${product.artist}</td>
-						<td>${product.genre}</td>
-						<td>${product.title}</td>
-						<td>${product.price}</td>
-						<td>
-							<form action="details">
+							<td ><td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td> </td>
+								<td> $ ${product.price} </td>
+								<td> ${product.category} </td>
+								<td>
+								<form action="details">
 
-								<input type="hidden" id="idnumber" name="idnumber"
-									value="${product.id }"> <input type="submit"
-									value="Details">
-							</form>
-						</td>
-					</tr>
-				</c:forEach>
+									<input type="hidden" id="idnumber" name="idnumber"
+										value="${product.id}"> <input type="submit"
+										value="Details">
+								</form></td>
+								 
+						</tr>
+					</c:forEach>
+				  
 				</tbody>
 			</table>
 		</div>
 	</div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
-        	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
-        	    crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+	crossorigin="anonymous"></script>
 </html>
