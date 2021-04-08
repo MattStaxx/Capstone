@@ -14,6 +14,7 @@
    	  		  integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
     	  	  crossorigin="anonymous">
 	  	<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/zoom.css">
 	<title>Manage Inventory</title>
 	</head>
 	<body>
@@ -76,10 +77,23 @@
 			<br /> <b style="color: red; text-align: center">Product Successfully
 				Deleted!</b> <br />
 		</div>
-	
+				<div><button class="accordion1">Section 1</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+
+<button class="accordion1">Section 2</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+
+<button class="accordion1">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div></div>
+
 		<div class="container">
-			<div>
-			<table class="table table-striped table-bordered" id="tblData">
+			<table class="table table-hover" id="tblData">
 				<thead>
 					<tr><h1>List of Products In Order</h1></tr>
 					<tr>		
@@ -98,8 +112,10 @@
 				<tbody>
 					<c:forEach items="${products}" var="product">
 						<tr>
+							<td><button class="accordion"><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></button></td></tr>
+							
+						<tr class="panel">
 							<td><c:out value="${product.id}" /></td>
-							<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
 							<td><c:out value="${product.title}" /></td>
 							<td><c:out value="${product.artist}" /></td>
 							<td><c:out value="${product.style}" /></td>
@@ -108,12 +124,12 @@
 							<td><c:out value="${product.genre}" /></td>
 							<td><c:out value="${product.quantity}" /></td>
 							<td>
-								<form action="/deleteProduct" method="post"">
+								<form action="/deleteProduct" method="post">
 									<input type="hidden" name="orderid" value="${order.id}">
 									<input type="hidden" name="id" value="${product.id}">
 									<input type="submit" value="Delete">
 								</form>
-							</td>	
+							</td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -121,7 +137,7 @@
 			</div>
 			<div style="color: #0000FF;">${successMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
-			
+
 		<div class="container">
 			<form action="/addProduct" method="post">	
 				<table class="table table-striped table-bordered" id="tblData">
@@ -173,4 +189,20 @@
         	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
         	    crossorigin="anonymous"></script>
 	</body>
+	<script>
+var accordion1 = document.getElementsByClassName("accordion1");
+var h;
+
+for (h = 0; h < acc.length; h++) {
+  accordion1[h].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
 </html>
