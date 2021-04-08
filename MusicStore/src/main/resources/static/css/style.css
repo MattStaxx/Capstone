@@ -116,4 +116,8 @@ header {
 	 margin-left: 80%; 
 	 margin-right: 80%;
 }
+.img-thumbnail{
+	height:100px;
+	width:150px;
+}
 		    
