@@ -243,8 +243,9 @@
 		 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
     
                     <!-- Copyright -->
-                    <div class="footer-copyright text-center py-3">© 2021 Copyright:
-                      <a href="localhost:8080/">The Music tore</a>
+                    <div class="footer-copyright text-center py-3">Copyright © 2021 Designed by 
+                    <span> <a href="localhost:8080/">The Coolest Team!</a> All rights reserved.</span>
+                    	   <a href="/manageinventory">Back to top</a>
                     </div>
                     <!-- Copyright -->
           

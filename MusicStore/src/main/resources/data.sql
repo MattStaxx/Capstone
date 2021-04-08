@@ -1,5 +1,5 @@
 truncate product_tbl;
-
+alter table product_tbl modify price decimal(5,2);
 insert into product_tbl
 	(title, artist, style, format, price, genre, quantity)
 values
