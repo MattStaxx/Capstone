@@ -84,7 +84,8 @@ public class ProductService {
 		return query.getResultList();
 	}
 
-	public List<Product> displayCatalog(){
+	public List<Product> displayCatalog() {
+		
 		return productRepository.findAll();
 	}
 		
