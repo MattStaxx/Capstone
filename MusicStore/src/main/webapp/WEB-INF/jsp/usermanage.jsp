@@ -105,7 +105,7 @@
 						<td><c:out value="${user.lastname}" /></td>
 						<td><c:out value="${user.username}" /></td>
 						<td><c:out value="${user.email}" /></td>
-						<td><c:out value="${user.password}" /></td>
+						<td><c:out value="******" /></td>
 						<td><c:out value="${user.role}" /></td>
 						<td>
 							<form action="/deleteUser" method="post"">
