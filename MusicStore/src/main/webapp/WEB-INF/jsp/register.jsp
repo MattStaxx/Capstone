@@ -62,9 +62,9 @@
 			</div>
 		</div>
 	</nav>
-	<div class="user-form" id="submit2">
+	<div class="user-form">
 		<h1>Register Form</h1>
-		<form action="/register" method="POST">
+		<form action="/register" method="POST" id="submit2">
 			<div style="color: #FF0000;">${errorMessage}</div>
 			<input type="text" name="firstname" placeholder="First Name" required>
 			<input type="text" name="lastname" placeholder="Last Name" required>
