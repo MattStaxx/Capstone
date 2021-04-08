@@ -1,6 +1,7 @@
 package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ public class Product implements Serializable {
     private String artist;
     private String style;
     private String format;
-    private double price;
+    private BigDecimal price;
     private String genre;
     private enum Rating { ONE, TWO, THREE, FOUR, FIVE } // Was thinking we'd want a star rating sys??
     private int quantity; 
@@ -44,7 +45,7 @@ public class Product implements Serializable {
     
     public Product() {}
     
-    public Product(Integer id, String imageurl, String title, String artist, String style, String format, double price, String genre, int quantity, CustomerOrder order, MusicUser customer) {
+    public Product(Integer id, String imageurl, String title, String artist, String style, String format, BigDecimal price, String genre, int quantity, CustomerOrder order, MusicUser customer) {
 		super();
 		this.id = id;
 		this.imageurl = imageurl;
@@ -66,7 +67,7 @@ public class Product implements Serializable {
 	public String getArtist() { return this.artist; }
 	public String getStyle() { return this.style; }
 	public String getFormat() { return this.format; }
-	public double getPrice() { return this.price; }
+	public BigDecimal getPrice() { return this.price; }
 	public String getGenre() { return this.genre; }
 	public int getQuantity() { return this.quantity; }
 	public CustomerOrder getCustomerOrder( ) {return this.customerOrder; }
@@ -79,7 +80,7 @@ public class Product implements Serializable {
 	public void setArtist(String artist) { this.artist = artist; }
 	public void setStyle(String style) { this.style = style; }
 	public void setFormat(String format) { this.format = format; }
-	public void setPrice(double price) { this.price = price; }
+	public void setPrice(BigDecimal price) { this.price = price; }
 	public void setGenre(String genre) { this.genre = genre; }
 	public void setQuantity(int quantity) { this.quantity = quantity; }
 	public void setCustomerOrder(CustomerOrder customerOrder) { this.customerOrder = customerOrder; }
