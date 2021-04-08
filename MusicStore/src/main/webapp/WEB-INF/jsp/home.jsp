@@ -14,11 +14,9 @@
     	  crossorigin="anonymous">
   	<link rel="stylesheet" href="css/style.css">
 
-    <title>Homepage</title>
+    <title>Home Page</title>
   </head>
-  <body style="background-color: rgb(33, 37, 41);">   >  
-   
->>>>>>> branch 'main' of https://github.com/MattStaxx/Capstone.git
+  <body style="background-color: rgb(33, 37, 41);">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Home</a>
