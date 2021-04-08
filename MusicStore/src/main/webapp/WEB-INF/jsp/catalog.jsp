@@ -80,6 +80,7 @@
 				<option value="genre">Genre</option>
 				<option value="style">Style</option>
 				<option value="title">Title</option>
+				<option value="category">Category</option>
 				<option value="price">Price</option>
 			</select> <input type="text" id="name" name="name" required> <input
 				type="submit" value="Search">
@@ -93,6 +94,7 @@
 				<option value="genre">Genre</option>
 				<option value="style">Style</option>
 				<option value="title">Title</option>
+				<option value="category">Category</option>
 				<option value="price">Price</option>
 			</select> <input type="number" id="lowerprice" name="lowerprice"
 				placeholder="min" required> <input type="number"
@@ -116,7 +118,7 @@
 
 			if (this.value == "price") {
 				y.removeChild(x);
-				xx2.selectedIndex = "5";
+				xx2.selectedIndex = "6";
 				y.appendChild(x2);
 			}
 
@@ -137,6 +139,8 @@
 					xx.selectedIndex = "3";
 				} else if (this.value == "title") {
 					xx.selectedIndex = "4";
+				} else if (this.value == "category") {
+					xx.selectedIndex = "5";
 				}
 
 				y.appendChild(x);
@@ -168,6 +172,8 @@
 				<c:forEach items="${Product}" var="product">
 					<tr>
 						<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
+						</tr>
+						<tr>
 						<td>${product.artist}</td>
 						<td>${product.genre}</td>
 						<td>${product.title}</td>
