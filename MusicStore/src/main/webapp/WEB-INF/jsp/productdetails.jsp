@@ -130,42 +130,40 @@
   </div>
 </nav>
 	<div class="container">
-		<table class="table">
-			<div style="color: #0000FF;">${successMessage}</div>
-			<div style="color: #FF0000;">${errorMessage}</div>
-			<thead>
-				<tr>
-					<th></th>
-					<th scope="col">Artist</th>
-					<th scope="col">Genre</th>
-					<th scope="col">Title</th>
-					<th scope="col">Style</th>
-					<th scope="col">Format</th>
-					<th scope="col">In Stock</th>
-					<th scope="col">Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><img src="${product.imageurl}" alt="${product.title}"
-						class="img-thumbnail"></td>
-					<td>${product.artist}</td>
-					<td>${product.genre}</td>
-					<td>${product.title}</td>
-					<td>${product.style}</td>
-					<td>${product.format}</td>
-					<td>${product.quantity}</td>
-					<td>${product.price}</td>
-					<td>
-						<form action="/addToCart" method="post">
-							<input type="hidden" id="idnumber" name="id"
-								value="${product.id}"> Quantity <input type="number"
-								id="quantity" name="quantity" value="1" required> <input
-								type="submit" value="Add to Cart">
-						</form>
-					</td>
-				</tr>
-			</tbody>
+
+		<div style="color: #0000FF;">${successMessage}</div>
+		<div style="color: #FF0000;">${errorMessage}</div>
+		<table>
+
+			<tr>
+				<td ><figure class="figure">
+						<img src="${product.imageurl}"
+							class="figure-img img-fluid rounded"
+							alt="A generic square placeholder image with rounded corners in a figure.">
+						<figcaption class="figure-caption"></figcaption>
+					</figure></td>
+				<td>
+				  <ul style="list-style-type:none;">
+				   <li> Artist: ${product.artist}</li>
+				   <li> Genre: ${product.genre}</li>
+				   <li> Format: ${product.format}</li>
+				   <li> Style: ${product.style}</li>
+				   <li> Category: ${product.category}</li>
+				   <li> In Stock: ${product.quantity}</li>
+				   <li> Price: $ ${product.price}</li> <br>
+				   <li>
+			
+					<form action="/addToCart" method="post">
+						<input type="hidden" id="idnumber" name="id" value="${product.id}">
+						Quantity <input type="number" id="quantity" name="quantity"
+							value="1" required> <input type="submit"
+							value="Add to Cart">
+					</form>
+					<li>
+					</ul> 
+				</td>
+			</tr>
+
 		</table>
 
 	</div>
