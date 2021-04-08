@@ -33,7 +33,7 @@
         <li><a href="about" class="nav-link px-2 text-white">About</a></li>
         <sec:authorize access="isAuthenticated()">
         	<li><a class="nav-link px-2 text-white" href="orderhistory">Order History</a></li>
-        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Checkout</a></li>
+        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Cart</a></li>
     	   	
     	</sec:authorize>
       </ul>
@@ -122,59 +122,35 @@
       </sec:authorize>
     </div>
   </div>
-</nav>        
-	<h2 class="display-3">Cart</h2>
-	
-	<div class="container">
-		<table class="table table-striped table-bordered" id="tblData">
-			<div style="color: #0000FF;">${successMessage}</div>
-			<div style="color: #FF0000;">${errorMessage}</div>
-			<thead>
-				<tr><h1>Your Order</h1></tr>
-				<tr>		
-					<th></th>
-					<th scope="col">Id</th>
-					<th scope="col">Title</th>
-					<th scope="col">Artist</th>
-					<th scope="col">Style</th>
-					<th scope="col">Format</th>
-					<th scope="col">Price</th>
-					<th scope="col">Genre</th>
-					<th scope="col">Quantity</th>
-					<th></th>
-				</tr>
-				<c:set var="total" value="${0}"/>
-				<c:forEach items="${products}" var="product">
-					<tr>
-						<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
-						<td><c:out value="${product.id}" /></td>
-						<td><c:out value="${product.title}" /></td>
-						<td><c:out value="${product.artist}" /></td>
-						<td><c:out value="${product.style}" /></td>
-						<td><c:out value="${product.format}" /></td>
-						<td><c:out value="${product.price}" /></td>
-						<td><c:out value="${product.genre}" /></td>
-						<td><c:out value="${product.quantity}" /></td>
-						<td>
-							<form action="/deleteFromCart" method="post"">
-								<input type="hidden" name="id" value="${product.id}"> <input
-									type="submit" value="Remove">
-							</form>
-						</td>
-					</tr>
-					<c:set var="total" value="${total + (product.price * product.quantity)}" />
-				</c:forEach>
-				
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
-		Your Total: ${total}
-		<form action="/payment" method="get">
-		<input type="submit" value="Checkout"></form>
-	</div>
-	
+</nav>	
+		<div class="container w-25">
+			<ul class="list-group mb-3">
+			<h2 class="display-3">Cart</h2>
+          	<c:set var="total" value="${0}"/>
+          	<c:forEach items="${products}" var="product">
+          		<li class="list-group-item d-flex justify-content-between lh-condensed">
+          			<div>
+          				<h6 class="my-0">${product.title}</h6>
+          				<small class="text-muted">${product.format}</small>
+						<form action="/deleteFromCart" method="post"">
+							<input type="hidden" name="id" value="${product.id}"> <input
+								class="btn btn-danger btn-sm" type="submit" value="Remove">
+						</form>
+					</div>
+          			<span class="text-muted">$${product.price} x ${product.quantity} item(s) = $${product.price * product.quantity}</span>
+          		</li>
+          		
+          		<c:set var="total" value="${total + (product.price * product.quantity)}" />
+          	</c:forEach>
+          	
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>$ ${total - discount}</strong>
+            </li>
+          </ul>
+          <form action="/payment" method="get">
+		  <input class="btn btn-secondary" type="submit" value="Checkout"></form>
+		</div>
 		 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
     
                     <!-- Copyright -->
