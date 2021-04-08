@@ -16,8 +16,9 @@
 
     <title>Homepage</title>
   </head>
-  <body style="background-color: rgb(2, 8, 1);">  
+  <body style="background-color: rgb(33, 37, 41);">   >  
    
+>>>>>>> branch 'main' of https://github.com/MattStaxx/Capstone.git
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Home</a>
@@ -56,11 +57,11 @@
       </div>
     </div>
   </div>
-</nav>                                         
-	<body>
-	 <div class="container" style="background-color: rgb(2, 8, 1);" >
+</nav>        
+	
+	 <div class="container" style="background-color: rgb(33, 37, 41);" >
 	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
-	    <div class="carousel-inner" style="height:90vh; margin-left:auto; margin-right:auto;">
+	    <div class="carousel-inner">
 	      <div class="carousel-indicators">
 		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -69,25 +70,25 @@
 		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
 		  </div>
 	      <div class="carousel-item active">
-	      	<img alt="no image" class="image-fluid" src="images/guitar.jpg">
+	      	<img alt="no image" class="image-fluid" src="images/turntable1-1280.jpg">
 	          <div class="carousel-caption d-none d-md-block">
              <h5>Search for all your favorite genres</h5>
            </div>
 	      </div>
 	        <div class="carousel-item">
-	          <img alt="no image" class="image-fluid" src="images/bluecomp.jpg">
+	          <img alt="no image" class="image-fluid" src="images/audiojack2-1280.jpg">
 	            <div class="carousel-caption d-none d-md-block">
              <h5>Search for all your favorite Artist</h5>
            </div>
 	        </div>
 	        <div class="carousel-item">
-	          <img alt="no image" class="image-fluid" src="images/headphones2.jpg">
+	          <img alt="no image" class="image-fluid" src="images/headphones1-1280.jpg">
 	           <div class="carousel-caption d-none d-md-block">
              <h5>List on all formats</h5>
            </div>
 	        </div>
 	        <div class="carousel-item">
-	          <img alt="no image" class="image-fluid" src="images/beats.jpg">
+	          <img alt="no image" class="image-fluid" src="images/coffeebean-1280.jpg">
 	           
 	        </div>
 	        <div class="carousel-item">

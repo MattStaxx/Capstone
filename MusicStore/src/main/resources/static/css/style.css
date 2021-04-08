@@ -82,13 +82,16 @@
 	width:80%;
 }
 
+.carousel-inner {
+	height: 90vh;
+	width: 100%;
+	margin: auto;
+}
 
-.carousel-inner > .item > img,  
-.carousel-inner > .item > a > img { 
-	max-width: 100%; 
-	height: 91vh;
-	margin: auto;  
-}  
+.img {
+	height: 100%;
+	width: 100%
+}
 		    
 .carousel-indicators .active {
 	background-color: green;
