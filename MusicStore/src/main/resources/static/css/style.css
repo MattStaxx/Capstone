@@ -89,6 +89,8 @@ body {
 
 header {
 	display: block;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
 }
 
 *, ::after, ::before {
@@ -96,7 +98,7 @@ header {
 }
 
 .carousel-inner {
-	height: 89vh;
+	height: 100%;
 	width: 100%;
 	margin: auto;
 }
