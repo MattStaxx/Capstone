@@ -1,5 +1,6 @@
 package com.hcl.MusicStore.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,7 +86,7 @@ public class ProductService {
 	}
 
 	public List<Product> displayCatalog(){
-		return productRepository.findAll();
+		return productRepository.findAllByCustomer(null);
 	}
 		
 }
