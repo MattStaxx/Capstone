@@ -239,8 +239,7 @@ public class UserController {
 	    			product.getGenre(), 
 	    			quantity,
 	    			null, 
-	    			null);
-	    	cartProduct.setCustomer(user);
+	    			user);
 	    	productService.saveProduct(cartProduct);
 		}
 		List<Product> products = productService.displayCatalog();

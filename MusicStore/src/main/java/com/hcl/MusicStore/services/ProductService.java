@@ -85,8 +85,10 @@ public class ProductService {
 		return query.getResultList();
 	}
 
+
 	public List<Product> displayCatalog(){
 		return productRepository.findAllByCustomer(null);
+
 	}
 		
 }
