@@ -1,9 +1,9 @@
 truncate product_tbl;
-
+alter table product_tbl modify price decimal(5,2);
 insert into product_tbl
 	(title, artist, style, format, price, genre, quantity)
 values
-	('Testing1', 'Tester', 'folk', 'digital', 15, 'rock', 3);
+	('Testing1', 'Tester', 'folk', 'digital', 15.00, 'rock', 3);
 insert into product_tbl
 	(title, artist, style, format, price, genre, quantity)
 values

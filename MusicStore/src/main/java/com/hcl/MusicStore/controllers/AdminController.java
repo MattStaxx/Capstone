@@ -1,5 +1,6 @@
 package com.hcl.MusicStore.controllers;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -180,7 +181,7 @@ public class AdminController {
      		@RequestParam(required=false) String artist, 
      		@RequestParam(required=false) String style, 
      		@RequestParam String format, 
-     		@RequestParam Double price, 
+     		@RequestParam BigDecimal price, 
      		@RequestParam(required=false) String genre,
      		@RequestParam Integer quantity,
      		Model model){
@@ -254,7 +255,7 @@ public class AdminController {
      		@RequestParam(required=false) String artist, 
      		@RequestParam(required=false) String style, 
      		@RequestParam String format, 
-     		@RequestParam Double price , 
+     		@RequestParam BigDecimal price , 
      		@RequestParam(required=false) String genre,
      		@RequestParam Integer quantity,
      		Model model){
