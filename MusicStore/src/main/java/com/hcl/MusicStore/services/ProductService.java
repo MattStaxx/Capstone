@@ -87,12 +87,12 @@ public class ProductService {
 
 
 	public List<Product> displayCatalog(){
-		List<Product> products = productRepository.findAllByCustomer(null);
-		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getCustomerOrder() != null) {
-				products.remove(i);
-			}
-		}
-		return products;
-	}	
+        List<Product> products = productRepository.findAllByCustomer(null);
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getCustomerOrder() != null) {
+                products.remove(i);
+            }
+        }
+        return products;
+    }   
 }
