@@ -151,9 +151,12 @@
 
 	<div class="container">
 		<div class="productlist">
+			<div style="color: #0000FF;">${successMessage}</div>
+			<div style="color: #FF0000;">${errorMessage}</div>
 			<table class="table table-hover">
 			<thead>
 				<tr>
+					<th></th>
 					<th scope="col">Artist</th>
 					<th scope="col">Genre</th>
 					<th scope="col">Title</th>
@@ -164,6 +167,7 @@
 				<tbody>
 				<c:forEach items="${Product}" var="product">
 					<tr>
+						<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
 						<td>${product.artist}</td>
 						<td>${product.genre}</td>
 						<td>${product.title}</td>
@@ -184,8 +188,7 @@
 	</div>
 </body>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
+        	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
+        	    crossorigin="anonymous"></script>
 </html>

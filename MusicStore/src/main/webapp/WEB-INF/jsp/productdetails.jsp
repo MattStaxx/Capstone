@@ -73,18 +73,20 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<td scope="col">Artist</td>
-					<td scope="col">Genre</td>
-					<td scope="col">Title</td>
-					<td scope="col">Style</td>
-					<td scope="col">Format</td>
-					<td scope="col">In Stock</td>
-					<td scope="col">Price</td>
+					<th></th>
+					<th scope="col">Artist</th>
+					<th scope="col">Genre</th>
+					<th scope="col">Title</th>
+					<th scope="col">Style</th>
+					<th scope="col">Format</th>
+					<th scope="col">In Stock</th>
+					<th scope="col">Price</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${products}" var="product">
 					<tr>
+						<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
 						<td>${product.artist}</td>
 						<td>${product.genre}</td>
 						<td>${product.title}</td>
@@ -106,10 +108,6 @@
 		</table>
 
 	</div>
-
-
-
-
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

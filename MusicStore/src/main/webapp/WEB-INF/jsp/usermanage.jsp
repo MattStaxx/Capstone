@@ -153,8 +153,8 @@
 				<thead>
 					<tr><h1>Edit a User</h1>
 					<tr>
-						<th><input type="text" id="id" placeholder="ID of the User to update" required></th>
-						<th><select name="severity" id="severity">
+						<th><input type="text" name="id" placeholder="ID of the User to update" required></th>
+						<th><select name="role">
 						  <option value="" disabled selected>Account Type</option>
 				 		  <option value="USER">User</option>
 	 					  <option value="ADMIN">Admin</option>
@@ -163,11 +163,11 @@
 				</thead>
 				<tbody>	
 					<tr>
-						<th><input type="text" id="firstname" placeholder="First Name" required></th>
-						<th><input type="text" id="lastname" placeholder="Last Name" required></th>
-						<th><input type="text" id="username" placeholder="Username" required></th>
-						<th><input type="email" id="email" placeholder="Email" required></th>
-						<th><input type="password" id="password" placeholder="Password" required></th>
+						<th><input type="text" name="firstname" placeholder="First Name" required></th>
+						<th><input type="text" name="lastname" placeholder="Last Name" required></th>
+						<th><input type="text" name="username" placeholder="Username" required></th>
+						<th><input type="email" name="email" placeholder="Email" required></th>
+						<th><input type="password" name="password" placeholder="Password" required></th>
 						</tr>
 					</tbody>
 				</table>
@@ -176,6 +176,7 @@
 		</div>
 	</body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
+        	    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
+        	    crossorigin="anonymous"></script>
 </html>

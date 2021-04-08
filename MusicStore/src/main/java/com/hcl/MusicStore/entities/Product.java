@@ -23,6 +23,7 @@ public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
+    private String imageurl;
     private String title;
     private String artist;
     private String style;
@@ -42,9 +43,10 @@ public class Product implements Serializable {
     
     public Product() {}
     
-    public Product(Integer id, String title, String artist, String style, String format, double price, String genre, int quantity, CustomerOrder order, MusicUser customer) {
+    public Product(Integer id, String imageurl, String title, String artist, String style, String format, double price, String genre, int quantity, CustomerOrder order, MusicUser customer) {
 		super();
 		this.id = id;
+		this.imageurl = imageurl;
 		this.title = title;
 		this.artist = artist;
 		this.style = style;
@@ -57,6 +59,7 @@ public class Product implements Serializable {
 	}
 
 	public Integer getId() { return this.id; }
+	public String getImageurl() { return this.imageurl; }
 	public String getTitle() { return this.title; }
 	public String getArtist() { return this.artist; }
 	public String getStyle() { return this.style; }
@@ -68,6 +71,7 @@ public class Product implements Serializable {
 	public MusicUser getCustomer() {return this.customer; }
 	
 	public void setId(Integer id) { this.id = id; }
+	public void setImageurl(String imageurl) { this.imageurl = imageurl; }
 	public void setTitle(String title) { this.title = title; }
 	public void setArtist(String artist) { this.artist = artist; }
 	public void setStyle(String style) { this.style = style; }

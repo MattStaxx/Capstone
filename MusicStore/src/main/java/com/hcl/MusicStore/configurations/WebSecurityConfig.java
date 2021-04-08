@@ -34,15 +34,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      			"/images/**",
 	      			"/loginError",
 	      			"/catalog",
+	      			"/search",
+		    		"/searchprice",
 	      			"/about*").permitAll()
 	      .antMatchers(
 	    		  "/profile", 
 	    		  "/orderhistory",
-	    		  "/search",
-	    		  "/searchprice",
 	    		  "/details",
 	    		  "/shoppingcart",
 	    		  "/addToCart",
+	    		  "/deleteFromCart",
 	    		  "/checkout",
 	    		  "/payment",
 	    		  "/checkoutresult").authenticated() //Endpoints that all logged in users can access
