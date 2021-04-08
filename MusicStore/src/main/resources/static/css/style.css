@@ -82,6 +82,19 @@
 	width:80%;
 }
 
+body {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+header {
+	display: block;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
 .carousel-inner {
 	height: 89vh;
 	width: 100%;

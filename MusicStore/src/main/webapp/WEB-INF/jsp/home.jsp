@@ -17,6 +17,7 @@
     <title>Home Page</title>
   </head>
   <body style="background-color: rgb(33, 37, 41);">
+	 <header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Home</a>
@@ -56,7 +57,7 @@
     </div>
   </div>
 </nav>        
-	
+	</header>
 	 <div class="container" style="background-color: rgb(33, 37, 41);" >
 	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
 	    <div class="carousel-inner">
