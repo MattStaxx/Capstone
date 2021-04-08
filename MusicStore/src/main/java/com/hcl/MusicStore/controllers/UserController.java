@@ -131,6 +131,39 @@ public class UserController {
 	    	custOrdServ.saveOrder(newOrder);
 	    	m.addAttribute("order", newOrder);
 	    	
+	    	// First, check if anything is out of stock
+	    	for(Product product : cart) {
+	    		// Subtract Catalog Item Quantity
+	    		List<Product> catalog = productService.getAllProductsByUser(null);
+	    		for (Product catalogProduct : catalog) {
+	    			if (catalogProduct.getCustomerOrder() == null && catalogProduct.getTitle().equals(product.getTitle())) {
+	    				int difference = catalogProduct.getQuantity() - product.getQuantity();
+	    				if (difference < 0) { // If in stock, subtract quantity accordingly
+	    					m.addAttribute("errorMessage", "Sorry, " + product.getTitle() + " is out of stock!");
+	    					m.addAttribute("products", cart);
+	    					m.addAttribute("user", user);
+	    					productService.deleteProduct(product.getId());
+	    					return "payment";
+	    				}
+	    			}
+	    		}
+	    	}
+	    	
+	    	// Set the new quantities
+	    	for(Product product : cart) {
+	    		// Subtract Catalog Item Quantity
+	    		List<Product> catalog = productService.getAllProductsByUser(null);
+	    		for (Product catalogProduct : catalog) {
+	    			if (catalogProduct.getCustomerOrder() == null && catalogProduct.getTitle().equals(product.getTitle())) {
+	    				int difference = catalogProduct.getQuantity() - product.getQuantity();
+	    				if (difference >= 0) { // If in stock, subtract quantity accordingly
+	    					catalogProduct.setQuantity(difference);
+	    					productService.saveProduct(catalogProduct);
+	    				}
+	    			}
+	    		}
+	    	}
+	    	
 	    	// Clear out the shopping cart
 	    	for(Product product : cart) {
 	    		Product orderProduct = new Product(
@@ -147,6 +180,8 @@ public class UserController {
 		    		null);
 	    		productService.saveProduct(orderProduct);
 	    		productService.deleteProduct(product.getId());
+	    		
+	    		
 	    	}
 			log.info("New Order Posted");
 		}
@@ -228,6 +263,11 @@ public class UserController {
 	    		throw new ProductNotFoundException(id);
 	    	}
 	    	Product product = foundproduct.get();
+	    	if (product.getQuantity() < quantity) {
+	    		m.addAttribute("errorMessage", "Invalid quantity!");
+	    		m.addAttribute("product", product);
+	    		return "productdetails";
+	    	}
 	    	Product cartProduct = new Product(
 	    			null, 
 	    			product.getImageurl(),
@@ -303,10 +343,8 @@ public class UserController {
         log.info("Searching");
         Optional<Product> products= productService.searchProductByID(idnumber);
         Product dproduct=products.get();
-        List <Product> dprod = new ArrayList<Product>();
-        dprod.add(dproduct);
         log.info("Search successful");
-        m.addAttribute("products", dprod);
+        m.addAttribute("product", dproduct);
         return "productdetails";
     }
 }
