@@ -221,6 +221,10 @@ public class UserController {
 			throw new UserNotFoundException(username);
 		} else {
 			List<Product> cart = productService.getAllProductsByUser(user);
+			if(cart.isEmpty()) {
+				m.addAttribute("errorMessage","Shopping Cart is empty!");
+				return "shoppingcart";
+			}
 			m.addAttribute("products", cart);
 			m.addAttribute("user",user);
 		}

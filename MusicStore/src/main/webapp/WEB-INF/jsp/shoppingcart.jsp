@@ -126,6 +126,7 @@
 		<div class="container w-25">
 			<ul class="list-group mb-3">
 			<h1 class="display-1">Cart</h1>
+			<h5 class="text-danger">${errorMessage}</h5>
           	<c:set var="total" value="${0}"/>
           	<c:forEach items="${products}" var="product">
           		<li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -155,7 +156,7 @@
     
                     <!-- Copyright -->
                     <div class="footer-copyright text-center py-3">© 2021 Copyright:
-                      <a href="localhost:8080/">The Music tore</a>
+                      <a href="localhost:8080/">The Music Store</a>
                     </div>
                     <!-- Copyright -->
           
