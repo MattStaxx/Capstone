@@ -209,7 +209,7 @@
 		var count=0; 
 		window.onresize = reportWindowSize;
 		function reportWindowSize(){console.log("hi");
-		count++;
+		count++; 		element.style="position:width:100%";
 		if(count!=1){
 			 rect = element.getBoundingClientRect();
 			 h = window.innerHeight;
