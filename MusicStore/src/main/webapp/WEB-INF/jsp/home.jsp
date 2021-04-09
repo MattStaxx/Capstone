@@ -81,7 +81,7 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container" style="background-color: #232a2e;">
+	<div class="container-carousel" style="background-color: #232a2e;">
 		<div id="carouselExampleIndicators"
 			class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
 			<div class="carousel-inner">
@@ -103,31 +103,28 @@
 						src="images/turntable1-1280.jpg" style="width: 100%">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Search for all your favorite genres</h5>
+						<a href="/catalog" class="btn btn-primary" rel="noopener noreferrer">See the Catalog!</a>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img alt="no image" class="image-fluid"
 						src="images/audiojack2-1280.jpg" style="width: 100%">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>Search for all your favorite Artist</h5>
+						<h5>Our quick and easy registration process will give you access to <br>all your favorite songs from all your favorite artists!</h5>
+						<a href="/register" class="btn btn-primary" rel="noopener noreferrer">Register an Account Now!</a>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img alt="no image" class="image-fluid"
 						src="images/headphones1-1280.jpg" style="width: 100%">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>List on all formats</h5>
+						<h5>Learn more about the team that brought you your favorite music service!</h5>
+						<a href="/about" class="btn btn-primary" rel="noopener noreferrer">Meet the team!</a>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img alt="no image" class="image-fluid"
 						src="images/coffeebean-1280.jpg" style="width: 100%">
-
-				</div>
-				<div class="carousel-item">
-					<img alt="no image" class="image-fluid" src="images/speaker2.jpg"
-						style="width: 100%">
-
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button"
