@@ -359,8 +359,17 @@ public class AdminController {
     	if (foundUser == null) {
     		throw new UserNotFoundException(id);
     	} else {
+    		// Delete all orders/products associated with the user
+    		List<Product> cart = productService.getAllProductsByUser(foundUser);
+    		List<CustomerOrder> orders = customerOrderService.getOrdersByUser(foundUser);
+    		for (CustomerOrder o : orders) {
+    			customerOrderService.deleteOrderById(o.getId());
+    		}
+    		for (Product p : cart) {
+    			productService.deleteProduct(p.getId());
+    		}
     		userService.deleteUserById(id);
-    		logger.debug("User with ID: " + id + " deleted.");
+    		logger.debug("User Account with ID: " + id + " deleted.");
     		model.addAttribute("successMessage", "Delete Successful");
     		model.addAttribute("users", userService.GetAllUsers());
     	}
