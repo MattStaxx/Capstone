@@ -252,16 +252,42 @@
 					</c:forEach>
 				</tbody>
 			</table>
-
-			<nav aria-label="Page navigation example">
+			
+			
+			
+  			<nav>
 				<ul class="pagination">
-					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item active"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					<c:if test="${maxproducts < totalproducts}">
+						<c:forEach var="i" begin="1" end="${totalpages+1}">
+						<li class="page-item"><a class="page-link"
+							href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
+						</c:forEach>
+					</c:if>
+					<c:if test="${maxproducts >= totalproducts}">
+						<c:forEach var="i" begin="1" end="${totalpages}">
+						<li class="page-item"><a class="page-link"
+							href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
+						</c:forEach>
+					</c:if>
 				</ul>
 			</nav>
+			
+			<form action="/catalog?page=${page}" method="get">
+				<h6>Products per page</h6>
+				<select class="form-select w-25" name="maxproducts">
+					<option value="${maxproducts}" disabled selected></option>
+					<option value="5">5</option> 
+					<option value="10">10</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+  				</select>
+  				<input class="btn btn-secondary" type="submit" value="Go">
+			</form>
+			
+			<form action="/catalog" method="get">
+				
+			</form>
 
 		</div>
 	</div>
