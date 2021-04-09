@@ -147,6 +147,36 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+			<nav>
+				<ul class="pagination">
+					<c:if test="${maxproducts < totalproducts}">
+						<c:forEach var="i" begin="1" end="${totalpages}">
+						<li class="page-item"><a class="page-link"
+							href="/manageinventory?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
+						</c:forEach>
+					</c:if>
+					<c:if test="${maxproducts >= totalproducts}">
+						<c:forEach var="i" begin="1" end="${totalpages}">
+						<li class="page-item"><a class="page-link"
+							href="/manageinventory?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
+						</c:forEach>
+					</c:if>
+				</ul>
+			</nav>
+			
+			<form action="/manageinventory?page=${page}" method="get">
+				<h6>Products per page</h6>
+				<select class="form-select w-25" name="maxproducts">
+					<option value="${maxproducts}" disabled selected></option>
+					<option value="5">5</option> 
+					<option value="10">10</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+  				</select>
+  				<input class="btn btn-secondary" type="submit" value="Go">
+  			</form>
 	</div>
 	<div style="color: #0000FF;">${successMessage}</div>
 	<div style="color: #FF0000;">${errorMessage}</div>

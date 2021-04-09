@@ -1,6 +1,7 @@
 package com.hcl.MusicStore.controllers;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,8 +64,46 @@ public class AdminController {
     }
     
     @GetMapping("/manageinventory")
-    public String showInventoryManage(Model model) {
-    	model.addAttribute("products", productService.getAllProducts());
+    public String showInventoryManage(
+    		@RequestParam(required=false, defaultValue="1") Integer page,
+			@RequestParam(required=false, defaultValue="10") Integer maxproducts,
+			Model m) {
+    	
+    	List<Product> products = productService.getAllProductsList();
+		List<Product> paginatedlist = new ArrayList<Product>();
+		Integer totalproducts = products.size();
+		Integer totalpages = (totalproducts / maxproducts);
+		
+		m.addAttribute("totalpages",totalpages);
+		m.addAttribute("totalproducts",totalproducts);
+		m.addAttribute("page",page);
+		m.addAttribute("maxproducts",maxproducts);
+		
+		if (maxproducts >= totalproducts) { // No need for pagination
+			m.addAttribute("products", products);
+			return "inventorymanage";
+		} else { // Do Pagination
+			Integer firstidx = null;
+			if (page == null || page <= 1) {
+				firstidx = 0;
+				for(int i = firstidx; i < maxproducts && i < totalproducts; i++) {
+					paginatedlist.add(products.get(i));
+				}
+			} else {
+				firstidx = maxproducts * (page-1);
+				for(int i = firstidx; i < firstidx+maxproducts && i < totalproducts; i++) {
+					paginatedlist.add(products.get(i));
+				}
+				
+			}
+			m.addAttribute("products", paginatedlist);
+		}
+
+		for (Product p : paginatedlist) {
+			logger.info("Product in Catalog...");
+			logger.info(p.toString());
+		}
+    	m.addAttribute("products", paginatedlist);
     	return "inventorymanage";
     }
     

@@ -245,12 +245,7 @@
 					<option value="100">100</option>
   				</select>
   				<input class="btn btn-secondary" type="submit" value="Go">
-			</form>
-			
-			<form action="/catalog" method="get">
-				
-			</form>
-
+  			</form>
 		</div>
 	</div>
 	<footer class="page-footer font-small indigo" id="footer"
