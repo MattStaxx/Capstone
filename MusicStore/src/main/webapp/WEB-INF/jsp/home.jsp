@@ -101,12 +101,12 @@
 				<div class="carousel-item active">
 					<img alt="no image" class="image-fluid"
 						src="images/turntable1-1280.jpg" style="width: 100%">
-						<div class="carousel-caption d-sm-block align-items bottom">
-							<h5>Search all your favorite genres</h5>
-							<a href="/catalog" class="btn btn-primary"
-								rel="noopener noreferrer">See the Catalog!</a>
-						</div>
+					<div class="carousel-caption d-sm-block align-items bottom">
+						<h5>Search all your favorite genres</h5>
+						<a href="/catalog" class="btn btn-primary"
+							rel="noopener noreferrer">See the Catalog!</a>
 					</div>
+				</div>
 				<div class="carousel-item">
 					<img alt="no image" class="image-fluid"
 						src="images/audiojack2-1280.jpg" style="width: 100%">
@@ -141,12 +141,16 @@
 		</div>
 	</div>
 	<div class="row w-2">
-		<div class="col-md-12 justify-content-center" style="text-align: center;">
-		<h5 style="color: white;">Images on this site sourced<br>from Pixabay.com</h5>
-		<img src="images/thumbsup.png" alt="Thanks!" width="135" height="135" class="rounded-circle">
+		<div class="col-md-12 justify-content-center"
+			style="text-align: center;">
+			<h5 style="color: white;">
+				Images on this site sourced<br>from Pixabay.com
+			</h5>
+			<img src="images/thumbsup.png" alt="Thanks!" width="105" height="105"
+				class="rounded-square">
 			<h2 style="color: white;">Thanks Pixabay!</h2>
-				<a class="btn btn-secondary" 
-				   href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=690685">Pixabay.com</a>	
+			<a class="btn btn-secondary"
+				href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=690685">Pixabay.com</a>
 		</div>
 	</div>
 	<footer class="page-footer font-small indigo" id="footer"
@@ -156,9 +160,15 @@
 			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/home">Back to top</a>
+			<button onclick="myFunction()">Switch mode</button>
 		</div>
 	</footer>
-
+	<script>
+		function myFunction() {
+			var element = document.body;
+			element.classList.toggle("dark");
+		}
+	</script>
 	<script>
 		var element = document.getElementById("footer");
 		var rect = element.getBoundingClientRect();
@@ -170,7 +180,7 @@
 		if (rect.bottom <= h) {
 			element.style = "position: fixed; bottom: 0; width:100%";
 		}
-		//console.log(x);
+		console.log(x);
 		rect = element.getBoundingClientRect();
 		console.log(rect.top, rect.bottom);
 		console.log(w + " " + h);

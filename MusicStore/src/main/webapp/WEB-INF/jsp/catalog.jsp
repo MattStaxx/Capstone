@@ -129,7 +129,7 @@
 								</div>
 							</form>
 
-						<!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+							<!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
 								action="searchprice" id="search2" hidden>
 								<div class="row">
 									<div class="col">
@@ -159,7 +159,7 @@
 									</div>
 
 								</div>
-							</form> -->	
+							</form> -->
 
 
 						</div>
@@ -214,49 +214,56 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			
-			
-			
-  			<nav>
+
+
+
+			<nav>
 				<ul class="pagination">
 					<c:if test="${maxproducts < totalproducts}">
 						<c:forEach var="i" begin="1" end="${totalpages}">
-						<li class="page-item"><a class="page-link"
-							href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
+							<li class="page-item"><a class="page-link"
+								href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${maxproducts >= totalproducts}">
 						<c:forEach var="i" begin="1" end="${totalpages}">
-						<li class="page-item"><a class="page-link"
-							href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
+							<li class="page-item"><a class="page-link"
+								href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
 			</nav>
-			
+
 			<form action="/catalog?page=${page}" method="get">
 				<h6>Products per page</h6>
 				<select class="form-select w-25" name="maxproducts">
 					<option value="${maxproducts}" disabled selected></option>
-					<option value="5">5</option> 
+					<option value="5">5</option>
 					<option value="10">10</option>
 					<option value="25">25</option>
 					<option value="50">50</option>
 					<option value="100">100</option>
-  				</select>
-  				<input class="btn btn-secondary" type="submit" value="Go">
-  			</form>
+				</select> <input class="btn btn-secondary" type="submit" value="Go">
+			</form>
 		</div>
 	</div>
 	<footer class="page-footer font-small indigo" id="footer"
 		style="width: 100%">
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">
-			Copyright ï¿½ 2021 Designed by <span> <a href="localhost:8080/">The
+			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/catalog">Back to top</a>
+			<button onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
+	<script>
+		function myFunction() {
+			var element = document.body;
+			element.classList.toggle("dark");
+		}
+	</script>
+
 	<script>
 		var element = document.getElementById("footer");
 		var rect = element.getBoundingClientRect();
