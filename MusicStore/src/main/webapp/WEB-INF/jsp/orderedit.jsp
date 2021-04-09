@@ -73,6 +73,7 @@
 				<tr>		
 					<th scope="col">Id</th>
 					<th scope="col">Image</th>
+					<th scope="col">Category</th>
 					<th scope="col">Title</th>
 					<th scope="col">Artist</th>
 					<th scope="col">Style</th>
@@ -87,6 +88,7 @@
 					<tr>
 						<td><c:out value="${product.id}" /></td>
 						<td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
+						<td><c:out value="${product.category}" /></td>
 						<td><c:out value="${product.title}" /></td>
 						<td><c:out value="${product.artist}" /></td>
 						<td><c:out value="${product.style}" /></td>
@@ -117,6 +119,7 @@
 					<input type="hidden" name="orderid" value="${order.id}" required>
 					<th></th>
 					<th><input type="text" name="title" placeholder="Title" required></th>
+					<th><input type="text" name="category" placeholder="Artist" ></th>
 					<th><input type="text" name="imageurl" placeholder="Image URL"></th>
 					<th><input type="text" name="artist" placeholder="Artist" ></th>
 					<th><input type="text" name="style" placeholder="Style" ></th>
@@ -139,6 +142,7 @@
 					<th><input type="text" name="id" placeholder="ID of the Product to update" required></th>	
 				<tr>
 					<th><input type="text" name="title" placeholder="Title" required></th>
+					<th><input type="text" name="category" placeholder="Artist" ></th>
 					<th><input type="text" name="imageurl" placeholder="Image URL"></th>
 					<th><input type="text" name="artist" placeholder="Artist" required></th>
 					<th><input type="text" name="style" placeholder="Style" required></th>

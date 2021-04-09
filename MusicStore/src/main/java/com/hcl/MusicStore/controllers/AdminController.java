@@ -176,6 +176,7 @@ public class AdminController {
  	@PostMapping("/addProduct")
     public String addProduct(
     		@RequestParam(required=false) Integer orderid,
+    		@RequestParam(required=false) String category,
     		@RequestParam(required=false) String imageurl,
      		@RequestParam String title,
      		@RequestParam(required=false) String artist, 
@@ -193,7 +194,7 @@ public class AdminController {
          		throw new OrderNotFoundException(orderid);
      		} else {
      			
-     			newProduct = new Product(null, imageurl, title, artist, style, format, price, genre, quantity, foundOrder, null);
+     			newProduct = new Product(null, category, imageurl, title, artist, style, format, price, genre, quantity, foundOrder, null);
      			productService.saveProduct(newProduct);
      			List<Product> products = productService.getAllProductsByOrder(foundOrder);
      			model.addAttribute("products", products);
@@ -204,7 +205,7 @@ public class AdminController {
      		if (foundProduct.isPresent()) {
          		throw new ProductAlreadyExistsException(title);
          	} else {
-         		newProduct = new Product(null, imageurl, title, artist, style, format, price, genre, quantity, null, null);	
+         		newProduct = new Product(null, category, imageurl, title, artist, style, format, price, genre, quantity, null, null);	
          		model.addAttribute("products", productService.getAllProducts());
          		model.addAttribute("successMessage", "Product Creation Successful!");
          		productService.saveProduct(newProduct);
@@ -249,6 +250,7 @@ public class AdminController {
  	@PostMapping("/updateProduct")
     public String updateProduct(
     		@RequestParam(required=false) Integer orderid,
+    		@RequestParam(required=false) String category,
     		@RequestParam(required=false) String imageurl,
     		@RequestParam Integer id,
      		@RequestParam String title,
@@ -269,7 +271,7 @@ public class AdminController {
      		if (foundOrder == null) {
          		throw new OrderNotFoundException(orderid);
      		} else {	
-     			newProduct = new Product(id, imageurl, title, artist, style, format, price, genre, quantity, foundOrder, null);
+     			newProduct = new Product(id, category, imageurl, title, artist, style, format, price, genre, quantity, foundOrder, null);
      			productService.saveProduct(newProduct);
      			List<Product> products = productService.getAllProductsByOrder(foundOrder);
      			model.addAttribute("products", products);
@@ -278,7 +280,7 @@ public class AdminController {
      	    	return "orderedit";
      		}
      	} else {
-     		newProduct = new Product(id, imageurl, title, artist, style, format, price, genre, quantity, null, null);
+     		newProduct = new Product(id, category, imageurl, title, artist, style, format, price, genre, quantity, null, null);
      		productService.saveProduct(newProduct);
      		logger.info("Product Updated: " + newProduct);
      		model.addAttribute("successMessage", "Product Update Successful!");

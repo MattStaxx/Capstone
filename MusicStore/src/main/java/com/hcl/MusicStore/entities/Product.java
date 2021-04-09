@@ -45,9 +45,10 @@ public class Product implements Serializable {
     
     public Product() {}
     
-    public Product(Integer id, String imageurl, String title, String artist, String style, String format, BigDecimal price, String genre, int quantity, CustomerOrder order, MusicUser customer) {
+    public Product(Integer id, String category, String imageurl, String title, String artist, String style, String format, BigDecimal price, String genre, int quantity, CustomerOrder order, MusicUser customer) {
 		super();
 		this.id = id;
+		this.category = category;
 		this.imageurl = imageurl;
 		this.title = title;
 		this.artist = artist;
@@ -61,8 +62,8 @@ public class Product implements Serializable {
 	}
 
 	public Integer getId() { return this.id; }
-	public String getImageurl() { return this.imageurl; }
 	public String getCategory() { return this.category; }
+	public String getImageurl() { return this.imageurl; }
 	public String getTitle() { return this.title; }
 	public String getArtist() { return this.artist; }
 	public String getStyle() { return this.style; }
@@ -74,8 +75,8 @@ public class Product implements Serializable {
 	public MusicUser getCustomer() {return this.customer; }
 	
 	public void setId(Integer id) { this.id = id; }
-	public void setImageurl(String imageurl) { this.imageurl = imageurl; }
 	public void setCategory(String category) { this.category = category; }
+	public void setImageurl(String imageurl) { this.imageurl = imageurl; }
 	public void setTitle(String title) { this.title = title; }
 	public void setArtist(String artist) { this.artist = artist; }
 	public void setStyle(String style) { this.style = style; }

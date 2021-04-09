@@ -149,6 +149,7 @@
 					<tr>		
 						<th scope="col">Image</th>
 						<th scope="col">Id</th>
+						<th scope="col">Category</th>
 						<th scope="col">Title</th>
 						<th scope="col">Artist</th>
 						<th scope="col">Style</th>
@@ -165,6 +166,7 @@
 						    <td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
 							<td><c:out value="${product.id}" /></td>
 							<td><c:out value="${product.title}" /></td>
+							<td><c:out value="${product.category}" /></td>
 							<td><c:out value="${product.artist}" /></td>
 							<td><c:out value="${product.style}" /></td>
 							<td><c:out value="${product.format}" /></td>
@@ -196,6 +198,7 @@
 					<tr>		
 						<th><input type="text" name="title" placeholder="Title" required></th>
 						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
+						<th><input type="text" name="category" placeholder="Category" ></th>
 						<th><input type="text" name="artist" placeholder="Artist" ></th>
 						<th><input type="text" name="style" placeholder="Style" ></th>
 						<th><input type="text" name="format" placeholder="Format" required></th>
@@ -220,6 +223,7 @@
 					<tr>
 						<th><input type="text" name="title" placeholder="Title" required></th>
 						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
+						<th><input type="text" name="category" placeholder="Category" ></th>
 						<th><input type="text" name="artist" placeholder="Artist" required></th>
 						<th><input type="text" name="style" placeholder="Style" required></th>
 						<th><input type="text" name="format" placeholder="Format" required></th>

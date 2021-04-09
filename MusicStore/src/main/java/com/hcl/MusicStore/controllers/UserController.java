@@ -170,6 +170,7 @@ public class UserController {
 	    		Product orderProduct = new Product(
 		    		null, 
 		    		product.getImageurl(),
+		    		product.getCategory(),
 		    		product.getTitle(), 
 		    		product.getArtist(), 
 		    		product.getStyle(), 
@@ -298,6 +299,7 @@ public class UserController {
 	    	Product cartProduct = new Product(
 	    			null, 
 	    			product.getImageurl(),
+	    			product.getCategory(),
 	    			product.getTitle(), 
 	    			product.getArtist(), 
 	    			product.getStyle(), 

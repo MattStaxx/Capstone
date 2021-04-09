@@ -154,12 +154,12 @@
 								<form class="col" action="/addToCart" method="post">
 									<input type="hidden" id="idnumber" name="id"
 										value="${product.id}"><h6>Quantity</h6><input class="w-25" type="number"
-										id="quantity" name="quantity" value="1" required> <input class="btn btn-success"
+										id="quantity" name="quantity" value="1" required> <input class="btn btn-outline-success"
 										type="submit" value="Add to Cart">
 								</form>
 								<form class="row w-25" action="details">
 									<input type="hidden" id="idnumber" name="idnumber"
-										value="${product.id}"> <input class="btn btn-secondary" type="submit"
+										value="${product.id}"> <input class="btn btn-outline-secondary" type="submit"
 										value="Details">
 								</form>
 								</td>
