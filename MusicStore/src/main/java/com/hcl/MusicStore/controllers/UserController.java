@@ -169,8 +169,8 @@ public class UserController {
 	    	for(Product product : cart) {
 	    		Product orderProduct = new Product(
 		    		null, 
-		    		product.getImageurl(),
 		    		product.getCategory(),
+		    		product.getImageurl(),
 		    		product.getTitle(), 
 		    		product.getArtist(), 
 		    		product.getStyle(), 
@@ -298,8 +298,8 @@ public class UserController {
 	    	}
 	    	Product cartProduct = new Product(
 	    			null, 
-	    			product.getImageurl(),
 	    			product.getCategory(),
+	    			product.getImageurl(),
 	    			product.getTitle(), 
 	    			product.getArtist(), 
 	    			product.getStyle(), 
