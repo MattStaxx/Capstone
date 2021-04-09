@@ -220,7 +220,7 @@
   			<nav>
 				<ul class="pagination">
 					<c:if test="${maxproducts < totalproducts}">
-						<c:forEach var="i" begin="1" end="${totalpages+1}">
+						<c:forEach var="i" begin="1" end="${totalpages}">
 						<li class="page-item"><a class="page-link"
 							href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
 						</c:forEach>
