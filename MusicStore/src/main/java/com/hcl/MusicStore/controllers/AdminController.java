@@ -377,7 +377,7 @@ public class AdminController {
 		ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.addObject("errorMessage", "Product aleady Exists!");
 	    modelAndView.addObject("products", productService.getAllProducts());
-	    modelAndView.setViewName("usermanage");
+	    modelAndView.setViewName("inventorymanage");
 	    return modelAndView;
 	}
 	
@@ -386,7 +386,7 @@ public class AdminController {
 		ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.addObject("errorMessage", "Product not found!");
 	    modelAndView.addObject("products", productService.getAllProducts());
-	    modelAndView.setViewName("usermanage");
+	    modelAndView.setViewName("inventorymanage");
 	    return modelAndView;
 	}
 	

@@ -122,8 +122,10 @@
     </div>
   </div>
 </nav>                                         
-	<div class="error"> 
-	<h1 class="text-danger">Sorry an exception occured!</h1>  
+	<div class="container w-75 error"> 
+	<h1 class="text-danger">Sorry an exception occured!</h1>
+	
+	<h1>${errorMessage}</h1>
 	Exception: <%= exception %>  
 </div>  
 	 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
