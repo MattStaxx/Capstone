@@ -86,4 +86,26 @@ public class Product implements Serializable {
 	public void setQuantity(int quantity) { this.quantity = quantity; }
 	public void setCustomerOrder(CustomerOrder customerOrder) { this.customerOrder = customerOrder; }
 	public void setCustomer(MusicUser customer) {this.customer = customer; }
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o == this) {
+			return true;
+		}
+		
+		if (!(o instanceof Product)) {
+			return false;
+		}
+		
+		Product p = (Product) o;
+		if (p.getId().equals(this.id)) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product: id:" + this.id + " Title:" + this.title + " Category:" + this.category + " Customer:"+ this.customer + " Order:" + this.customerOrder;
+	}
 }

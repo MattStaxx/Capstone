@@ -1,5 +1,7 @@
 package com.hcl.MusicStore.controllers;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,40 +18,44 @@ public class MainController {
 
 	@Autowired
 	ProductService productService;
-	
-	// Viewable by All
-    @GetMapping("/")
-    public String defaultpage() {
-        return "home";
-    }
-    
-    @GetMapping("/home")
-    public String showHome() {
-        return "home";
-    }
-    
-    @GetMapping("/login")
-    public String showLogin() {
-        return "login";
-    }
-    
-    @GetMapping("/register")
-    public String showRegister() {
-        return "register";
-    }
 
-    @GetMapping("/catalog")
-    public String showCatalog(ModelMap m) {
-    	Iterable<Product> products=productService.displayCatalog();
-    	for(Product s: products){
-    		logger.debug(s.getArtist());
-    	}
-        m.addAttribute("Product", products);
-        return "catalog";
-    }
-    
-    @GetMapping("/about")
-    public String showAbout() {
-        return "about";
-    }
+	// Viewable by All
+	@GetMapping("/")
+	public String defaultpage() {
+		return "home";
+	}
+
+	@GetMapping("/home")
+	public String showHome() {
+		return "home";
+	}
+
+	@GetMapping("/login")
+	public String showLogin() {
+		return "login";
+	}
+
+	@GetMapping("/register")
+	public String showRegister() {
+		return "register";
+	}
+
+	@GetMapping("/catalog")
+	public String showCatalog(ModelMap m) {
+		List<Product> products = productService.displayCatalog();
+		for (Product p : products) {
+			logger.info("Product in Catalog...");
+			logger.info(p.toString());
+			if (p.getCustomer() != null || p.getCustomerOrder() != null) {
+				products.remove(p);
+			}
+		}
+		m.addAttribute("Product", products);
+		return "catalog";
+	}
+
+	@GetMapping("/about")
+	public String showAbout() {
+		return "about";
+	}
 }

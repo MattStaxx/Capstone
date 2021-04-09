@@ -291,7 +291,31 @@ public class UserController {
 	    	if (foundproduct.isEmpty()) {
 	    		throw new ProductNotFoundException(id);
 	    	}
+	    	
 	    	Product product = foundproduct.get();
+	    	
+	    	// Check if Product is already in the cart
+	    	List<Product> cart = productService.getAllProductsByUser(user);
+	    	if (!cart.isEmpty()) { // If its the same item increment the quantity
+	    		for (Product cartProd : cart) {
+	    			if (cartProd.getTitle().equals(product.getTitle())) { 
+	    				Integer newQuantity = cartProd.getQuantity() + quantity;
+	    				if (newQuantity > product.getQuantity()) {
+	    					m.addAttribute("errorMessage", "Invalid quantity!");
+	    		    		m.addAttribute("product", product);
+	    		    		return "catalog";
+	    				} else {
+	    					cartProd.setQuantity(newQuantity);
+	    					productService.saveProduct(cartProd);
+	    					List<Product> products = productService.displayCatalog();
+	    					m.addAttribute("Product", products);
+	    					m.addAttribute("successMessage", "Product added to cart!");
+	    			    	return "catalog";
+	    				}
+	    			}
+	    		}
+	    	}
+	    	
 	    	if (product.getQuantity() < quantity) {
 	    		m.addAttribute("errorMessage", "Invalid quantity!");
 	    		m.addAttribute("product", product);

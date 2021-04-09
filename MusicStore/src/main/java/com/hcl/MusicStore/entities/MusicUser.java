@@ -61,4 +61,9 @@ public class MusicUser implements Serializable {
 	public void setRole(String role) { this.role = role; }
 	public void setOrders(Set<CustomerOrder> orders) { this.orders = orders; }
 	public void setCart(Set<Product> cart) { this.cart = cart; }
+	
+	@Override
+	public String toString() {
+		return "MusicUser: id:" + this.id + "Username: " + this.username;
+	}
 }

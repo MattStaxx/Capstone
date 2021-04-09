@@ -71,4 +71,8 @@ public class CustomerOrder implements Serializable {
 		this.status = status;
 	}
 	
+	@Override
+	public String toString() {
+		return "CustomerOrder: id:" + this.id;
+	}
 }
