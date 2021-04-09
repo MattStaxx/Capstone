@@ -187,7 +187,7 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${Product}" var="product">
-						<tr class="row-2">
+						<tr class="zoom">
 							<td>${product.title}</td>
 							<td><img src="${product.imageurl}" alt="${product.title}"
 								alt="mdo" width="100" height="80"
@@ -213,7 +213,6 @@
 										value="Add to Cart">
 								</form>
 							</td>
-
 						</tr>
 					</c:forEach>
 

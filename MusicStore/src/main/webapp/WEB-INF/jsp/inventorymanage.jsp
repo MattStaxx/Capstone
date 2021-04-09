@@ -143,6 +143,7 @@
 									type="submit" value="Delete">
 							</form>
 						</td>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
@@ -241,7 +242,6 @@
 				</tbody>
 			</table>
 		</form>
-		<!-- ### $App Screen Footer ### -->
 
 	</div>
 	<script src="/javascript/search.js"></script>
@@ -292,13 +292,5 @@
 			}
 		}
 	</script>
-	<style>
-footer {
-	text-align: center;
-	padding: 3px;
-	background-color: black;
-	color: white;
-}
-</style>
 </body>
 </html>
