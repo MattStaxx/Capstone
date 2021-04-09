@@ -104,7 +104,7 @@
       <sec:authorize access="isAuthenticated()">
       	<div class="dropdown text-end">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <img src="images/lion.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
         	<sec:authorize access="hasAnyRole('ADMIN')">
@@ -163,7 +163,7 @@
 				<tbody>
 					<c:forEach items="${products}" var="product">
 						<tr class="zoom">
-						    <td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
+						    <td><img src="${product.imageurl}" alt="${product.title}"  alt="mdo" width="100" height="100" class="img-thumbnail rounded-square"></td>
 							<td><c:out value="${product.id}" /></td>
 							<td><c:out value="${product.category}" /></td>
 							<td><c:out value="${product.title}" /></td>
@@ -197,7 +197,14 @@
 				<tbody>
 					<tr>		
 						<th><input type="text" name="title" placeholder="Title" required></th>
-						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
+
+						<th><select name="imageurl">
+						  <option value="images/rock.jpg">Rock</option>
+						  <option value="images/electronic.jpg">Electronic</option>
+						  <option value="images/rap.jpg">Rap</option>
+						  <option value="images/hiphop.jpg">Hip Hop</option>
+						  <option value="images/violin.jpg">CLassical</option>
+						</select></th>
 						<th><input type="text" name="category" placeholder="Category" ></th>
 						<th><input type="text" name="artist" placeholder="Artist" ></th>
 						<th><input type="text" name="style" placeholder="Style" ></th>
@@ -222,7 +229,13 @@
 				<tbody>	
 					<tr>
 						<th><input type="text" name="title" placeholder="Title" required></th>
-						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
+						<th><select name="imageurl">
+						  <option value="images/rock.jpg">Rock</option>
+						  <option value="images/electronic.jpg">Electronic</option>
+						  <option value="images/rap.jpg">Rap</option>
+						  <option value="images/hiphop.jpg">Hip Hop</option>
+						  <option value="images/violin.jpg">CLassical</option>
+						</select></th>
 						<th><input type="text" name="category" placeholder="Category" ></th>
 						<th><input type="text" name="artist" placeholder="Artist" required></th>
 						<th><input type="text" name="style" placeholder="Style" required></th>

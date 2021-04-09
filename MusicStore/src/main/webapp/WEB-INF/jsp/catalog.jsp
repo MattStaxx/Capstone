@@ -146,7 +146,7 @@
 						<tr>
 								<td>${product.title}</td>
 								<td>
-									<img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail">
+									<img src="${product.imageurl}" alt="${product.title}"  alt="mdo" width="100" height="100" class="img-thumbnail rounded-square">
 								</td>
 								<td> $ ${product.price} </td>
 								<td class="col-2"> ${product.category} </td>
