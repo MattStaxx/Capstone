@@ -65,3 +65,5 @@ option1B.addEventListener("change", function() {
 console.log("zzzz");
 
 y.removeChild(x2);
+
+x2.removeAttribute("hidden");
