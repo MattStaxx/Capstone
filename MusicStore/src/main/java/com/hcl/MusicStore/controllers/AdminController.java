@@ -165,6 +165,11 @@ public class AdminController {
     	if (foundOrder == null) {
     		throw new OrderNotFoundException(id);
     	} else {
+    		// Delete products associated with the order
+    		List<Product> orderProducts = productService.getAllProductsByOrder(foundOrder);
+    		for (Product p : orderProducts) {
+    			productService.deleteProduct(p.getId());
+    		}
     		customerOrderService.deleteOrderById(id);
     		logger.debug("Order with id: " + id + " deleted.");
     		model.addAttribute("successMessage", "Delete Successful");
