@@ -27,12 +27,12 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="home" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="home" class="nav-link px-2 text-white">Home</a></li>
         <li><a href="catalog" class="nav-link px-2 text-white">Catalog</a></li>
-        <li><a href="about" class="nav-link px-2 text-white">About</a></li>
+        <li><a href="about" class="nav-link px-2 text-secondary">About</a></li>
         <sec:authorize access="isAuthenticated()">
         	<li><a class="nav-link px-2 text-white" href="orderhistory">Order History</a></li>
-        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Checkout</a></li>
+        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Cart</a></li>
     	   	
     	</sec:authorize>
       </ul>
@@ -110,7 +110,7 @@
         	<sec:authorize access="hasAnyRole('ADMIN')">
     			 <li><a class="dropdown-item" href="admin">Admin</a></li>
     	 		 <li><a class="dropdown-item" href="manageinventory">Manage Inventory</a></li>
-    			 <li><a class="dropdown-item" href="manageusers">Manage Orders</a></li>
+    			 <li><a class="dropdown-item" href="manageorders">Manage Orders</a></li>
     			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>	
 			</sec:authorize>
        	  	<li><a class="dropdown-item" href="profile">Profile</a></li>
@@ -121,8 +121,7 @@
       </sec:authorize>
     </div>
   </div>
-</nav>
-
+</nav>	
         <h2 class="display-1">About Us</h2>
         <div class="container">
         <p> Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
@@ -134,7 +133,7 @@
     
                     <!-- Copyright -->
                     <div class="footer-copyright text-center py-3">© 2021 Copyright:
-                      <a href="localhost:8080/">The Music tore</a>
+                      <a href="localhost:8080/">The Music Store</a>
                     </div>
                     <!-- Copyright -->
           
@@ -158,7 +157,7 @@
 		var count=0; 
 		window.onresize = reportWindowSize;
 		function reportWindowSize(){console.log("hi");
-		count++;
+		count++; 		element.style="position:width:100%";
 		if(count!=1){
 			 rect = element.getBoundingClientRect();
 			 h = window.innerHeight;

@@ -39,7 +39,7 @@
         <li><a href="about" class="nav-link px-2 text-white">About</a></li>
         <sec:authorize access="isAuthenticated()">
         	<li><a class="nav-link px-2 text-white" href="orderhistory">Order History</a></li>
-        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Checkout</a></li>
+        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Cart</a></li>
     	   	
     	</sec:authorize>
       </ul>
@@ -117,7 +117,7 @@
         	<sec:authorize access="hasAnyRole('ADMIN')">
     			 <li><a class="dropdown-item" href="admin">Admin</a></li>
     	 		 <li><a class="dropdown-item" href="manageinventory">Manage Inventory</a></li>
-    			 <li><a class="dropdown-item" href="manageusers">Manage Orders</a></li>
+    			 <li><a class="dropdown-item" href="manageorders">Manage Orders</a></li>
     			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>	
 			</sec:authorize>
        	  	<li><a class="dropdown-item" href="profile">Profile</a></li>
@@ -155,8 +155,8 @@
 			
 					<form action="/addToCart" method="post">
 						<input type="hidden" id="idnumber" name="id" value="${product.id}">
-						Quantity <input type="number" id="quantity" name="quantity"
-							value="1" required> <input type="submit"
+						<h6>Quantity</h6><input class="form-control" type="number" id="quantity" name="quantity"
+							value="1" required> <input type="submit" class="btn btn-secondary"
 							value="Add to Cart">
 					</form>
 					<li>
@@ -204,7 +204,7 @@
 		var count=0; 
 		window.onresize = reportWindowSize;
 		function reportWindowSize(){console.log("hi");
-		count++;
+		count++; 		element.style="position:width:100%";
 		if(count!=1){
 			 rect = element.getBoundingClientRect();
 			 h = window.innerHeight;

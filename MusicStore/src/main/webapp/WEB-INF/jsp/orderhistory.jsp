@@ -25,12 +25,12 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="home" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="home" class="nav-link px-2 text-white">Home</a></li>
         <li><a href="catalog" class="nav-link px-2 text-white">Catalog</a></li>
         <li><a href="about" class="nav-link px-2 text-white">About</a></li>
         <sec:authorize access="isAuthenticated()">
-        	<li><a class="nav-link px-2 text-white" href="orderhistory">Order History</a></li>
-        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Checkout</a></li>
+        	<li><a class="nav-link px-2 text-secondary" href="orderhistory">Order History</a></li>
+        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Cart</a></li>
     	   	
     	</sec:authorize>
       </ul>
@@ -108,7 +108,7 @@
         	<sec:authorize access="hasAnyRole('ADMIN')">
     			 <li><a class="dropdown-item" href="admin">Admin</a></li>
     	 		 <li><a class="dropdown-item" href="manageinventory">Manage Inventory</a></li>
-    			 <li><a class="dropdown-item" href="manageusers">Manage Orders</a></li>
+    			 <li><a class="dropdown-item" href="manageorders">Manage Orders</a></li>
     			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>	
 			</sec:authorize>
        	  	<li><a class="dropdown-item" href="profile">Profile</a></li>
@@ -120,7 +120,7 @@
     </div>
   </div>
 </nav>
-
+	<div class="container w-75">
 	<h1 class="display-1">Order History</h1>
 	<table class="table table-striped table-bordered" id="tblData">
 			<thead>
@@ -129,6 +129,7 @@
 					<!-- <th scope="col">Order Number</th> Hidden for now-->
 					<th scope="col">Status</th>
 					<th scope="col">Items</th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -138,11 +139,18 @@
 						<!-- <td><c:out value="${order.orderNumber}" /></td> Hidden for now-->
 						<td><c:out value="${order.status}" /></td>
 						<td><c:out value="${order.products.size()}" /></td>
+						<td>
+							<form class="row w-75 " action="getOrderDetails" method="post">
+									<input type="hidden" id="orderid" name="orderid"
+										value="${order.id}"> <input class="btn btn-secondary" type="submit"
+										value="Order Details">
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-
+	</div>
 	 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
     
                     <!-- Copyright -->
@@ -171,7 +179,7 @@
 		var count=0; 
 		window.onresize = reportWindowSize;
 		function reportWindowSize(){console.log("hi");
-		count++;
+		count++; 		element.style="position:width:100%";
 		if(count!=1){
 			 rect = element.getBoundingClientRect();
 			 h = window.innerHeight;
