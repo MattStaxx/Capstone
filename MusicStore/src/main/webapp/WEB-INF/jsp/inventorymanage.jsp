@@ -298,5 +298,4 @@
 	
 	
 	</body>
-<script src="/javascript/datatable.js"></script>
 </html>
