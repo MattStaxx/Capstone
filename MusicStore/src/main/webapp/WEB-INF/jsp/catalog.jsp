@@ -93,7 +93,7 @@ transform: translate(-50%, 0);
 //border: 5px solid #FFFF00;
 padding: 10px;">
 		<!-- Search for everything but Price-->
-		<form action="search" id="search1">
+		<form action="search" id="search1" >
 			<div class="row">
 				<div class="col-2">
 					<label for="options"><h4 class="fs-6">Search By:</h4></label> 
@@ -121,7 +121,7 @@ padding: 10px;">
 			</div>
 		</form>
 
-		<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="searchprice" id="search2">
+		<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="searchprice" id="search2" hidden>
 			<div class="row">
 				<div class="col">
 					<label for="options"> Search By: </label> 
