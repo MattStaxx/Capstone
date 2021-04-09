@@ -95,7 +95,9 @@
 	height: 70%;
 	width: 100%
 }
-		    
+.carousel-caption {
+	font-size: 1rem;
+}    
 .carousel-indicators .active {
 	background-color: green;
 }
@@ -110,10 +112,23 @@
 }
 
 
- .page-footer {
-  text-align: center;
-  padding: 3px;
-  background-color: #232a2e;
-  color: white;
+.page-footer {
+	 text-align: center;
+	 padding: 3px;
+	 background-color: #232a2e;
+	 color: white;
+}
+
+.marketing .col-lg-4 {
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+
+.marketing h5 {
+	font-weight: bold;
+	color: white;
 }
 		    
