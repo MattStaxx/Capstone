@@ -263,7 +263,6 @@
                     <span> <a href="localhost:8080/">The Coolest Team!</a> All rights reserved.</span>
                     	   <a href="/manageinventory">Back to top</a>
                     </div>
-                    <!-- Copyright -->
           
                   </footer>
                   <!-- Footer -->
@@ -326,13 +325,5 @@ footer {
 	color: white;
 }
 </style>       
-
-	
-	
-	
-	
-	
-	
 					</body>
-<script src="/javascript/datatable.js"></script>
 </html>

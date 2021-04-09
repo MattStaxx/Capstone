@@ -76,7 +76,6 @@
 
 	<div class="container">
 		<div class="productlist">
-			<h1 class="display-1">Catalog</h1>
 				<nav class="p-3 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -162,33 +161,36 @@ padding: 10px;">
 			<table class="table table-hover">
 				<thead>
 					<tr>
-					    <th scope="col"  >Name</th>
-						<th scope="col"  >Image</th>
+					    <th scope="col"  >Title</th>
+						<th scope="col"  >Genre</th>
 						<th scope="col"  >Price</th>
 						<th scope="col"  >Category</th>
+						<th scope="col"  > </th>
+						<th scope="col"  > </th>
 						<th scope="col"  > </th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${Product}" var="product">
-						<tr>
+						<tr class="row-2">
 								<td>${product.title}</td>
 								<td>
-									<img src="${product.imageurl}" alt="${product.title}"  alt="mdo" width="100" height="100" class="img-thumbnail rounded-square">
+									<img src="${product.imageurl}" alt="${product.title}"  alt="mdo" width="100" height="80" class="img-thumbnail rounded-square">
 								</td>
 								<td> $ ${product.price} </td>
 								<td class="col-2"> ${product.category} </td>
-								<td class="row">
+								<td class="row-2">
+								<form class="col" action="details">
+									<input type="hidden" id="idnumber" name="idnumber"
+										value="${product.id}"> <input class="btn btn-outline-secondary" type="submit"
+										value="Details">
+								</form></td>
+								<td class="row-2">
 								<form class="col" action="/addToCart" method="post">
 									<input type="hidden" id="idnumber" name="id"
 										value="${product.id}"><h6>Quantity</h6><input class="w-25" type="number"
 										id="quantity" name="quantity" value="1" required> <input class="btn btn-outline-success"
 										type="submit" value="Add to Cart">
-								</form>
-								<form class="row w-25" action="details">
-									<input type="hidden" id="idnumber" name="idnumber"
-										value="${product.id}"> <input class="btn btn-outline-secondary" type="submit"
-										value="Details">
 								</form>
 								</td>
 								 
@@ -213,10 +215,10 @@ padding: 10px;">
 	 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
     
                     <!-- Copyright -->
-                    <div class="footer-copyright text-center py-3">Â© 2021 Copyright:
-                      <a href="localhost:8080/">The Music tore</a>
+                    <div class="footer-copyright text-center py-3">Copyright © 2021 Designed by 
+                    <span> <a href="localhost:8080/">The Coolest Team!</a> All rights reserved.</span>
+                    	   <a href="/catalog">Back to top</a>
                     </div>
-                    <!-- Copyright -->
           
                   </footer>
                   <!-- Footer -->

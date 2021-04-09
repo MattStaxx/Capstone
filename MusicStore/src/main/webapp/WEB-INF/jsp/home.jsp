@@ -16,9 +16,9 @@
 
     <title>Home Page</title>
   </head>
-  <body style="background-color: rgb(33, 37, 41);">
+  <body style="background-color: #232a2e;">
   <header>
-<nav class="p-3 bg-dark text-white">
+<nav class="p-3 text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -67,7 +67,7 @@
   </div>
 </nav>    
 	</header>
-	 <div class="container" style="background-color: rgb(33, 37, 41);" >
+	 <div class="container" style="background-color: #232a2e;" >
 	  <div id="carouselExampleIndicators" class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
 	    <div class="carousel-inner">
 	      <div class="carousel-indicators">
@@ -145,21 +145,7 @@
 			else{element.style="position:width:100%";}
 		}
 		}
-		</script>
-               <style>
-  footer {
-  text-align: center;
-  padding: 3px;
-  background-color: black;
-  color: white;
-}
-</style>       
-
-	
-	
-	
-	
-	
+		</script>       
 	</body>
 		<script src="/javascript/search.js"></script>
         <script
