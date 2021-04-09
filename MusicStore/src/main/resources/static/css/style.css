@@ -101,4 +101,16 @@
 	 margin-left: 80%; 
 	 margin-right: 80%;
 }
+
+.p-3 {
+	background-color: #232a2e;
+}
+
+
+ .page-footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #232a2e;
+  color: white;
+}
 		    

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hcl.MusicStore.entities.Product;
 import com.hcl.MusicStore.services.ProductService;
@@ -41,14 +42,13 @@ public class MainController {
 	}
 
 	@GetMapping("/catalog")
-	public String showCatalog(ModelMap m) {
+	public String showCatalog(
+			@RequestParam(required=false) Integer page,
+			ModelMap m) {
 		List<Product> products = productService.displayCatalog();
 		for (Product p : products) {
 			logger.info("Product in Catalog...");
 			logger.info(p.toString());
-			if (p.getCustomer() != null || p.getCustomerOrder() != null) {
-				products.remove(p);
-			}
 		}
 		m.addAttribute("Product", products);
 		return "catalog";

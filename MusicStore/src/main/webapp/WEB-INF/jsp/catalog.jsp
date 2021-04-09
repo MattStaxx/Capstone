@@ -23,7 +23,7 @@
 </head>
 <body>
 	<h1 class="display-1">The Music Store</h1>
-	<nav class="p-3 bg-dark text-white">
+	<nav class="p-3 text-white">
 		<div class="container">
 			<div
 				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -32,6 +32,7 @@
 					<svg class="bi me-2" width="40" height="32">
 						<use xlink:href="#bootstrap" /></svg>
 				</a>
+
 				<ul
 					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<li><a href="home" class="nav-link px-2 text-white">Home</a></li>
@@ -82,10 +83,47 @@
 			</div>
 		</div>
 	</nav>
+
+
+
+				<sec:authorize access="!isAuthenticated()">
+					<div class="text-end">
+						<a class="btn btn-outline-light me-2" href="login">Login</a> <a
+							class="btn btn-warning" href="register">Register</a>
+					</div>
+				</sec:authorize>
+
+				<sec:authorize access="isAuthenticated()">
+					<div class="dropdown text-end">
+						<a href="#"
+							class="d-block link-dark text-decoration-none dropdown-toggle"
+							id="dropdownUser1" data-bs-toggle="dropdown"
+							aria-expanded="false"> <img src="https://github.com/mdo.png"
+							alt="mdo" width="32" height="32" class="rounded-circle">
+						</a>
+						<ul class="dropdown-menu text-small"
+							aria-labelledby="dropdownUser1">
+							<sec:authorize access="hasAnyRole('ADMIN')">
+								<li><a class="dropdown-item" href="admin">Admin</a></li>
+								<li><a class="dropdown-item" href="manageinventory">Manage
+										Inventory</a></li>
+								<li><a class="dropdown-item" href="manageorders">Manage
+										Orders</a></li>
+								<li><a class="dropdown-item" href="manageusers">Manage
+										Users</a></li>
+							</sec:authorize>
+							<li><a class="dropdown-item" href="profile">Profile</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="logout">Sign out</a></li>
+						</ul>
+					</div>
+				</sec:authorize>
+			</div>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="productlist">
-			<h1 class="display-1">Catalog</h1>
-			<nav class="p-3 bg-dark text-white">
+			<nav class="p-3 text-white">
 				<div class="container">
 					<div
 						class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -95,9 +133,10 @@
 								<use xlink:href="#bootstrap" /></svg>
 						</a>
 
+						<!--  https://blog.hubspot.com/website/center-div-css#:~:text=To%20center%20a%20div%20horizontally%20on%20a%20page%2C%20simply%20set,equally%20between%20the%20two%20margins.-->
 
-
-						<div id="divId1" align=right style="margin-right: 10px">
+						<div id="divId1" align=right
+							style="position: absolute; left: 50%; transform: translate(-50%, 0); // border: 5px solid #FFFF00; padding: 10px;">
 							<!-- Search for everything but Price-->
 							<form action="search" id="search1">
 								<div class="row">
@@ -106,6 +145,7 @@
 									</div>
 									<div class="col-4">
 										<select class="form-select" id="options1" name="options">
+											<option value="artist">Index</option>
 											<option value="artist">Artist Name</option>
 											<option value="format">Music Format</option>
 											<option value="genre">Genre</option>
@@ -123,11 +163,12 @@
 									<div class="col-2">
 										<input class="form-control fs-8" type="submit" value="Search">
 									</div>
+
 								</div>
 							</form>
 
 							<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
-								action="searchprice" id="search2">
+								action="searchprice" id="search2" hidden>
 								<div class="row">
 									<div class="col">
 										<label for="options"> Search By: </label>
@@ -154,9 +195,14 @@
 									<div class="col">
 										<input class="form-control" type="submit" value="Search">
 									</div>
+
 								</div>
 							</form>
+
+
 						</div>
+
+
 					</div>
 				</div>
 			</nav>
@@ -165,61 +211,69 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th scope="col">Name</th>
-						<th scope="col">Image</th>
+						<th scope="col">Title</th>
+						<th scope="col">Genre</th>
 						<th scope="col">Price</th>
 						<th scope="col">Category</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${Product}" var="product">
-						<c:if
-							test="${empty product.customerOrder.id && empty product.customer.id}">
-							<tr>
-								<td>${product.title}</td>
-								<td><img src="${product.imageurl}" alt="${product.title}"
-									alt="mdo" width="100" height="100"
-									class="img-thumbnail rounded-square"></td>
-								<td>$ ${product.price}</td>
-								<td class="col-2">${product.category}</td>
-								<td class="row">
-									<form class="col" action="/addToCart" method="post">
-										<input type="hidden" id="idnumber" name="id"
-											value="${product.id}">
-										<h6>Quantity</h6>
-										<input class="w-25" type="number" id="quantity"
-											name="quantity" value="1" required> <input
-											class="btn btn-outline-success" type="submit"
-											value="Add to Cart">
-									</form>
-									<form class="row w-25" action="details">
-										<input type="hidden" id="idnumber" name="idnumber"
-											value="${product.id}"> <input
-											class="btn btn-outline-secondary" type="submit"
-											value="Details">
-									</form>
-								</td>
-							</tr>
-						</c:if>
+						<tr class="zoom">
+							<td>${product.title}</td>
+							<td><img src="${product.imageurl}" alt="${product.title}"
+								alt="mdo" width="100" height="80"
+								class="img-thumbnail rounded-square"></td>
+							<td>$ ${product.price}</td>
+							<td class="col-2">${product.category}</td>
+							<td class="row-2">
+								<form class="col" action="details">
+									<input type="hidden" id="idnumber" name="idnumber"
+										value="${product.id}"> <input
+										class="btn btn-outline-secondary" type="submit"
+										value="Details">
+								</form>
+							</td>
+							<td class="row-2">
+								<form class="col" action="/addToCart" method="post">
+									<input type="hidden" id="idnumber" name="id"
+										value="${product.id}">
+									<h6>Quantity</h6>
+									<input class="w-25" type="number" id="quantity" name="quantity"
+										value="1" required> <input
+										class="btn btn-outline-success" type="submit"
+										value="Add to Cart">
+								</form>
+							</td>
+						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
+
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+
 		</div>
 	</div>
 	<footer class="page-footer font-small indigo" id="footer"
 		style="width: 100%">
-
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">
-			© 2021 Copyright: <a href="localhost:8080/">The Music tore</a>
+			Copyright ï¿½ 2021 Designed by <span> <a href="localhost:8080/">The
+					Coolest Team!</a> All rights reserved.
+			</span> <a href="/catalog">Back to top</a>
 		</div>
-		<!-- Copyright -->
-
 	</footer>
-	<!-- Footer -->
-
-
 	<script>
 		var element = document.getElementById("footer");
 		var rect = element.getBoundingClientRect();
@@ -253,21 +307,6 @@
 			}
 		}
 	</script>
-	<style>
-footer {
-	text-align: center;
-	padding: 3px;
-	background-color: black;
-	color: white;
-}
-</style>
-
-
-
-
-
-
-
 </body>
 <script src="/javascript/search.js"></script>
 <script
