@@ -158,6 +158,7 @@
 				<tr>		
 					<th scope="col">Id</th>
 					<th scope="col">Title</th>
+					<th scope="col">Category</th>
 					<th scope="col">Artist</th>
 					<th scope="col">Style</th>
 					<th scope="col">Format</th>
@@ -171,6 +172,7 @@
 					<tr>
 						<td><c:out value="${product.id}" /></td>
 						<td><c:out value="${product.title}" /></td>
+						<td><c:out value="${product.category}" /></td>
 						<td><c:out value="${product.artist}" /></td>
 						<td><c:out value="${product.style}" /></td>
 						<td><c:out value="${product.format}" /></td>
