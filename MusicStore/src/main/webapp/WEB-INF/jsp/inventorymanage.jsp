@@ -32,7 +32,7 @@
         <li><a href="about" class="nav-link px-2 text-white">About</a></li>
         <sec:authorize access="isAuthenticated()">
         	<li><a class="nav-link px-2 text-white" href="orderhistory">Order History</a></li>
-        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Checkout</a></li>
+        	<li><a class="nav-link px-2 text-white" href="shoppingcart">Cart</a></li>
     	   	
     	</sec:authorize>
       </ul>
@@ -110,7 +110,7 @@
         	<sec:authorize access="hasAnyRole('ADMIN')">
     			 <li><a class="dropdown-item" href="admin">Admin</a></li>
     	 		 <li><a class="dropdown-item" href="manageinventory">Manage Inventory</a></li>
-    			 <li><a class="dropdown-item" href="manageusers">Manage Orders</a></li>
+    			 <li><a class="dropdown-item" href="manageorders">Manage Orders</a></li>
     			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>	
 			</sec:authorize>
        	  	<li><a class="dropdown-item" href="profile">Profile</a></li>
@@ -149,6 +149,7 @@
 					<tr>		
 						<th scope="col">Image</th>
 						<th scope="col">Id</th>
+						<th scope="col">Category</th>
 						<th scope="col">Title</th>
 						<th scope="col">Artist</th>
 						<th scope="col">Style</th>
@@ -164,6 +165,7 @@
 						<tr class="zoom">
 						    <td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
 							<td><c:out value="${product.id}" /></td>
+							<td><c:out value="${product.category}" /></td>
 							<td><c:out value="${product.title}" /></td>
 							<td><c:out value="${product.artist}" /></td>
 							<td><c:out value="${product.style}" /></td>
@@ -196,6 +198,7 @@
 					<tr>		
 						<th><input type="text" name="title" placeholder="Title" required></th>
 						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
+						<th><input type="text" name="category" placeholder="Category" ></th>
 						<th><input type="text" name="artist" placeholder="Artist" ></th>
 						<th><input type="text" name="style" placeholder="Style" ></th>
 						<th><input type="text" name="format" placeholder="Format" required></th>
@@ -220,6 +223,7 @@
 					<tr>
 						<th><input type="text" name="title" placeholder="Title" required></th>
 						<th><input type="text" name="imageurl" placeholder="Image URL"></th>
+						<th><input type="text" name="category" placeholder="Category" ></th>
 						<th><input type="text" name="artist" placeholder="Artist" required></th>
 						<th><input type="text" name="style" placeholder="Style" required></th>
 						<th><input type="text" name="format" placeholder="Format" required></th>
@@ -269,7 +273,7 @@
 		var count=0; 
 		window.onresize = reportWindowSize;
 		function reportWindowSize(){console.log("hi");
-		count++;
+		count++; 		element.style="position:width:100%";
 		if(count!=1){
 			 rect = element.getBoundingClientRect();
 			 h = window.innerHeight;
