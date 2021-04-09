@@ -102,12 +102,12 @@
 	 margin-right: 80%;
 }
 
-.nav {
+.p-3 {
 	background-color: #232a2e;
 }
 
 
-  footer {
+ .page-footer {
   text-align: center;
   padding: 3px;
   background-color: #232a2e;

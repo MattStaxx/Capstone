@@ -174,8 +174,6 @@
 								<option value="images/hiphop.jpg">Hip Hop</option>
 								<option value="images/violin.jpg">CLassical</option>
 								<script>
-									
-
 									function changeGenre() {
 										var x = document
 												.getElementById("imageurl");
@@ -209,25 +207,22 @@
 				<thead>
 					<tr>
 						<h1>Edit a Product</h1>
-
-						<tr>
+					<tr>
 						<th><input type="text" name="id"
 							placeholder="ID of the Product to update" required>
-						
 					<tr>
 						<input type="submit" value="Update">
-				
 				</thead>
-				<tbody>	
+				<tbody>
 					<tr>
 						<th><input type="text" name="title" placeholder="Title"
 							required></th>
 						<th><select name="imageurl">
-						  <option value="images/rock.jpg">Rock</option>
-						  <option value="images/electronic.jpg">Electronic</option>
-						  <option value="images/rap.jpg">Rap</option>
-						  <option value="images/hiphop.jpg">Hip Hop</option>
-						  <option value="images/violin.jpg">CLassical</option>
+								<option value="images/rock.jpg">Rock</option>
+								<option value="images/electronic.jpg">Electronic</option>
+								<option value="images/rap.jpg">Rap</option>
+								<option value="images/hiphop.jpg">Hip Hop</option>
+								<option value="images/violin.jpg">CLassical</option>
 						</select></th>
 						<th><input type="text" name="category" placeholder="Category"></th>
 						<th><input type="text" name="artist" placeholder="Artist"
@@ -244,86 +239,66 @@
 							placeholder="Quantity" required></th>
 					</tr>
 				</tbody>
-				</table>
-			</form>
-        <!-- ### $App Screen Footer ### -->
+			</table>
+		</form>
+		<!-- ### $App Screen Footer ### -->
 
-		</div>
-		<script src="/javascript/search.js"></script>
-		<script
+	</div>
+	<script src="/javascript/search.js"></script>
+	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
 		crossorigin="anonymous"></script>
-	
-		 <footer class="page-footer font-small indigo" id="footer"
-		style="width:100%">
-    
-                    <!-- Copyright -->
-                    <div class="footer-copyright text-center py-3">Copyright © 2021 Designed by 
-                    <span> <a href="localhost:8080/">The Coolest Team!</a> All rights reserved.</span>
-                    	   <a href="/manageinventory">Back to top</a>
-                    </div>
-          
-                  </footer>
-                  <!-- Footer -->
-       
-      
-             	<script>
-															var element = document
-																	.getElementById("footer");
-															var rect = element
-																	.getBoundingClientRect();
-															var w = window.innerWidth;
-															var h = window.innerHeight;
 
-															console
-																	.log(
-																			rect.top,
-																			rect.bottom);
-															console.log(w + " "
-																	+ h);
-															if (rect.bottom <= h) {
-																element.style = "position: fixed; bottom: 0; width:100%";
-															}
-															//console.log(x);
-															rect = element
-																	.getBoundingClientRect();
-															console
-																	.log(
-																			rect.top,
-																			rect.bottom);
-															console.log(w + " "
-																	+ h);
-															var count = 0;
-															window.onresize = reportWindowSize;
-															function reportWindowSize() {
-																console
-																		.log("hi");
-																count++;
-																element.style = "position:width:100%";
-																if (count != 1) {
-																	rect = element
-																			.getBoundingClientRect();
-																	h = window.innerHeight;
-																	console
-																			.log(rect.bottom
-																					+ " "
-																					+ h);
-																	if (rect.bottom <= h) {
-																		element.style = "position: fixed; bottom: 0; width:100%";
-																	} else {
-																		element.style = "position:width:100%";
-																	}
-																}
-															}
-														</script>
-						<style>
+	<footer class="page-footer font-small indigo" id="footer"
+		style="width: 100%">
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">
+			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
+					Coolest Team!</a> All rights reserved.
+			</span> <a href="/manageinventory">Back to top</a>
+		</div>
+	</footer>
+	<script>
+		var element = document.getElementById("footer");
+		var rect = element.getBoundingClientRect();
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+
+		console.log(rect.top, rect.bottom);
+		console.log(w + " " + h);
+		if (rect.bottom <= h) {
+			element.style = "position: fixed; bottom: 0; width:100%";
+		}
+		//console.log(x);
+		rect = element.getBoundingClientRect();
+		console.log(rect.top, rect.bottom);
+		console.log(w + " " + h);
+		var count = 0;
+		window.onresize = reportWindowSize;
+		function reportWindowSize() {
+			console.log("hi");
+			count++;
+			element.style = "position:width:100%";
+			if (count != 1) {
+				rect = element.getBoundingClientRect();
+				h = window.innerHeight;
+				console.log(rect.bottom + " " + h);
+				if (rect.bottom <= h) {
+					element.style = "position: fixed; bottom: 0; width:100%";
+				} else {
+					element.style = "position:width:100%";
+				}
+			}
+		}
+	</script>
+	<style>
 footer {
 	text-align: center;
 	padding: 3px;
 	background-color: black;
 	color: white;
 }
-</style>       
-					</body>
+</style>
+</body>
 </html>
