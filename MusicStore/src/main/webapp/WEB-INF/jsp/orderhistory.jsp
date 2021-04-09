@@ -129,6 +129,7 @@
 					<!-- <th scope="col">Order Number</th> Hidden for now-->
 					<th scope="col">Status</th>
 					<th scope="col">Items</th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -138,6 +139,13 @@
 						<!-- <td><c:out value="${order.orderNumber}" /></td> Hidden for now-->
 						<td><c:out value="${order.status}" /></td>
 						<td><c:out value="${order.products.size()}" /></td>
+						<td>
+							<form class="row w-75 " action="getOrderDetails" method="post">
+									<input type="hidden" id="orderid" name="orderid"
+										value="${order.id}"> <input class="btn btn-secondary" type="submit"
+										value="Order Details">
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

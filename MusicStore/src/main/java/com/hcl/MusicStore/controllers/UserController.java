@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hcl.MusicStore.Exceptions.OrderNotFoundException;
 import com.hcl.MusicStore.Exceptions.ProductNotFoundException;
 import com.hcl.MusicStore.Exceptions.UserNotFoundException;
 import com.hcl.MusicStore.entities.CustomerOrder;
@@ -187,6 +188,28 @@ public class UserController {
 		}
     	return "orderconfirm";
     }
+    
+    @PostMapping("/getOrderDetails") 
+    public String getOrderDetails(
+    		@RequestParam Integer orderid,
+    		Principal principal,
+    		ModelMap m) {
+    	String username = principal.getName();
+		MusicUser user = musUseServ.getUserByUsername(username);
+		CustomerOrder order = custOrdServ.getOrderById(orderid);
+		List<Product> products = productService.getAllProductsByOrder(order);
+		if (user == null) {
+			throw new UserNotFoundException(username);
+		} else if (order == null || products == null) {
+			throw new OrderNotFoundException(orderid);
+		} else {
+			m.addAttribute("products", products);
+			m.addAttribute("user", user);
+			m.addAttribute("order", order);
+		}
+    	return "orderconfirm";
+    }
+    
     
     @PostMapping("/redeemcoupon") // Gets orders by Username
     public String redeemCoupon(

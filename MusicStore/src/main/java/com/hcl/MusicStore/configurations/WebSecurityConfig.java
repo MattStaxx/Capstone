@@ -47,6 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    		  "/addToCart",
 	    		  "/deleteFromCart",
 	    		  "/checkout",
+	    		  "/getOrderDetails",
+	    		  "/updateProfile",
 	    		  "/payment",
 	    		  "/redeemcoupon",
 	    		  "/checkoutresult").authenticated() //Endpoints that all logged in users can access
