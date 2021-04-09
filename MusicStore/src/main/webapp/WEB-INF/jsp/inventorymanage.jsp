@@ -165,8 +165,8 @@
 						<tr class="zoom">
 						    <td><img src="${product.imageurl}" alt="${product.title}" class="img-thumbnail"></td>
 							<td><c:out value="${product.id}" /></td>
-							<td><c:out value="${product.title}" /></td>
 							<td><c:out value="${product.category}" /></td>
+							<td><c:out value="${product.title}" /></td>
 							<td><c:out value="${product.artist}" /></td>
 							<td><c:out value="${product.style}" /></td>
 							<td><c:out value="${product.format}" /></td>
