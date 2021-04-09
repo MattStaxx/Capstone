@@ -84,9 +84,14 @@
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
       </a>
 
-
+<!--  https://blog.hubspot.com/website/center-div-css#:~:text=To%20center%20a%20div%20horizontally%20on%20a%20page%2C%20simply%20set,equally%20between%20the%20two%20margins.-->
 		
-	  <div id="divId1" align=right style="margin-right: 10px">
+	  <div id="divId1" align=right style="position: absolute;
+left: 50%;
+
+transform: translate(-50%, 0);
+//border: 5px solid #FFFF00;
+padding: 10px;">
 		<!-- Search for everything but Price-->
 		<form action="search" id="search1">
 			<div class="row">
@@ -95,6 +100,7 @@
 				</div>
 				<div class="col-4">
 					<select class="form-select" id="options1" name="options">
+					<option value="artist">Index</option>
 					<option value="artist">Artist Name</option>
 					<option value="format">Music Format</option>
 					<option value="genre">Genre</option>
@@ -111,6 +117,7 @@
 				<div class="col-2">
 					<input class="form-control fs-8" type="submit" value="Search">
 				</div>
+
 			</div>
 		</form>
 
@@ -139,11 +146,13 @@
 				<div class="col">
 					<input class="form-control" type="submit" value="Search">
 				</div>
+				
 			</div>
 		</form>
+		
+	
 	</div>
 
-      
 
     </div>
   </div>
@@ -188,12 +197,23 @@
 				  
 				</tbody>
 			</table>
+			
+			<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+			
 		</div>
 	</div>
 	 <footer class="page-footer font-small indigo" id="footer" style="width:100%">
     
                     <!-- Copyright -->
-                    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+                    <div class="footer-copyright text-center py-3">Â© 2021 Copyright:
                       <a href="localhost:8080/">The Music tore</a>
                     </div>
                     <!-- Copyright -->
