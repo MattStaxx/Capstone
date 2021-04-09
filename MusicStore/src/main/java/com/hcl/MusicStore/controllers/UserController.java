@@ -204,6 +204,7 @@ public class UserController {
 		} else if (order == null || products == null) {
 			throw new OrderNotFoundException(orderid);
 		} else {
+			order.setProducts(products);
 			m.addAttribute("products", products);
 			m.addAttribute("user", user);
 			m.addAttribute("order", order);

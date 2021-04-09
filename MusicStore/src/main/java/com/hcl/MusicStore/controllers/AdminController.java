@@ -206,9 +206,9 @@ public class AdminController {
          		throw new ProductAlreadyExistsException(title);
          	} else {
          		newProduct = new Product(null, category, imageurl, title, artist, style, format, price, genre, quantity, null, null);	
+         		productService.saveProduct(newProduct);
          		model.addAttribute("products", productService.getAllProducts());
          		model.addAttribute("successMessage", "Product Creation Successful!");
-         		productService.saveProduct(newProduct);
          	}     	
      	}
  		logger.info("New Product Added: " + newProduct);
