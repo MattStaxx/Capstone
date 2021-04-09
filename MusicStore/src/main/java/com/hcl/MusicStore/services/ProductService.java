@@ -54,6 +54,10 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
+	public List<Product> getAllProductsList() {
+		return productRepository.findAll();
+	}
+
 	public List<Product> getAllProductsByUser(MusicUser user) {
 		return productRepository.findAllByCustomer(user);
 	}
