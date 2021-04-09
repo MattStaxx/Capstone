@@ -80,7 +80,7 @@
 			</div>
 		</div>
 	</nav>
-	<p>Hi, ${user.username}'s</p>
+	<p>Hi, ${user.username}</p>
 	<div class="container">
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
