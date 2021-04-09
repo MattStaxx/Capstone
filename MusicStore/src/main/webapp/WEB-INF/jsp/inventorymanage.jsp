@@ -234,10 +234,6 @@
 				</tbody>
 				</table>
 			</form>
-        <!-- ### $App Screen Footer ### -->
-        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-          <span>Copyright © 2019 Designed by The Coolest Team! All rights reserved.</span>
-        </footer>
 		</div>
 		<script src="/javascript/search.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
