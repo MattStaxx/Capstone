@@ -121,8 +121,7 @@
       </sec:authorize>
     </div>
   </div>
-</nav>
-
+</nav>	
         <h2 class="display-1">About Us</h2>
         <div class="container">
         <p> Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
