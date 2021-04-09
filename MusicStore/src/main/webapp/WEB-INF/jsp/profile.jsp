@@ -18,7 +18,7 @@
 <title>Profile</title>
 </head>
 <body>
-	<h1 class="display-1">The Music Store</h1>
+	<h1 class="display-1">${user.username}'s Profile</h1>
 
 	<nav class="p-3 bg-dark text-white">
 		<div class="container">
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 	</nav>
-	<p>Hi, ${user.username}</p>
+	<h6>Hi, ${user.username}</h6>
 	<div class="container">
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>

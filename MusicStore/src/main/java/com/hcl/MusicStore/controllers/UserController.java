@@ -270,6 +270,7 @@ public class UserController {
 				order.setProducts(products);
 				log.info("Order #" + order.getId() + " " + products.size() + " item(s)");
 			}
+			m.addAttribute("username", username);
 			m.addAttribute("orders", orders);
 		}
         return "orderhistory";                       
