@@ -43,62 +43,7 @@
     	</sec:authorize>
       </ul>
 		
-	  <div id="divId1" align=right style="margin-right: 10px">
-		<!-- Search for everything but Price-->
-		<form action="search" id="search1">
-			<div class="row">
-				<div class="col-2">
-					<label for="options"><h4 class="fs-6">Search By:</h4></label> 
-				</div>
-				<div class="col-4">
-					<select class="form-select" id="options1" name="options">
-					<option value="artist">Artist Name</option>
-					<option value="format">Music Format</option>
-					<option value="genre">Genre</option>
-					<option value="style">Style</option>
-					<option value="title">Title</option>
-					<option value="category">Category</option>
-					<option value="price">Price</option>
-					</select> 
-					
-				</div>
-				<div class="col-4">
-					<input class="form-control" type="text" id="name" name="name" required>
-				</div>
-				<div class="col-2">
-					<input class="form-control fs-8" type="submit" value="Search">
-				</div>
-			</div>
-		</form>
 
-		<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="searchprice" id="search2">
-			<div class="row">
-				<div class="col">
-					<label for="options"> Search By: </label> 
-				</div>
-				<div class="col">
-					<select class="form-select" id="options2" name="options">
-					<option value="artist">Artist Name</option>
-					<option value="format">Music Format</option>
-					<option value="genre">Genre</option>
-					<option value="style">Style</option>
-					<option value="title">Title</option>
-					<option value="category">Category</option>
-					<option value="price">Price</option>
-					</select> 
-				</div>
-				<div class="col">
-					<input class="form-control" type="number" id="lowerprice" name="lowerprice" placeholder="min" required> 		
-				</div>
-				<div class="col">
-					<input class="form-control" type="number" id="higherprice" name="higherprice" placeholder="max" required>
-				</div>
-				<div class="col">
-					<input class="form-control" type="submit" value="Search">
-				</div>
-			</div>
-		</form>
-	</div>
 			
 	  <sec:authorize access="!isAuthenticated()">
       	<div class="text-end">

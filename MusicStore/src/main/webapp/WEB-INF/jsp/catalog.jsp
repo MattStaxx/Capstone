@@ -41,6 +41,51 @@
     	</sec:authorize>
       </ul>
 		
+
+			
+	  <sec:authorize access="!isAuthenticated()">
+      	<div class="text-end">
+        	<a class="btn btn-outline-light me-2" href="login"  >Login</a>
+    		<a class="btn btn-warning" href="register">Register</a>
+      	</div>
+      </sec:authorize>
+      
+      <sec:authorize access="isAuthenticated()">
+      	<div class="dropdown text-end">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+        	<sec:authorize access="hasAnyRole('ADMIN')">
+    			 <li><a class="dropdown-item" href="admin">Admin</a></li>
+    	 		 <li><a class="dropdown-item" href="manageinventory">Manage Inventory</a></li>
+    			 <li><a class="dropdown-item" href="manageorders">Manage Orders</a></li>
+    			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>	
+			</sec:authorize>
+       	  	<li><a class="dropdown-item" href="profile">Profile</a></li>
+       	 	<li><hr class="dropdown-divider"></li>
+         	<li><a class="dropdown-item" href="logout">Sign out</a></li>
+       	</ul>
+     	</div>
+      </sec:authorize>
+    </div>
+  </div>
+</nav>
+
+
+
+	<div class="container">
+		<div class="productlist">
+			<h1 class="display-1">Catalog</h1>
+				<nav class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+
+		
 	  <div id="divId1" align=right style="margin-right: 10px">
 		<!-- Search for everything but Price-->
 		<form action="search" id="search1">
@@ -97,38 +142,12 @@
 			</div>
 		</form>
 	</div>
-			
-	  <sec:authorize access="!isAuthenticated()">
-      	<div class="text-end">
-        	<a class="btn btn-outline-light me-2" href="login"  >Login</a>
-    		<a class="btn btn-warning" href="register">Register</a>
-      	</div>
-      </sec:authorize>
+
       
-      <sec:authorize access="isAuthenticated()">
-      	<div class="dropdown text-end">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-        </a>
-        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-        	<sec:authorize access="hasAnyRole('ADMIN')">
-    			 <li><a class="dropdown-item" href="admin">Admin</a></li>
-    	 		 <li><a class="dropdown-item" href="manageinventory">Manage Inventory</a></li>
-    			 <li><a class="dropdown-item" href="manageorders">Manage Orders</a></li>
-    			 <li><a class="dropdown-item" href="manageusers">Manage Users</a></li>	
-			</sec:authorize>
-       	  	<li><a class="dropdown-item" href="profile">Profile</a></li>
-       	 	<li><hr class="dropdown-divider"></li>
-         	<li><a class="dropdown-item" href="logout">Sign out</a></li>
-       	</ul>
-     	</div>
-      </sec:authorize>
+
     </div>
   </div>
 </nav>
-	<div class="container">
-		<div class="productlist">
-			<h1 class="display-1">Catalog</h1>
 			<div style="color: #0000FF;">${successMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
 			<table class="table table-hover">
