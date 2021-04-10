@@ -18,7 +18,8 @@
 
 <title>Home Page</title>
 </head>
-<body style="background-color: #232a2e;">
+<body>
+	<!--  style="background-color: #232a2e;" -->
 	<header>
 		<nav class="p-3 text-white">
 			<div class="container">
@@ -153,16 +154,18 @@
 				href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=690685">Pixabay.com</a>
 		</div>
 	</div>
-	<footer class="page-footer font-small indigo" id="footer"
-		style="width: 100%">
-		<!-- Copyright -->
-		<div class="footer-copyright text-center py-3">
-			Copyright © 2021 Designed by <span> <a href=".">The
-					Coolest Team!</a> All rights reserved.
-			</span> <a href=".">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
-		</div>
-	</footer>
+	<div class="d-flex flex-wrap align-items-center justify-content-center">
+		<footer class="page-footer font-small indigo" id="footer"
+			style="width: 100%">
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				Copyright © 2021 Designed by <span> <a href=".">The
+						Coolest Team!</a> All rights reserved.
+				</span> <a href=".">Back to top</a>
+				<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
+			</div>
+		</footer>
+	</div>
 
 	<script src="/javascript/footer.js"></script>
 </body>

@@ -16,7 +16,7 @@
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css">
- 
+
 <title>Manage Inventory</title>
 </head>
 <body>
@@ -147,41 +147,37 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
-			<nav>
-				<ul class="pagination">
-					<c:if test="${maxproducts < totalproducts}">
-						<c:forEach var="i" begin="1" end="${totalpages}">
+
+		<nav>
+			<ul class="pagination">
+				<c:if test="${maxproducts < totalproducts}">
+					<c:forEach var="i" begin="1" end="${totalpages}">
 						<li class="page-item"><a class="page-link"
 							href="/manageinventory?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
-						</c:forEach>
-					</c:if>
-					<c:if test="${maxproducts >= totalproducts}">
-						<c:forEach var="i" begin="1" end="${totalpages}">
+					</c:forEach>
+				</c:if>
+				<c:if test="${maxproducts >= totalproducts}">
+					<c:forEach var="i" begin="1" end="${totalpages}">
 						<li class="page-item"><a class="page-link"
 							href="/manageinventory?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
-						</c:forEach>
-					</c:if>
-				</ul>
-			</nav>
-			
-			<form action="/manageinventory?page=${page}" method="get">
-				<h6>Products per page</h6>
-				<select class="form-select w-25" name="maxproducts">
-					<option value="${maxproducts}" disabled selected></option>
-					<option value="5">5</option> 
-					<option value="10">10</option>
-					<option value="25">25</option>
-					<option value="50">50</option>
-					<option value="100">100</option>
-  				</select>
-  				<input class="btn btn-secondary" type="submit" value="Go">
-  			</form>
+					</c:forEach>
+				</c:if>
+			</ul>
+		</nav>
+
+		<form action="/manageinventory?page=${page}" method="get">
+			<h6>Products per page</h6>
+			<select class="form-select w-25" name="maxproducts">
+				<option value="${maxproducts}" disabled selected></option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="25">25</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select> <input class="btn btn-secondary" type="submit" value="Go">
+		</form>
 	</div>
-	<h4 class="text-danger">
-		${successMessage}
-		${errorMessage}
-	</h4>
+	<h4 class="text-danger">${successMessage} ${errorMessage}</h4>
 	<div class="container">
 		<form action="/addProduct" method="post">
 			<table class="table table-striped table-bordered" id="tblData">
@@ -275,16 +271,18 @@
 		</form>
 	</div>
 
-	<footer class="page-footer font-small indigo" id="footer"
-		style="width: 100%">
-		<!-- Copyright -->
-		<div class="footer-copyright text-center py-3">
-			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
-					Coolest Team!</a> All rights reserved.
-			</span> <a href="/manageinventory">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
-		</div>
-	</footer>
+	<div class="d-flex flex-wrap align-items-center justify-content-center">
+		<footer class="page-footer font-small indigo" id="footer"
+			style="width: 100%">
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				Copyright © 2021 Designed by <span> <a href=".">The
+						Coolest Team!</a> All rights reserved.
+				</span> <a href=".">Back to top</a>
+				<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
+			</div>
+		</footer>
+	</div>
 	<script src="/javascript/tablesort.js"></script>
 	<script src="/javascript/footer.js"></script>
 </body>

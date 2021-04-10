@@ -79,7 +79,7 @@
 		</div>
 	</nav>
 	<div class="container w-75">
-		<h1 class="display-1">${username}'s Order History</h1>
+		<h1 class="display-1">${username}'sOrder History</h1>
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr>
@@ -109,16 +109,18 @@
 			</tbody>
 		</table>
 	</div>
-	<footer class="page-footer font-small indigo" id="footer"
-		style="width: 100%">
-		<!-- Copyright -->
-		<div class="footer-copyright text-center py-3">
-			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
-					Coolest Team!</a> All rights reserved.
-			</span> <a href="/orderhistory">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
-		</div>
-	</footer>
+	<div class="d-flex flex-wrap align-items-center justify-content-center">
+		<footer class="page-footer font-small indigo" id="footer"
+			style="width: 100%">
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				Copyright © 2021 Designed by <span> <a href=".">The
+						Coolest Team!</a> All rights reserved.
+				</span> <a href=".">Back to top</a>
+				<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
+			</div>
+		</footer>
+	</div>
 
 	<script src="/javascript/footer.js"></script>
 </body>

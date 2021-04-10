@@ -18,7 +18,7 @@
 <title>Profile</title>
 </head>
 <body>
-	<h1 class="display-1">${user.username}'s Profile</h1>
+	<h1 class="display-1">${user.username}'sProfile</h1>
 
 	<nav class="p-3 bg-dark text-white">
 		<div class="container">
@@ -147,16 +147,18 @@
 			</table>
 		</form>
 	</div>
-	<footer class="page-footer font-small indigo" id="footer"
-		style="width: 100%">
-		<!-- Copyright -->
-		<div class="footer-copyright text-center py-3">
-			Copyright © 2021 Designed by <span> <a href=".">The
-					Coolest Team!</a> All rights reserved.
-			</span> <a href="/profile">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
-		</div>
-	</footer>
+	<div class="d-flex flex-wrap align-items-center justify-content-center">
+		<footer class="page-footer font-small indigo" id="footer"
+			style="width: 100%">
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				Copyright © 2021 Designed by <span> <a href=".">The
+						Coolest Team!</a> All rights reserved.
+				</span> <a href=".">Back to top</a>
+				<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
+			</div>
+		</footer>
+	</div>
 
 	<script src="/javascript/footer.js"></script>
 </body>

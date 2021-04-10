@@ -263,16 +263,18 @@
 		</div>
 
 	</div>
-	<footer class="page-footer font-small indigo" id="footer"
-		style="width: 100%">
-		<!-- Copyright -->
-		<div class="footer-copyright text-center py-3">
-			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
-					Coolest Team!</a> All rights reserved.
-			</span> <a href="/payment">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
-		</div>
-	</footer>
+	<div class="d-flex flex-wrap align-items-center justify-content-center">
+		<footer class="page-footer font-small indigo" id="footer"
+			style="width: 100%">
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				Copyright © 2021 Designed by <span> <a href=".">The
+						Coolest Team!</a> All rights reserved.
+				</span> <a href=".">Back to top</a>
+				<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
+			</div>
+		</footer>
+	</div>
 
 	<script src="/javascript/footer.js"></script>
 </body>
