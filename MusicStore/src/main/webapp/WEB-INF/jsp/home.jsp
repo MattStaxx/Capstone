@@ -101,25 +101,32 @@
 				<div class="carousel-item active">
 					<img alt="no image" class="image-fluid"
 						src="images/turntable1-1280.jpg" style="width: 100%">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Search for all your favorite genres</h5>
-						<a href="/catalog" class="btn btn-primary" rel="noopener noreferrer">See the Catalog!</a>
+					<div class="carousel-caption d-sm-block align-items bottom">
+						<h5>Search all your favorite genres</h5>
+						<a href="/catalog" class="btn btn-primary"
+							rel="noopener noreferrer">See the Catalog!</a>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img alt="no image" class="image-fluid"
 						src="images/audiojack2-1280.jpg" style="width: 100%">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Our quick and easy registration process will give you access to <br>all your favorite songs from all your favorite artists!</h5>
-						<a href="/register" class="btn btn-primary" rel="noopener noreferrer">Register an Account Now!</a>
+					<div class="carousel-caption d-sm-block align-items bottom">
+						<h5>
+							Our quick and easy registration process will give you access to <br>all
+							your favorite songs from all your favorite artists!
+						</h5>
+						<a href="/register" class="btn btn-primary"
+							rel="noopener noreferrer">Register an Account Now!</a>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img alt="no image" class="image-fluid"
 						src="images/headphones1-1280.jpg" style="width: 100%">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Learn more about the team that brought you your favorite music service!</h5>
-						<a href="/about" class="btn btn-primary" rel="noopener noreferrer">Meet the team!</a>
+					<div class="carousel-caption d-sm-block align-items bottom">
+						<h5>Learn more about the team that brought you your favorite
+							music service!</h5>
+						<a href="/about" class="btn btn-primary" rel="noopener noreferrer">Meet
+							the team!</a>
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -133,6 +140,19 @@
 				data-bs-target="#carouselExampleIndicators" data-bs-slide="next"></button>
 		</div>
 	</div>
+	<div class="row w-2">
+		<div class="col-md-12 justify-content-center"
+			style="text-align: center;">
+			<h5 style="color: white;">
+				Images on this site sourced<br>from Pixabay.com
+			</h5>
+			<img src="images/thumbsup.png" alt="Thanks!" width="105" height="105"
+				class="rounded-square">
+			<h2 style="color: white;">Thanks Pixabay!</h2>
+			<a class="btn btn-secondary"
+				href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=690685">Pixabay.com</a>
+		</div>
+	</div>
 	<footer class="page-footer font-small indigo" id="footer"
 		style="width: 100%">
 		<!-- Copyright -->
@@ -140,9 +160,15 @@
 			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/home">Back to top</a>
+			<button onclick="myFunction()">Switch mode</button>
 		</div>
 	</footer>
-
+	<script>
+		function myFunction() {
+			var element = document.body;
+			element.classList.toggle("dark");
+		}
+	</script>
 	<script>
 		var element = document.getElementById("footer");
 		var rect = element.getBoundingClientRect();
@@ -154,7 +180,7 @@
 		if (rect.bottom <= h) {
 			element.style = "position: fixed; bottom: 0; width:100%";
 		}
-		//console.log(x);
+		console.log(x);
 		rect = element.getBoundingClientRect();
 		console.log(rect.top, rect.bottom);
 		console.log(w + " " + h);
