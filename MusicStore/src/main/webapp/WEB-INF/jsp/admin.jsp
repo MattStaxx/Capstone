@@ -17,7 +17,6 @@
 	rel="stylesheet"
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
-<link href="css/main.css" rel="stylesheet">
 
 
 <title>Admin</title>
@@ -84,19 +83,8 @@
 		</div>
 	</nav>
 
-	<h1 class="display-1">Wow, you're an admin!!!</h1>
-	<form action="http://localhost:8080/swagger-ui.html#/" method="GET">
-		<input type="submit" value="View Swagger Documentation">
-	</form>
-
-	<script src="/javascript/search.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-		crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.3.2.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+	<h1 class="display-1">Admin Page</h1>
+	<a class="btn btn-secondary" href="/swagger-ui.html#/" >Swagger Documentation</a>
 	<footer class="page-footer font-small indigo" id="footer"
 		style="width: 100%">
 		<!-- Copyright -->
@@ -104,40 +92,15 @@
 			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/admin">Back to top</a>
+			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
-	<script>
-		var element = document.getElementById("footer");
-		var rect = element.getBoundingClientRect();
-		var w = window.innerWidth;
-		var h = window.innerHeight;
 
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		if (rect.bottom <= h) {
-			element.style = "position: fixed; bottom: 0; width:100%";
-		}
-		//console.log(x);
-		rect = element.getBoundingClientRect();
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		var count = 0;
-		window.onresize = reportWindowSize;
-		function reportWindowSize() {
-			console.log("hi");
-			count++;
-			element.style = "position:width:100%";
-			if (count != 1) {
-				rect = element.getBoundingClientRect();
-				h = window.innerHeight;
-				console.log(rect.bottom + " " + h);
-				if (rect.bottom <= h) {
-					element.style = "position: fixed; bottom: 0; width:100%";
-				} else {
-					element.style = "position:width:100%";
-				}
-			}
-		}
-	</script>
+	<script src="/javascript/footer.js"></script>
 </body>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+	crossorigin="anonymous"></script>
 </html>

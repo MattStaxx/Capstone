@@ -45,9 +45,7 @@
 
 					</sec:authorize>
 				</ul>
-
-
-
+				
 				<sec:authorize access="!isAuthenticated()">
 					<div class="text-end">
 						<a class="btn btn-outline-light me-2" href="login">Login</a> <a
@@ -100,14 +98,16 @@
 						<div id="divId1" align=right
 							style="position: absolute; left: 50%; transform: translate(-50%, 0); // border: 5px solid #FFFF00; padding: 10px;">
 							<!-- Search for everything but Price-->
+							<h6 class="text-success">${successMessage}</h6>
+							<h6 class="text-danger">${errorMessage}</h6>
 							<form action="search" id="search1">
-								<div class="row">
+						
+						<div class="row">
 									<div class="col-2">
 										<label for="options"><h4 class="fs-6">Search By:</h4></label>
 									</div>
 									<div class="col-4">
 										<select class="form-select" id="options1" name="options">
-											<!-- <option value="artist">Index</option> -->
 											<option value="artist">Artist Name</option>
 											<option value="format">Music Format</option>
 											<option value="genre">Genre</option>
@@ -125,12 +125,11 @@
 									<div class="col-2">
 										<input class="form-control fs-8" type="submit" value="Search">
 									</div>
-
 								</div>
 							</form>
 
-							<!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
-								action="searchprice" id="search2" hidden>
+							<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+								action="searchprice" id="search2">
 								<div class="row">
 									<div class="col">
 										<label for="options"> Search By: </label>
@@ -157,19 +156,13 @@
 									<div class="col">
 										<input class="form-control" type="submit" value="Search">
 									</div>
-
 								</div>
-							</form> -->
-
+							</form>
 
 						</div>
-
-
 					</div>
 				</div>
 			</nav>
-			<div style="color: #0000FF;">${successMessage}</div>
-			<div style="color: #FF0000;">${errorMessage}</div>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -254,51 +247,13 @@
 			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/catalog">Back to top</a>
-			<button onclick="myFunction()">Dark/Light</button>
+			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
-	<script>
-		function myFunction() {
-			var element = document.body;
-			element.classList.toggle("dark");
-		}
-	</script>
-
-	<script>
-		var element = document.getElementById("footer");
-		var rect = element.getBoundingClientRect();
-		var w = window.innerWidth;
-		var h = window.innerHeight;
-
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		if (rect.bottom <= h) {
-			element.style = "position: fixed; bottom: 0; width:100%";
-		}
-		//console.log(x);
-		rect = element.getBoundingClientRect();
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		var count = 0;
-		window.onresize = reportWindowSize;
-		function reportWindowSize() {
-			console.log("hi");
-			count++;
-			element.style = "position:width:100%";
-			if (count != 1) {
-				rect = element.getBoundingClientRect();
-				h = window.innerHeight;
-				console.log(rect.bottom + " " + h);
-				if (rect.bottom <= h) {
-					element.style = "position: fixed; bottom: 0; width:100%";
-				} else {
-					element.style = "position:width:100%";
-				}
-			}
-		}
-	</script>
+	<script src="/javascript/search.js"></script>
+	<script src="/javascript/footer.js"></script>
 </body>
-<script src="/javascript/search.js"></script>
+
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"

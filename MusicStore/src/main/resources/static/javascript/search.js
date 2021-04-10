@@ -21,7 +21,7 @@ option1A.addEventListener("change", function() {
 });
 var option1B = document.getElementById("options2");
 option1B.addEventListener("change", function() {
-	console.log(this.value);
+	// console.log(this.value);
 	if (this.value != "price") {
 		y.removeChild(x2);
 		if (this.value == "artist") {
@@ -62,7 +62,6 @@ option1B.addEventListener("change", function() {
 
 });
 
-console.log("zzzz");
 
 y.removeChild(x2);
 

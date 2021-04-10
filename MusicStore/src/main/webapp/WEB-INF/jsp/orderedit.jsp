@@ -242,46 +242,16 @@
 		<div class="footer-copyright text-center py-3">
 			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
 					Coolest Team!</a> All rights reserved.
-			</span> <a href="/orderedit">Back to top</a>
+			</span> <a href=".">Back to top</a>
+			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
-	<script>
-		var element = document.getElementById("footer");
-		var rect = element.getBoundingClientRect();
-		var w = window.innerWidth;
-		var h = window.innerHeight;
 
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		if (rect.bottom <= h) {
-			element.style = "position: fixed; bottom: 0; width:100%";
-		}
-		//console.log(x);
-		rect = element.getBoundingClientRect();
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		var count = 0;
-		window.onresize = reportWindowSize;
-		function reportWindowSize() {
-			console.log("hi");
-			count++;
-			element.style = "position:width:100%";
-			if (count != 1) {
-				rect = element.getBoundingClientRect();
-				h = window.innerHeight;
-				console.log(rect.bottom + " " + h);
-				if (rect.bottom <= h) {
-					element.style = "position: fixed; bottom: 0; width:100%";
-				} else {
-					element.style = "position:width:100%";
-				}
-			}
-		}
-	</script>
+	<script src="/javascript/footer.js"></script>
 </body>
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+	crossorigin="anonymous"></script>
 </html>

@@ -16,7 +16,7 @@
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/zoom.css">
+ 
 <title>Manage Inventory</title>
 </head>
 <body>
@@ -274,11 +274,6 @@
 			</table>
 		</form>
 	</div>
-	<script src="/javascript/search.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-		crossorigin="anonymous"></script>
 
 	<footer class="page-footer font-small indigo" id="footer"
 		style="width: 100%">
@@ -287,40 +282,15 @@
 			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/manageinventory">Back to top</a>
+			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
-	<script>
-		var element = document.getElementById("footer");
-		var rect = element.getBoundingClientRect();
-		var w = window.innerWidth;
-		var h = window.innerHeight;
 
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		if (rect.bottom <= h) {
-			element.style = "position: fixed; bottom: 0; width:100%";
-		}
-		//console.log(x);
-		rect = element.getBoundingClientRect();
-		console.log(rect.top, rect.bottom);
-		console.log(w + " " + h);
-		var count = 0;
-		window.onresize = reportWindowSize;
-		function reportWindowSize() {
-			console.log("hi");
-			count++;
-			element.style = "position:width:100%";
-			if (count != 1) {
-				rect = element.getBoundingClientRect();
-				h = window.innerHeight;
-				console.log(rect.bottom + " " + h);
-				if (rect.bottom <= h) {
-					element.style = "position: fixed; bottom: 0; width:100%";
-				} else {
-					element.style = "position:width:100%";
-				}
-			}
-		}
-	</script>
+	<script src="/javascript/footer.js"></script>
 </body>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+	crossorigin="anonymous"></script>
 </html>
