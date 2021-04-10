@@ -139,8 +139,8 @@
 						<td>
 							<form action="/deleteProduct" method="post">
 								<input type="hidden" name="orderid" value="${order.id}">
-								<input type="hidden" name="id" value="${product.id}"> <input
-									type="submit" value="Delete">
+								<input type="hidden" name="id" value="${product.id}"> 
+								<input type="submit" value="Delete">
 							</form>
 						</td>
 					</tr>
