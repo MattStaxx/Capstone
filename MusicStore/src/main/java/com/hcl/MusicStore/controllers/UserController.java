@@ -102,9 +102,9 @@ public class UserController {
     
     @PostMapping("/checkout")
     public String performCheckout(
-    		@RequestParam String cardnumber,
-    		@RequestParam String expire,
-    		@RequestParam String cvv,
+    		@RequestParam(required=false, defaultValue="1234") String cardnumber,
+    		@RequestParam(required=false, defaultValue="1234") String expire,
+    		@RequestParam(required=false, defaultValue="1234") String cvv,
     		Principal principal, 
     		ModelMap m) {
     	String username = principal.getName();
@@ -113,8 +113,8 @@ public class UserController {
 			throw new UserNotFoundException(username);
 		} else {
 			// Set Payment Info
-			// user.setCreditcard(cardnumber);
-			// musUseServ.updateUser(user);
+			user.setCreditcard(cardnumber);
+			musUseServ.updateUser(user);
 			
 			// Retrieve Cart
 			List<Product> cart = productService.getAllProductsByUser(user);
