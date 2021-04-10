@@ -132,23 +132,29 @@
 	color: white;
 }
 
-body{
-        text-align:center;
-        }
-        h1{
-        color: #32a852;
-        margin-top:30px;
-        }
-      
-        button{
-            cursor: pointer;
-            border: 1px solid #555;
-            text-align: center;
-            padding: 5px;
-            margin-left: 8px; 
-        }
-        .dark{
-            background-color: #222;
-            color: #e6e6e6;
-        }
-		    
+body {
+	text-align:center;
+}
+
+h1 {
+	color: #32a852;
+	margin-top:30px;
+}
+	
+button {
+    cursor: pointer;
+    border: 1px solid #555;
+    text-align: center;
+    padding: 5px;
+  
+    margin-left: 8px; 
+}
+
+.dark{
+    background-color: #232a2e;
+    color: #e6e6e6;
+}
+		   
+.dark2{
+	color: #e6e6e6;
+} 

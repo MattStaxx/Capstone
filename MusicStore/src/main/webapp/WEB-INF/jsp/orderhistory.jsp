@@ -83,20 +83,20 @@
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr>
-					<th scope="col">Order Id</th>
+					<th id="th1" scope="col">Order Id</th>
 					<!-- <th scope="col">Order Number</th> Hidden for now-->
-					<th scope="col">Status</th>
-					<th scope="col">Items</th>
-					<th scope="col"></th>
+					<th id="th1" scope="col">Status</th>
+					<th id="th1" scope="col">Items</th>
+					<th id="th1" scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${orders}" var="order">
 					<tr>
-						<td><c:out value="${order.id}" /></td>
+						<td id="td1"><c:out value="${order.id}" /></td>
 						<!-- <td><c:out value="${order.orderNumber}" /></td> Hidden for now-->
-						<td><c:out value="${order.status}" /></td>
-						<td><c:out value="${order.products.size()}" /></td>
+						<td id="td1"><c:out value="${order.status}" /></td>
+						<td id="td1"><c:out value="${order.products.size()}" /></td>
 						<td>
 							<form class="row w-75 " action="getOrderDetails" method="post">
 								<input type="hidden" id="orderid" name="orderid"
