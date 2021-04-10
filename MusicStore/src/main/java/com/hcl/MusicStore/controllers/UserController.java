@@ -51,9 +51,7 @@ public class UserController {
     	} else {
     		//
     	}
-    	Iterable<MusicUser> ud = musUseServ.findUserByFirstname(user.getFirstname());
     	m.addAttribute("user", user);
-    	m.addAttribute("userdetails", ud);
         return "profile";
     }
     

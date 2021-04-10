@@ -93,17 +93,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${userdetails}" var="usr">
-					<tr>
-						<td><c:out value="${usr.firstname}" /></td>
-						<td><c:out value="${usr.lastname}" /></td>
-						<td><c:out value="${usr.email}" /></td>
-						<td><c:out value="******" /></td>
-						<td><c:out value="${usr.creditcard}" /></td>
-					</tr>
-					<br>
-					<br>
-				</c:forEach>
+				<tr>
+					<td><c:out value="${user.firstname}" /></td>
+					<td><c:out value="${user.lastname}" /></td>
+					<td><c:out value="${user.email}" /></td>
+					<td><c:out value="******" /></td>
+					<td><c:out value="${user.creditcard}" /></td>
+				</tr>
+				<br>
+				<br>
 			</tbody>
 		</table>
 		<div class="container">
