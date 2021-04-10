@@ -153,5 +153,6 @@
 		}
 	</script>
 </body>
-<script src="/javascript/search.js"></script>
+	<script src="/javascript/dark.js"></script>
+	<script src="/javascript/search.js"></script>
 </html>

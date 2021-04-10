@@ -157,6 +157,7 @@
 			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
+	<script src="/javascript/dark.js"></script>
 	<script src="/javascript/footer.js"></script>
 </body>
 

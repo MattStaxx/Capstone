@@ -224,7 +224,8 @@
 		</div>
 	</footer>
 
-		<script src="/javascript/footer.js"></script>
+	<script src="/javascript/dark.js"></script>
+	<script src="/javascript/footer.js"></script>
 </body>
 
 <script

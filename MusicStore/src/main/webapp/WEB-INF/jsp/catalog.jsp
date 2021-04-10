@@ -252,6 +252,7 @@
 		</div>
 	</footer>
 
+	<script src="/javascript/dark.js"></script>
 	<script src="/javascript/search.js"></script>
 	<script src="/javascript/footer.js"></script>
 	<script src="/javascript/tablesort.js"></script>

@@ -99,6 +99,7 @@
 	</footer>
 
 	<script src="/javascript/footer.js"></script>
+	<script src="/javascript/dark.js"></script>
 </body>
 
 <script
