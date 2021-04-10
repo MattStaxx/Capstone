@@ -245,7 +245,7 @@
 		style="width: 100%">
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">
-			Copyright © 2021 Designed by <span> <a href="localhost:8080/">The
+			Copyright © 2021 Designed by <span> <a href="/about">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/catalog">Back to top</a>
 			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
