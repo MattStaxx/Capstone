@@ -23,7 +23,7 @@
 </head>
 <body>
 	<h1 class="display-1">The Music Store</h1>
-	<nav class="p-3 text-white">
+	<nav class="p-3 bg-dark text-white">
 		<div class="container">
 			<div
 				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
