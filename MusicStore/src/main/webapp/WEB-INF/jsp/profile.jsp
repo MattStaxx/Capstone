@@ -18,7 +18,7 @@
 <title>Profile</title>
 </head>
 <body>
-	<h1 class="display-1">${user.username}'sProfile</h1>
+	<h1 class="display-1">${user.username}'s Profile</h1>
 
 	<nav class="p-3 bg-dark text-white">
 		<div class="container">
@@ -154,7 +154,7 @@
 			Copyright © 2021 Designed by <span> <a href="/about">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/profile">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
+			<button class="btn btn-toggle" style="color: red" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
 	<script src="/javascript/dark.js"></script>
