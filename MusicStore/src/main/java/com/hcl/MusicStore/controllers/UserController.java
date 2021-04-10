@@ -113,8 +113,8 @@ public class UserController {
 			throw new UserNotFoundException(username);
 		} else {
 			// Set Payment Info
-			user.setCreditcard(cardnumber);
-			musUseServ.updateUser(user);
+			// user.setCreditcard(cardnumber);
+			// musUseServ.updateUser(user);
 			
 			// Retrieve Cart
 			List<Product> cart = productService.getAllProductsByUser(user);
