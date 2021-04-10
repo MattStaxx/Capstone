@@ -17,10 +17,8 @@
 
 <title>About</title>
 </head>
-<body>
-
-
-	<h1 class="display-1">The Music Store</h1>
+<body class="bg-image" style="background-image: url(images/coffeebean-1280.jpg)">
+	<div class="mask" style="background-color: rgba(0,0,0,0.3); height: 100vh;">
 	<nav class="p-3 bg-dark text-white">
 		<div class="container">
 			<div
@@ -52,6 +50,7 @@
 							class="btn btn-warning" href="register">Register</a>
 					</div>
 				</sec:authorize>
+				
 
 				<sec:authorize access="isAuthenticated()">
 					<div class="dropdown text-end">
@@ -81,12 +80,15 @@
 			</div>
 		</div>
 	</nav>
-	<h2 class="display-1">About Us</h2>
+	<h2 class="display-1" style="color: #e6e6e6">About Us</h2>
 	<div>
-		<p>Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
-		<p>Location: 123 Anywhere Street, Nowhere,TX 12345-6789 Phone:
+		<p style="color: #e6e6e6">Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
+		<p style="color: #e6e6e6">Location: 123 Anywhere Street, Nowhere,TX 12345-6789 Phone:
 			123-456-7890</p>
 	</div>
+	
+	</div>
+	
 	<footer class="page-footer font-small indigo" id="footer"
 		style="width: 100%">
 		<!-- Copyright -->
@@ -94,12 +96,10 @@
 			Copyright © 2021 Designed by <span> <a href="/about">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/about">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
 
 	<script src="/javascript/footer.js"></script>
-	<script src="/javascript/dark.js"></script>
 </body>
 
 <script
