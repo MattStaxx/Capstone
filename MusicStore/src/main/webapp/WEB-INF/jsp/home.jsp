@@ -94,13 +94,15 @@
 					<button type="button" data-bs-target="#carouselExampleIndicators"
 						data-bs-slide-to="2" aria-label="Slide 3"></button>
 				</div>
-				<div class="carousel-item active">
-					<img alt="no image" class="image-fluid"
-						src="images/turntable1-1280.jpg" style="width: 100%">
-					<div class="carousel-caption d-sm-block align-items bottom">
-						<h5>Search all your favorite genres</h5>
-						<a href="/catalog" class="btn btn-primary"
-							rel="noopener noreferrer">See the Catalog!</a>
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<img alt="no image" class="image-fluid"
+							src="images/turntable1-1280.jpg" style="width: 100%">
+						<div class="carousel-caption d-sm-block align-items bottom">
+							<h5>Search all your favorite genres</h5>
+							<a href="/catalog" class="btn btn-primary"
+								rel="noopener noreferrer">See the Catalog!</a>
+						</div>
 					</div>
 				</div>
 				<div class="carousel-item">

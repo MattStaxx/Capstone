@@ -79,28 +79,29 @@
 		</div>
 	</nav>
 	<div class="container w-75">
-		<h1 class="display-1">${username}'sOrder History</h1>
+		<h1 class="display-1">${username}'s Order History</h1>
 		<table class="table table-striped table-bordered" id="tblData">
 			<thead>
 				<tr>
-					<th id="th1" scope="col">Order Id</th>
+					<th scope="col">Order Id</th>
 					<!-- <th scope="col">Order Number</th> Hidden for now-->
-					<th id="th1" scope="col">Status</th>
-					<th id="th1" scope="col">Items</th>
-					<th id="th1" scope="col"></th>
+					<th scope="col">Status</th>
+					<th scope="col">Items</th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${orders}" var="order">
 					<tr>
-						<td id="td1"><c:out value="${order.id}" /></td>
+						<td><c:out value="${order.id}" /></td>
 						<!-- <td><c:out value="${order.orderNumber}" /></td> Hidden for now-->
-						<td id="td1"><c:out value="${order.status}" /></td>
-						<td id="td1"><c:out value="${order.products.size()}" /></td>
+						<td><c:out value="${order.status}" /></td>
+						<td><c:out value="${order.products.size()}" /></td>
 						<td>
-							<form class="row w-75 " action="getOrderDetails" method="post">
+							<form class="row w-75 " action="getOrderDetails" method="post" style="margin-left: 13%; text-align: center;">
 								<input type="hidden" id="orderid" name="orderid"
-									value="${order.id}"> <input class="btn btn-secondary"
+									value="${order.id}"> 
+								<input class="btn btn-secondary"
 									type="submit" value="Order Details">
 							</form>
 						</td>

@@ -157,3 +157,7 @@ button {
 .dark2{
 	color: #e6e6e6;
 } 
+
+.mask {
+	height: 100%
+}
