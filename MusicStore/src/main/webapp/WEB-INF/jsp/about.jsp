@@ -82,7 +82,7 @@
 		</div>
 	</nav>
 	<h2 class="display-1">About Us</h2>
-	<div class="container">
+	<div>
 		<p>Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
 		<p>Location: 123 Anywhere Street, Nowhere,TX 12345-6789 Phone:
 			123-456-7890</p>

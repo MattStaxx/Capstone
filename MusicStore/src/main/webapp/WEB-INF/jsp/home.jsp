@@ -18,8 +18,7 @@
 
 <title>Home Page</title>
 </head>
-<body>
-	<!--  style="background-color: #232a2e;" -->
+<body style="background-color: #232a2e;">
 	<header>
 		<nav class="p-3 text-white">
 			<div class="container">
@@ -94,10 +93,6 @@
 						data-bs-slide-to="1" aria-label="Slide 2"></button>
 					<button type="button" data-bs-target="#carouselExampleIndicators"
 						data-bs-slide-to="2" aria-label="Slide 3"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="3" aria-label="Slide 4"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="4" aria-label="Slide 5"></button>
 				</div>
 				<div class="carousel-item active">
 					<img alt="no image" class="image-fluid"
@@ -129,10 +124,6 @@
 						<a href="/about" class="btn btn-primary" rel="noopener noreferrer">Meet
 							the team!</a>
 					</div>
-				</div>
-				<div class="carousel-item">
-					<img alt="no image" class="image-fluid"
-						src="images/coffeebean-1280.jpg" style="width: 100%">
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button"
