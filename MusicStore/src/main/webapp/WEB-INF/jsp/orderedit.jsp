@@ -17,49 +17,67 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="home">Home</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-				aria-controls="navbarNavAltMarkup" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-link" href="catalog">Catalog</a> <a class="nav-link"
-						href="about">About</a>
+	<nav class="p-3 bg-dark text-white">
+		<div class="container">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<a href="/"
+					class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+					<svg class="bi me-2" width="40" height="32">
+						<use xlink:href="#bootstrap" /></svg>
+				</a>
+
+				<ul
+					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li><a href="home" class="nav-link px-2 text-white">Home</a></li>
+					<li><a href="catalog" class="nav-link px-2 text-white">Catalog</a></li>
+					<li><a href="about" class="nav-link px-2 text-white">About</a></li>
 					<sec:authorize access="isAuthenticated()">
-						<a class="nav-link" href="shoppingcart">Cart</a>
-						<a class="nav-link" href="orderhistory">Order History</a>
-						<a class="nav-link" href="profile">Profile</a>
+						<li><a class="nav-link px-2 text-white" href="orderhistory">Order
+								History</a></li>
+						<li><a class="nav-link px-2 text-white" href="shoppingcart">Cart</a></li>
 
 					</sec:authorize>
+				</ul>
 
-					<sec:authorize access="hasAnyRole('ADMIN')">
 
-						<a class="nav-link" href="admin">Admin</a>
-						<a class="nav-link" href="manageinventory">Manage Inventory</a>
-						<a class="nav-link" href="manageorders">Manage Orders</a>
-						<a class="nav-link" href="manageusers">Manage Users</a>
-					</sec:authorize>
 
-					<sec:authorize access="!isAuthenticated()">
+				<sec:authorize access="!isAuthenticated()">
+					<div class="text-end">
+						<a class="btn btn-outline-light me-2" href="login">Login</a> <a
+							class="btn btn-warning" href="register">Register</a>
+					</div>
+				</sec:authorize>
 
-						<a class="nav-link" href="login">Login</a>
-						<a class="nav-link" href="register">Register</a>
-
-					</sec:authorize>
-
-					<sec:authorize access="isAuthenticated()">
-						<a class="nav-link" href="logout">Logout</a>
-					</sec:authorize>
-				</div>
+				<sec:authorize access="isAuthenticated()">
+					<div class="dropdown text-end">
+						<a href="#"
+							class="d-block link-dark text-decoration-none dropdown-toggle"
+							id="dropdownUser1" data-bs-toggle="dropdown"
+							aria-expanded="false"> <img src="https://github.com/mdo.png"
+							alt="mdo" width="32" height="32" class="rounded-circle">
+						</a>
+						<ul class="dropdown-menu text-small"
+							aria-labelledby="dropdownUser1">
+							<sec:authorize access="hasAnyRole('ADMIN')">
+								<li><a class="dropdown-item" href="admin">Admin</a></li>
+								<li><a class="dropdown-item" href="manageinventory">Manage
+										Inventory</a></li>
+								<li><a class="dropdown-item" href="manageorders">Manage
+										Orders</a></li>
+								<li><a class="dropdown-item" href="manageusers">Manage
+										Users</a></li>
+							</sec:authorize>
+							<li><a class="dropdown-item" href="profile">Profile</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="logout">Sign out</a></li>
+						</ul>
+					</div>
+				</sec:authorize>
 			</div>
 		</div>
 	</nav>
-	<div class="container"></div>
+	<div class="container">
 
 	<h2>
 		<div style="color: #0000FF;">${successMessage}</div>
@@ -95,7 +113,7 @@
 					<tr>
 						<td><c:out value="${product.id}" /></td>
 						<td><img src="${product.imageurl}" alt="${product.title}"
-							class="img-thumbnail"></td>
+							width="100" height="100" class="img-thumbnail rounded-square"></td>
 						<td><c:out value="${product.category}" /></td>
 						<td><c:out value="${product.title}" /></td>
 						<td><c:out value="${product.artist}" /></td>
@@ -119,6 +137,7 @@
 			</tbody>
 		</table>
 
+		<div class="container">
 		<form action="/addProduct" method="post">
 			<table class="table table-striped table-bordered" id="tblData">
 				<thead>
@@ -126,44 +145,76 @@
 						<h1>Add a Product</h1>
 					</tr>
 					<tr>
-						<input type="hidden" name="orderid" value="${order.id}" required>
-						<th></th>
+						<input type="hidden" name="orderid" value="${order.id}">
+						<input type="submit" value="Add">
+				</thead>
+				<tbody>
+					<tr>
 						<th><input type="text" name="title" placeholder="Title"
 							required></th>
-						<th><input type="text" name="category" placeholder="Artist"></th>
-						<th><input type="text" name="imageurl"
-							placeholder="Image URL"></th>
+
+						<th><select id="imageurl" onchange="changeGenre()"
+							name="imageurl" required>
+								<option>Select Genre</option>
+								<option value="images/rock.jpg">Rock</option>
+								<option value="images/electronic.jpg">Electronic</option>
+								<option value="images/rap.jpg">Rap</option>
+								<option value="images/hiphop.jpg">Hip Hop</option>
+								<option value="images/violin.jpg">Classical</option>
+								<script>
+									function changeGenre() {
+										var x = document
+												.getElementById("imageurl");
+										console
+												.log(x.options[x.selectedIndex].text);
+										var genre = document
+												.getElementById("genre");
+										genre.value = x.options[x.selectedIndex].text;
+									}
+								</script>
+						</select></th>
+						<th><input type="text" name="category" placeholder="Category"></th>
 						<th><input type="text" name="artist" placeholder="Artist"></th>
 						<th><input type="text" name="style" placeholder="Style"></th>
 						<th><input type="text" name="format" placeholder="Format"
 							required></th>
 						<th><input type="number" step="0.01" name="price"
 							placeholder="Price" required></th>
-						<th><input type="text" name="genre" placeholder="Genre"></th>
 						<th><input type="number" name="quantity"
 							placeholder="Quantity" required></th>
-						<th><input type="submit" value="Add"></th>
+						<th><input type="hidden" name="genre" id="genre"
+							placeholder="Genre"></th>
 					</tr>
-				</thead>
+				</tbody>
 			</table>
 		</form>
-
+	</div>
+	<div class="container">
 		<form action="/updateProduct" method="post">
-			<input type="hidden" name="orderid" value="${order.id}" required>
 			<table class="table table-striped table-bordered" id="tblData">
 				<thead>
 					<tr>
 						<h1>Edit a Product</h1>
-						</td>
 					<tr>
-						<th><input type="text" name="id"
-							placeholder="ID of the Product to update" required></th>
+						<th>
+						<input type="hidden" name="orderid" value="${order.id}">
+						<input type="text" name="id"
+							placeholder="ID of the Product to update" required>
+					<tr>
+						<input type="submit" value="Update">
+				</thead>
+				<tbody>
 					<tr>
 						<th><input type="text" name="title" placeholder="Title"
 							required></th>
-						<th><input type="text" name="category" placeholder="Artist"></th>
-						<th><input type="text" name="imageurl"
-							placeholder="Image URL"></th>
+						<th><select name="imageurl">
+								<option value="images/rock.jpg">Rock</option>
+								<option value="images/electronic.jpg">Electronic</option>
+								<option value="images/rap.jpg">Rap</option>
+								<option value="images/hiphop.jpg">Hip Hop</option>
+								<option value="images/violin.jpg">Classical</option>
+						</select></th>
+						<th><input type="text" name="category" placeholder="Category"></th>
 						<th><input type="text" name="artist" placeholder="Artist"
 							required></th>
 						<th><input type="text" name="style" placeholder="Style"
@@ -176,11 +227,14 @@
 							required></th>
 						<th><input type="number" name="quantity"
 							placeholder="Quantity" required></th>
-						<th><input type="submit" value="Update"></th>
 					</tr>
-				</thead>
+				</tbody>
 			</table>
 		</form>
+	</div>
+
+		
+	</div>
 	</div>
 	<footer class="page-footer font-small indigo" id="footer"
 		style="width: 100%">

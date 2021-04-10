@@ -178,9 +178,10 @@
   				<input class="btn btn-secondary" type="submit" value="Go">
   			</form>
 	</div>
-	<div style="color: #0000FF;">${successMessage}</div>
-	<div style="color: #FF0000;">${errorMessage}</div>
-
+	<h4 class="text-danger">
+		${successMessage}
+		${errorMessage}
+	</h4>
 	<div class="container">
 		<form action="/addProduct" method="post">
 			<table class="table table-striped table-bordered" id="tblData">
@@ -203,7 +204,7 @@
 								<option value="images/electronic.jpg">Electronic</option>
 								<option value="images/rap.jpg">Rap</option>
 								<option value="images/hiphop.jpg">Hip Hop</option>
-								<option value="images/violin.jpg">CLassical</option>
+								<option value="images/violin.jpg">Classical</option>
 								<script>
 									function changeGenre() {
 										var x = document
@@ -253,7 +254,7 @@
 								<option value="images/electronic.jpg">Electronic</option>
 								<option value="images/rap.jpg">Rap</option>
 								<option value="images/hiphop.jpg">Hip Hop</option>
-								<option value="images/violin.jpg">CLassical</option>
+								<option value="images/violin.jpg">Classical</option>
 						</select></th>
 						<th><input type="text" name="category" placeholder="Category"></th>
 						<th><input type="text" name="artist" placeholder="Artist"
@@ -272,7 +273,6 @@
 				</tbody>
 			</table>
 		</form>
-
 	</div>
 	<script src="/javascript/search.js"></script>
 	<script
