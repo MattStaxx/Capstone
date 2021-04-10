@@ -235,7 +235,7 @@
 	</div>
 	<div class="container">
 		<form action="/updateProduct" method="post">
-			<table class="table table-striped table-bordered" id="tblData">
+			<table class="table table-striped table-bordered" id="tabletosort">
 				<thead>
 					<tr>
 						<h1>Edit a Product</h1>
@@ -285,7 +285,7 @@
 			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
-
+	<script src="/javascript/tablesort.js"></script>
 	<script src="/javascript/footer.js"></script>
 </body>
 

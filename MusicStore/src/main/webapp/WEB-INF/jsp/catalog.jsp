@@ -163,13 +163,13 @@
 					</div>
 				</div>
 			</nav>
-			<table class="table table-hover">
+			<table class="table table-hover" id="tabletosort">
 				<thead>
 					<tr>
-						<th scope="col">Title</th>
-						<th scope="col">Genre</th>
-						<th scope="col">Price</th>
-						<th scope="col">Category</th>
+						<th onclick="sortTable(0)" scope="col">Title</th>
+						<th onclick="sortTable(1)" scope="col">Genre</th>
+						<th onclick="sortTable(2)" scope="col">Price</th>
+						<th onclick="sortTable(3)" scope="col">Category</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 						<th scope="col"></th>
@@ -212,14 +212,14 @@
 
 			<nav>
 				<ul class="pagination">
-					<c:if test="${maxproducts < totalproducts}">
+					<c:if test="${totalproducts <= maxproducts}">
 						<c:forEach var="i" begin="1" end="${totalpages}">
 							<li class="page-item"><a class="page-link"
 								href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
 						</c:forEach>
 					</c:if>
-					<c:if test="${maxproducts >= totalproducts}">
-						<c:forEach var="i" begin="1" end="${totalpages}">
+					<c:if test="${totalproducts > maxproducts}">
+						<c:forEach var="i" begin="1" end="${totalpages+1}">
 							<li class="page-item"><a class="page-link"
 								href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
 						</c:forEach>
@@ -252,6 +252,7 @@
 	</footer>
 	<script src="/javascript/search.js"></script>
 	<script src="/javascript/footer.js"></script>
+	<script src="/javascript/tablesort.js"></script>
 </body>
 
 <script
