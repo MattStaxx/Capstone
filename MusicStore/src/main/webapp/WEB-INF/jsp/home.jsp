@@ -81,10 +81,8 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container-carousel" style="background-color: #232a2e;">
 		<div id="carouselExampleIndicators"
 			class="carousel slide carousel carousel-fade" data-bs-ride="carousel">
-			<div class="carousel-inner">
 				<div class="carousel-indicators">
 					<button type="button" data-bs-target="#carouselExampleIndicators"
 						data-bs-slide-to="0" class="active" aria-current="true"
@@ -96,35 +94,43 @@
 				</div>
 				<div class="carousel-inner" style="width:100%" role="listbox">
 					<div class="carousel-item active">
-						<img alt="no image" class="image-fluid"
-							src="images/turntable1-1280.jpg" style="width: 100%">
-						<div class="carousel-caption d-sm-block align-items bottom">
-							<h5>Search all your favorite genres</h5>
-							<a href="/catalog" class="btn btn-primary"
-								rel="noopener noreferrer">See the Catalog!</a>
+						<div class="bg-image" style="background-image: url(images/turntable1-1280.jpg);
+								  background-repeat: no-repeat; width: 100%; background-size: cover;">
+							 <div class="mask" style="background-color: rgba(0,0,0,0.2); height: 100vh;"> 
+								<div class="carousel-caption d-sm-block align-items bottom">
+									<h5>Search all your favorite genres</h5>
+									<a href="/catalog" class="btn btn-primary"
+										rel="noopener noreferrer">See the Catalog!</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="carousel-item">
+					<div class="bg-image" style="background-image: url(images/audiojack2-1280.jpg);
+							  background-repeat: no-repeat; background-size: cover;">
+						 <div class="mask" style="background-color: rgba(0,0,0,0.2); height: 100vh;"> 
+							<div class="carousel-caption d-sm-block align-items bottom">
+								<h5 style="color: white">
+									Our quick and easy registration process will give you access to <br>all
+									your favorite songs from all your favorite artists!
+								</h5>
+								<a href="/register" class="btn btn-primary"
+									rel="noopener noreferrer">Register an Account Now!</a>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img alt="no image" class="image-fluid"
-						src="images/audiojack2-1280.jpg" style="width: 100%">
-					<div class="carousel-caption d-sm-block align-items bottom">
-						<h5>
-							Our quick and easy registration process will give you access to <br>all
-							your favorite songs from all your favorite artists!
-						</h5>
-						<a href="/register" class="btn btn-primary"
-							rel="noopener noreferrer">Register an Account Now!</a>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img alt="no image" class="image-fluid"
-						src="images/headphones1-1280.jpg" style="width: 100%">
-					<div class="carousel-caption d-sm-block align-items bottom">
-						<h5>Learn more about the team that brought you your favorite
-							music service!</h5>
-						<a href="/about" class="btn btn-primary" rel="noopener noreferrer">Meet
+					<div class="bg-image" style="background-image: url(images/headphones1-1280.jpg);
+							  background-repeat: no-repeat; background-size: cover;">
+						 <div class="mask" style="background-color: rgba(0,0,0,0.2); height: 100vh;"> 
+							<div class="carousel-caption d-sm-block align-items bottom">
+								<h5>Learn more about the team that brought you your favorite
+									music service!</h5>
+								<a href="/about" class="btn btn-primary" rel="noopener noreferrer">Meet
 							the team!</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -133,7 +139,6 @@
 			<button class="carousel-control-next" type="button"
 				data-bs-target="#carouselExampleIndicators" data-bs-slide="next"></button>
 		</div>
-	</div>
 	<div class="row w-2" style=" max-width: 100%;">
 		<div class="col justify-content-center"
 			style="text-align: center;">
@@ -157,7 +162,6 @@
 		</div>
 	</footer>
 
-	<script src="/javascript/dark.js"></script>
 	<script src="/javascript/footer.js"></script>
 </body>
 
