@@ -17,7 +17,8 @@
 
 <title>About</title>
 </head>
-<body class="bg-image" style="background-image: url(images/coffeebean-1280.jpg)">
+<body class="bg-image" style="background-image: url(images/coffeebean-1280.jpg);
+							  background-repeat: no-repeat; width: 100%; background-size: cover;">
 	<div class="mask" style="background-color: rgba(0,0,0,0.3); height: 100vh;">
 	<nav class="p-3 bg-dark text-white">
 		<div class="container">
@@ -81,9 +82,9 @@
 		</div>
 	</nav>
 	<h2 class="display-1" style="color: #e6e6e6">About Us</h2>
-	<div>
+	<div class="container" style="text-align: center;">
 		<p style="color: #e6e6e6">Developed by Luc Le, Nehemiah Sam, Matthew Stallman, Guang Zhu</p>
-		<p style="color: #e6e6e6">Location: 123 Anywhere Street, Nowhere,TX 12345-6789 Phone:
+		<p style="color: #e6e6e6">Location: 123 Anywhere Street, Anyplace,TX 12345-6789 Phone:
 			123-456-7890</p>
 	</div>
 	
