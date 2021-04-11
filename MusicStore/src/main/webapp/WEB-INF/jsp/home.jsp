@@ -154,7 +154,6 @@
 			Copyright © 2021 Designed by <span> <a href="/about">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href=".">Back to top</a>
-			<button class="btn btn-secondary" onclick="myFunction()">Dark/Light</button>
 		</div>
 	</footer>
 
