@@ -2,6 +2,7 @@ function myFunction() {
 			var element = document.body;
 			var thList = document.getElementsByTagName("th");
 			var tdList = document.getElementsByTagName("td");
+			var footer = document.getElementsByTagName("footer");
 			var i;
 			
 			element.classList.toggle("dark");
@@ -11,10 +12,15 @@ function myFunction() {
 			for(i = 0; i < tdList.length; i++) {
 				tdList[i].classList.toggle("dark2");
 			}
+			for(i = 0; i < footer.length; i++) {
+				footer[i].classList.toggle("dark2");
+			}
+			console.log(liList)[0];
 		}
 		
 var thList = document.getElementsByTagName("th");
 var tdList = document.getElementsByTagName("td");
+var footer = document.getElementsByTagName("footer");
 var i;
 const btn = document.querySelector(".btn-toggle");
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -28,6 +34,9 @@ if (currentTheme == "dark") {
 		};
 		for(i = 0; i < tdList.length; i++) {
 			tdList[i].classList.toggle("dark2");
+		}
+		for(i = 0; i < footer.length; i++) {
+			footer[i].classList.toggle("dark2");
 		}
 		} else if (currentTheme == "light") {
 			document.body.classList.toggle("light-mode");

@@ -145,13 +145,13 @@ button {
     margin-left: 8px; 
 }
 
-.dark{
+.dark {
     background-color: #232a2e;
-    color: #e6e6e6;
+    color: #555;
 }
 		   
-.dark2{
-	color: #e6e6e6;
+.dark2 {
+	color: #555;
 } 
 
 .mask {

@@ -55,7 +55,7 @@
 						<a href="#"
 							class="d-block link-dark text-decoration-none dropdown-toggle"
 							id="dropdownUser1" data-bs-toggle="dropdown"
-							aria-expanded="false"> <img src="https://github.com/mdo.png"
+							aria-expanded="false"> <img src="images/coolpanda1_crop.jpg"
 							alt="mdo" width="32" height="32" class="rounded-circle">
 						</a>
 						<ul class="dropdown-menu text-small"
