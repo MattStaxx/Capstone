@@ -178,7 +178,7 @@
 				<tbody>
 					<c:forEach items="${Product}" var="product">
 						<tr class="zoom">
-							<td>${product.title}</td>
+							<td><a href="/details?idnumber=${product.id}"> ${product.title}</a></td>
 							<td><img src="${product.imageurl}" alt="${product.title}"
 								alt="mdo" width="100" height="80"
 								class="img-thumbnail rounded-square"></td>
