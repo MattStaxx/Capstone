@@ -1,23 +1,27 @@
 package com.hcl.MusicStore.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.hcl.MusicStore.Exceptions.OrderAlreadyExistsException;
 import com.hcl.MusicStore.Exceptions.OrderNotFoundException;
+import com.hcl.MusicStore.Exceptions.ProductAlreadyExistsException;
 import com.hcl.MusicStore.Exceptions.ProductNotFoundException;
+import com.hcl.MusicStore.Exceptions.UserAlreadyExistsException;
 import com.hcl.MusicStore.Exceptions.UserNotFoundException;
 import com.hcl.MusicStore.entities.CustomerOrder;
 import com.hcl.MusicStore.entities.MusicUser;
@@ -125,7 +129,7 @@ public class UserController {
 			CustomerOrder.Status status = CustomerOrder.Status.ORDERED;
 			
 			// Create New Order
-			CustomerOrder newOrder = new CustomerOrder(CustomerOrder.Status.ORDERED, cart);
+			CustomerOrder newOrder = new CustomerOrder(status, cart);
 			newOrder.setCustomer(user);
 	    	custOrdServ.saveOrder(newOrder);
 	    	m.addAttribute("order", newOrder);
@@ -400,4 +404,52 @@ public class UserController {
         m.addAttribute("product", dproduct);
         return "productdetails";
     }
+    
+    @ExceptionHandler(OrderAlreadyExistsException.class) 
+	public ModelAndView handleOrderAlreadyExistsException(HttpServletRequest request, Exception ex){
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.addObject("errorMessage", "Order aleady Exists!");
+	    modelAndView.setViewName("error");
+	    return modelAndView;
+	}
+	
+	@ExceptionHandler(OrderNotFoundException.class) 
+	public ModelAndView handleOrdeNotFoundException(HttpServletRequest request, Exception ex){
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.addObject("errorMessage", "Order not Found!");
+	    modelAndView.setViewName("error");
+	    return modelAndView;
+	}
+	
+	@ExceptionHandler(ProductAlreadyExistsException.class) 
+	public ModelAndView handleProductAlreadyExistsException(HttpServletRequest request, Exception ex){
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.addObject("errorMessage", "Product aleady Exists!");
+	    modelAndView.setViewName("error");
+	    return modelAndView;
+	}
+	
+	@ExceptionHandler(ProductNotFoundException.class) 
+	public ModelAndView handleProductNotFoundException(HttpServletRequest request, Exception ex){
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.addObject("errorMessage", "Product not found!");
+	    modelAndView.setViewName("error");
+	    return modelAndView;
+	}
+	
+	@ExceptionHandler(UserNotFoundException.class) 
+	public ModelAndView handleUserNotFoundException(HttpServletRequest request, Exception ex){
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.addObject("errorMessage", "Username/Password combination not found!");
+	    modelAndView.setViewName("error");
+	    return modelAndView;
+	}
+	
+    @ExceptionHandler(UserAlreadyExistsException.class)
+	public ModelAndView handleAlreadyExistException(HttpServletRequest request, Exception ex){
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.addObject("errorMessage", "Account creation failed: User already exists!");
+	    modelAndView.setViewName("error");
+	    return modelAndView;
+	}
 }
