@@ -18,10 +18,10 @@
 
 <title>Home Page</title>
 </head>
-<body style="background-color: #232a2e;">
+<body style="background-color: #232a2e; max-width: 100%;">
 	<header>
 		<nav class="p-3 text-white">
-			<div class="container">
+			<div class="container-fluid">
 				<div
 					class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 					<a href="/"
@@ -94,7 +94,7 @@
 					<button type="button" data-bs-target="#carouselExampleIndicators"
 						data-bs-slide-to="2" aria-label="Slide 3"></button>
 				</div>
-				<div class="carousel-inner" role="listbox">
+				<div class="carousel-inner" style="width:100%" role="listbox">
 					<div class="carousel-item active">
 						<img alt="no image" class="image-fluid"
 							src="images/turntable1-1280.jpg" style="width: 100%">
@@ -134,8 +134,8 @@
 				data-bs-target="#carouselExampleIndicators" data-bs-slide="next"></button>
 		</div>
 	</div>
-	<div class="row w-2">
-		<div class="col-md-12 justify-content-center"
+	<div class="row w-2" style=" max-width: 100%;">
+		<div class="col justify-content-center"
 			style="text-align: center;">
 			<h5 style="color: white;">
 				Images on this site sourced<br>from Pixabay.com
