@@ -178,7 +178,6 @@
 					
 				<script>
 				
-
 				
 				function findGetParameter(parameterName) {
 				    var result = null,
@@ -274,17 +273,36 @@
 				</ul>
 			</nav>
 
-			<form action="/catalog?page=${page}" method="get">
+			
+			<form method="get">
 				<h6>Products per page</h6>
-				<select class="form-select w-25" name="maxproducts">
+				<select class="form-select w-25" name="maxproducts" id="options10">
 					<option value="${maxproducts}" disabled selected></option>
 					<option value="5">5</option>
 					<option value="10">10</option>
 					<option value="25">25</option>
 					<option value="50">50</option>
 					<option value="100">100</option>
-				</select> <input class="btn btn-secondary" type="submit" value="Go">
+						<script>
+			var option1Z = document.getElementById("options10");
+			option1Z.addEventListener("change", function() {
+				maxProduct=this.value;
+				console.log(maxProduct);
+		
+			});
+			
+			function zzz(){
+				page=1;
+				var redirectUrl="search2?options="+options+"&lowerprice="+lowerPrice+"&higherprice="+higherPrice+"&name="+name+"&sortBy="+sortBy+"&page="+page+"&direction="+direction+"&maxproducts="+maxProduct;
+				console.log(redirectUrl);
+				window.location.replace(redirectUrl);
+				}
+			
+	</script>
+				</select> <input class="btn btn-secondary" type="button" onclick="zzz()" value="Go">
 			</form>
+			
+		
 		</div>
 	</div>
 
