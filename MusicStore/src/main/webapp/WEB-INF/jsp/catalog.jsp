@@ -166,10 +166,10 @@
 			<table class="table table-hover" id="tabletosort">
 				<thead>
 					<tr>
-						<th onclick="sortTable(0)" scope="col">Title</th>
-						<th onclick="sortTable(1)" scope="col">Genre</th>
-						<th onclick="sortTable(2)" scope="col">Price</th>
-						<th onclick="sortTable(3)" scope="col">Category</th>
+						<th onclick="sortTable(0)" scope="col" > <div style="color:blue;">Title</div></th>
+						<th onclick="sortTable(1)" scope="col"><div style="color:blue;">Genre</div></th>
+						<th onclick="sortTable(2)" scope="col"><div style="color:blue;">Price</div></th>
+						<th onclick="sortTable(3)" scope="col"><div style="color:blue;">Category</div></th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 						<th scope="col"></th>
@@ -292,7 +292,7 @@
 		style="width: 100%">
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">
-			Copyright © 2021 Designed by <span> <a href="/about">The
+			Copyright Â© 2021 Designed by <span> <a href="/about">The
 					Coolest Team!</a> All rights reserved.
 			</span> <a href="/catalog">Back to top</a>
 			<button class="btn btn-toggle" style="color: red" onclick="myFunction()">Dark/Light</button>
