@@ -72,7 +72,12 @@ public class AdminController {
     	List<Product> products = productService.getAllProductsList();
 		List<Product> paginatedlist = new ArrayList<Product>();
 		Integer totalproducts = products.size();
-		Integer totalpages = (totalproducts / maxproducts);
+		Integer totalpages = 0;
+		if ( totalproducts % maxproducts == 0) {
+			totalpages = totalproducts/maxproducts;
+		} else {
+			totalpages = totalproducts/maxproducts + 1;
+		}
 		
 		m.addAttribute("totalpages",totalpages);
 		m.addAttribute("totalproducts",totalproducts);
