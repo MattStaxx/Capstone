@@ -88,6 +88,28 @@ public class ProductService {
 		return query.getResultList();
 	}
 
+	public List<Product> searchForProducts2(String selection, String name, String sortName, int asc, int startingPrice, int endingPrice) {
+		logger.info("In Product Service... " + selection + " " + name);
+		CriteriaBuilder finding= em.getCriteriaBuilder();
+		CriteriaQuery<Product>  result= finding.createQuery(Product.class);
+		
+	    Root<Product> searchSet= result.from(Product.class);
+	    System.out.println("asc is: "+asc+" "+sortName);
+	    if(name.length()>0) {
+		Predicate searchPredicate= finding.equal(searchSet.get(selection), name);
+		result.where(searchPredicate);
+	    }
+	     if(asc==1){
+	    	result.orderBy(finding.asc(searchSet.get(sortName)));
+	    }
+	    else if(asc==2){
+	    	result.orderBy(finding.desc(searchSet.get(sortName)));
+	    }
+		
+		TypedQuery<Product> query = em.createQuery(result);
+		
+		return query.getResultList();
+	}
 
 	public List<Product> displayCatalog(){
         List<Product> products = productRepository.findAll();

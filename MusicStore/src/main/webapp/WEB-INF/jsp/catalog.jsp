@@ -175,6 +175,61 @@
 						<th scope="col"></th>
 					</tr>
 				</thead>
+					
+				<script>
+				
+
+				
+				function findGetParameter(parameterName) {
+				    var result = null,
+				        tmp = [];
+				    var items = location.search.substr(1).split("&");
+				    for (var index = 0; index < items.length; index++) {
+				        tmp = items[index].split("=");
+				        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+				    }
+				    return result;
+				}
+				var options=findGetParameter("options");
+				var lowerPrice=findGetParameter("lowerprice");
+				var higherPrice=findGetParameter("higherprice");
+				var name=findGetParameter("name");
+				var sortBy=findGetParameter("sortBy");;
+				var page=findGetParameter("page");
+				var maxProduct=findGetParameter("maxproducts");
+				var direction=findGetParameter("direction");
+				if(direction!=1 && direction!=2){direction=1;}
+				if(page==null){page=1;} console.log("page is: "+page);
+				if(maxProduct==null){
+					maxProduct=localStorage.getItem("maxProduct"); 
+					console.log("max product is: "+maxProduct);
+				 if(maxProduct==null || maxProduct.length==0){localStorage.setItem("maxProduct", 10); maxProduct=10; console.log("stored"); }	
+				}
+				else{localStorage.setItem("maxProduct", maxProduct);}
+				console.log("zz: "+options+"/"+lowerPrice+"/"+higherPrice+"/"+name+"/"+sortBy+"/"+page+"/"+direction+"/"+maxProduct);
+				
+			//http://localhost:8080/search2?options=null&lowerprice=null&higherprice=null&name=null&sortBy=null&page=4&direction=1&maxproducts=10
+			//http://localhost:8080/search2?options=null&lowerprice=null&higherprice=null&name=null&sortBy=null&page=5&direction=1&maxproducts=10
+			//http://localhost:8080/search2?options=null&lowerprice=null&higherprice=null&name=null&sortBy=title&page=1&direction=1&maxproducts=10	
+				function sortTable(input){
+					console.log("zzzzzzzzz");
+				if(input==0){if(sortBy=="title" && direction=="1"){direction=2;}else {direction=1;}; sortBy="title";}
+				else if(input==1){if(sortBy=="genre" && direction==1){direction=2;}else {direction=1;}; sortBy="genre";}
+				else if(input==2){if(sortBy=="price" && direction==1){direction=2;}else {direction=1;} sortBy="price";}
+				else if(input==3){if(sortBy=="category" && direction==1){direction=2;}else {direction=1;} sortBy="category";}
+				var redirectUrl="search2?options="+options+"&lowerprice="+lowerPrice+"&higherprice="+higherPrice+"&name="+name+"&sortBy="+sortBy+"&page="+page+"&direction="+direction+"&maxproducts="+maxProduct;
+				console.log(redirectUrl);
+				window.location.replace(redirectUrl);
+				
+				
+				}
+				
+				function zz(input){page=input; 	
+				if(sortBy==null){sortBy="id"; console.log("sort by id");} else{console.log("error");} 
+				var redirectUrl="search2?options="+options+"&lowerprice="+lowerPrice+"&higherprice="+higherPrice+"&name="+name+"&sortBy="+sortBy+"&page="+page+"&direction="+direction+"&maxproducts="+maxProduct;
+				console.log(redirectUrl);
+				window.location.replace(redirectUrl);}
+				</script>
 				<tbody>
 					<c:forEach items="${Product}" var="product">
 						<tr class="zoom">
@@ -247,7 +302,6 @@
 	<script src="/javascript/dark.js"></script>
 	<script src="/javascript/search.js"></script>
 	<script src="/javascript/footer.js"></script>
-	<script src="/javascript/tablesort.js"></script>
 </body>
 
 <script

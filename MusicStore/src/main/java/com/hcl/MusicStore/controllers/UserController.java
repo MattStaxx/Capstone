@@ -369,6 +369,48 @@ public class UserController {
     	return "shoppingcart";
     }
     
+
+    @GetMapping("/search2") // Searches for everything but price returns list to be passed into table
+    public String showSearch2(ModelMap m, @RequestParam String options, @RequestParam String name, @RequestParam String lowerprice, @RequestParam String higherprice, @RequestParam String sortBy,			
+    		@RequestParam(required=false, defaultValue="1") Integer page,
+    		@RequestParam(required=false, defaultValue="10") Integer maxproducts,
+			@RequestParam int direction){
+System.out.println("hello");
+    	System.out.println(options+"/"+name+"/"+lowerprice+"/"+higherprice+"/"+sortBy+"/"+page+"/"+direction);
+    	m.addAttribute("totalpages",1);
+    	//(String selection, String name, String sortName, int asc, int startingPrice, int endingPrice) {
+    	//2(String selection, String name, String sortName, int asc, int startingPrice, int endingPrice) {
+    	Double lowerpriceInt=(double) 0; try{lowerpriceInt=Double.parseDouble(lowerprice);}catch(Exception e) {} 
+    	Double upperpriceInt=(double) 0; try{upperpriceInt=Double.parseDouble(lowerprice);}catch(Exception e) {} 
+    	if(name.equals("null")) {name="";}
+    	List<Product> products=productService.searchForProducts2(options, name, sortBy, direction, lowerpriceInt.intValue(), upperpriceInt.intValue());
+
+		Integer totalproducts = products.size(); System.out.println("totalproducts: "+totalproducts+" "+maxproducts);
+		Integer totalpages = (totalproducts / maxproducts);
+		
+		int startNum=(page-1)*maxproducts;
+    	int maxNum=startNum+maxproducts; if(maxNum>=totalproducts) {maxNum=totalproducts;}
+    	System.out.println(startNum+" "+maxNum);
+    	products=products.subList(startNum, maxNum);
+		
+		m.addAttribute("totalpages",totalpages);
+		m.addAttribute("totalproducts",totalproducts);
+		m.addAttribute("page",page);
+		m.addAttribute("maxproducts",maxproducts);
+    	
+    	
+    	m.addAttribute("Product", products);
+    	m.addAttribute("options",options);
+    	m.addAttribute("name",name);
+    	m.addAttribute("lowerprice",lowerprice);
+    	m.addAttribute("higherprice",higherprice);
+    	m.addAttribute("sortBy",sortBy);
+    	m.addAttribute("direction",direction);
+    	  
+
+    	return "catalog";
+    }
+    
     @GetMapping("/search") // Searches for everything but price returns list to be passed into table
     public String showSearch(ModelMap m, @RequestParam String options, @RequestParam String name){
         log.info("Searching");
