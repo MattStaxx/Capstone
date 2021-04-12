@@ -268,8 +268,8 @@
 			<nav>
 				<ul class="pagination">
 					<c:forEach var="i" begin="1" end="${totalpages}">
-						<li class="page-item"><a class="page-link"
-							href="/catalog?maxproducts=${maxproducts}&page=${i}">${i}</a></li>
+						<li class="page-item"><a class="page-link"onclick="zz('${i}')"
+								href="#">${i}</a></li>
 					</c:forEach>
 				</ul>
 			</nav>
