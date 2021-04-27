@@ -22,6 +22,8 @@ public class MusicUserService {
 	@Autowired
 	private MusicUserRepository userRepository;
 	
+	//DataManager
+	
 	public List<MusicUser> GetAllUsers(){
 		List<MusicUser> users = userRepository.findAll();
 		return users;

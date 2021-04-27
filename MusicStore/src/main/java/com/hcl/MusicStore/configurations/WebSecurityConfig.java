@@ -39,7 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	      			"/details",
 	      			"/search",
 		    		"/searchprice",
-	      			"/about*").permitAll()
+	      			"/about*",
+		    		"/getproducts").permitAll()
 	      .antMatchers(
 	    		  "/profile", 
 	    		  "/orderhistory",
