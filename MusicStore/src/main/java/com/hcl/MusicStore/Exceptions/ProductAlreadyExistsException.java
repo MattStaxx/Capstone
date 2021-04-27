@@ -1,4 +1,4 @@
-package com.hcl.MusicStore.Exceptions;
+package com.hcl.MusicStore.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

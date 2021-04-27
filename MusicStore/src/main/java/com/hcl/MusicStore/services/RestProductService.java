@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.hcl.MusicStore.dm.ProductDataManager;
 import com.hcl.MusicStore.entities.Product;
+import com.hcl.MusicStore.models.ProductResponse;
+import com.hcl.MusicStore.models.Catalog;
+import com.hcl.MusicStore.models.CatalogProduct;
+import com.hcl.MusicStore.models.ProductRequest;
 
 @Service
 public class RestProductService {
@@ -19,8 +23,31 @@ public class RestProductService {
 		this.productDm = productDm;
 	}
 	
-	public CollectionModel<EntityModel<Product>> getCatalog() {
-		List<EntityModel<Product>> catalog = productDm.getCatalog();
-		return CollectionModel.of(catalog);
+	public ProductResponse getCatalog() {
+		ProductResponse res = new ProductResponse(productDm.getCatalog());
+		return res;
+	}
+	
+	public ProductResponse getProduct(ProductRequest req) {
+		ProductResponse res = new ProductResponse(productDm.getCatalogProduct(req));
+		return res;
+	}
+	
+	public void saveProduct(ProductRequest req) {
+		req.setId(null);
+		productDm.saveProduct(req);
+	}
+
+	public void updateProduct(ProductRequest req) {
+		CatalogProduct found = productDm.getCatalogProduct(req);
+		if (found == null) {
+			productDm.saveProduct(req);
+		} else {
+			productDm.saveProduct(req);
+		}
+	}
+	
+	public void deleteProduct(ProductRequest req) {
+		productDm.deleteProduct(req);
 	}
 }

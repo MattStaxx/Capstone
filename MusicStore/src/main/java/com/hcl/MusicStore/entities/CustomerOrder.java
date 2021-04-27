@@ -1,6 +1,7 @@
 package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -16,6 +17,13 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.hcl.MusicStore.models.Catalog;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "order_tbl")
 public class CustomerOrder implements Serializable {
@@ -55,19 +63,6 @@ public class CustomerOrder implements Serializable {
 		super();
 		this.status = status;
 		this.products = products;
-	}
-
-	public Integer getId() { return id; }
-	public int getOrderNumber() { return orderNumber; }
-	public Status getStatus() {return status;}
-	public List<Product> getProducts() { return products; }
-	public MusicUser getCustomer() { return customer; }
-
-	public void setOrderNumber(int orderNumber) { this.orderNumber = orderNumber; }
-	public void setProducts(List<Product> products) { this.products = products; }
-	public void setCustomer(MusicUser customer) { this.customer = customer; }
-	public void setStatus(Status status) {
-		this.status = status;
 	}
 	
 	@Override

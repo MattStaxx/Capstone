@@ -10,6 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "product_tbl")
 public class Product implements Serializable {
@@ -54,33 +59,7 @@ public class Product implements Serializable {
 		this.quantity = quantity;
 		this.customer = customer;
 		this.customerOrder = order;
-	}
-
-	public Integer getId() { return this.id; }
-	public String getCategory() { return this.category; }
-	public String getImageurl() { return this.imageurl; }
-	public String getTitle() { return this.title; }
-	public String getArtist() { return this.artist; }
-	public String getStyle() { return this.style; }
-	public String getFormat() { return this.format; }
-	public BigDecimal getPrice() { return this.price; }
-	public String getGenre() { return this.genre; }
-	public int getQuantity() { return this.quantity; }
-	public CustomerOrder getCustomerOrder( ) {return this.customerOrder; }
-	public MusicUser getCustomer() {return this.customer; }
-	
-	public void setId(Integer id) { this.id = id; }
-	public void setCategory(String category) { this.category = category; }
-	public void setImageurl(String imageurl) { this.imageurl = imageurl; }
-	public void setTitle(String title) { this.title = title; }
-	public void setArtist(String artist) { this.artist = artist; }
-	public void setStyle(String style) { this.style = style; }
-	public void setFormat(String format) { this.format = format; }
-	public void setPrice(BigDecimal price) { this.price = price; }
-	public void setGenre(String genre) { this.genre = genre; }
-	public void setQuantity(int quantity) { this.quantity = quantity; }
-	public void setCustomerOrder(CustomerOrder customerOrder) { this.customerOrder = customerOrder; }
-	public void setCustomer(MusicUser customer) {this.customer = customer; }
+    }
 	
 	@Override
 	public boolean equals(Object o) {

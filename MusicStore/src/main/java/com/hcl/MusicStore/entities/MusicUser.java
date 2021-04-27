@@ -1,10 +1,18 @@
 package com.hcl.MusicStore.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Set;
 
 import javax.persistence.*;
 
+import com.hcl.MusicStore.models.Catalog;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity // This tells Hibernate to make a table out of this class
 @Table(name = "user_tbl")
 public class MusicUser implements Serializable {
@@ -39,28 +47,6 @@ public class MusicUser implements Serializable {
     	this.creditcard = creditcard;
     	this.role = role;
     }
-    
-	public Integer getId() { return id; }
-	public String getFirstname() { return firstname; }
-	public String getLastname() { return lastname; }
-	public String getUsername() { return username; }
-	public String getEmail() { return email; }
-	public String getPassword() { return password; }
-	public String getCreditcard() { return creditcard; }
-	public String getRole() { return role; }
-	public Set<CustomerOrder> getOrders() { return orders; }
-	public Set<Product> getCart() { return cart; }
-
-	public void setId(Integer id) { this.id = id; }
-	public void setFirstname(String firstname) { this.firstname = firstname; }
-	public void setLastname(String lastname) { this.lastname = lastname; }
-	public void setUsername(String username) { this.username = username; }
-	public void setEmail(String email) { this.email = email; }
-	public void setPassword(String password) { this.password = password; }
-	public void setCreditcard(String creditcard) { this.creditcard = creditcard; }
-	public void setRole(String role) { this.role = role; }
-	public void setOrders(Set<CustomerOrder> orders) { this.orders = orders; }
-	public void setCart(Set<Product> cart) { this.cart = cart; }
 	
 	@Override
 	public String toString() {
